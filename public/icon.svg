@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <linearGradient id="pdfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#dc2626" />
+    </linearGradient>
+    <linearGradient id="imgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="studioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect x="12" y="12" width="488" height="488" rx="116" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" />
+
+  <!-- Integrated PDF & Image Emblem -->
+  <g transform="translate(96, 96)" filter="url(#shadow)">
+    <!-- PDF Document Card (Back/Left) -->
+    <path d="M 40 20 C 40 8 50 0 62 0 L 190 0 L 250 60 L 250 280 C 250 292 240 302 228 302 L 62 302 C 50 302 40 292 40 280 Z" fill="url(#pdfGrad)" />
+    <!-- PDF Fold Notch -->
+    <path d="M 190 0 L 190 60 L 250 60 Z" fill="#b91c1c" />
+    <!-- PDF Text Lines -->
+    <rect x="75" y="110" width="135" height="18" rx="9" fill="#ffffff" opacity="0.9" />
+    <rect x="75" y="145" width="95" height="14" rx="7" fill="#ffffff" opacity="0.75" />
+
+    <!-- Image / Photo Glass Card (Front/Right Overlap) -->
+    <rect x="110" y="130" width="180" height="150" rx="24" fill="url(#imgGrad)" stroke="#ffffff" stroke-width="4" opacity="0.95" />
+    
+    <!-- Sun / Aperture -->
+    <circle cx="160" cy="175" r="18" fill="#fef08a" />
+
+    <!-- Mountains / Lens Wave -->
+    <path d="M 120 260 L 165 205 C 170 199 178 199 183 205 L 210 238 L 225 220 C 230 214 238 214 243 220 L 280 260 Z" fill="#ffffff" opacity="0.9" />
+
+    <!-- Studio Sparkle Indicator -->
+    <path d="M 280 20 L 286 36 L 302 42 L 286 48 L 280 64 L 274 48 L 258 42 L 274 36 Z" fill="#fbbf24" />
+  </g>
+</svg>

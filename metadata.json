@@ -1,0 +1,6 @@
+{
+  "name": "PDF Image Studio",
+  "description": "Privacy-first, browser-based file utility platform for PDF and image tools, compression, conversion, organization, and batch processing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

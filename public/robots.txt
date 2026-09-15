@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nuvio.app/sitemap.xml
