@@ -14,8 +14,8 @@ export default defineConfig(() => {
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'icon.svg'],
         manifest: {
           id: '/',
-          name: 'NUVIO — Your files. Your way.',
-          short_name: 'NUVIO',
+          name: 'PDF Image Studio — Private Browser File Tools',
+          short_name: 'PDF Image',
           description: 'Private, browser-based PDF and image tools, compression, conversion, and organization.',
           theme_color: '#4f46e5',
           background_color: '#0f172a',
