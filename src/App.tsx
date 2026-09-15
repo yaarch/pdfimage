@@ -78,24 +78,26 @@ export function NuvioApp() {
 
     const tool = getToolByRoute(currentRoute);
     if (tool) {
-      document.title = `${tool.name} — NUVIO | Private Browser File Tools`;
+      document.title = `${tool.name} — PDF Image Studio | Private Browser File Tools`;
       addRecent(tool.id);
+    } else if (currentRoute.includes('/sitemap.xml')) {
+      document.title = 'XML Sitemap — PDF Image Studio';
     } else if (currentRoute.includes('/pdf-tools')) {
-      document.title = 'PDF Utilities & Tools — NUVIO';
+      document.title = 'PDF Utilities & Tools — PDF Image Studio';
     } else if (currentRoute.includes('/image-tools')) {
-      document.title = 'Image Editing & Conversion Tools — NUVIO';
+      document.title = 'Image Editing & Conversion Tools — PDF Image Studio';
     } else if (currentRoute.includes('/privacy')) {
-      document.title = 'Privacy Architecture & Guarantee — NUVIO';
+      document.title = 'Privacy Architecture & Guarantee — PDF Image Studio';
     } else if (currentRoute.includes('/about')) {
-      document.title = 'About NUVIO — Your Files. Your Way.';
+      document.title = 'About PDF Image Studio — Private Browser File Tools';
     } else if (currentRoute.includes('/terms')) {
-      document.title = 'Terms of Service — NUVIO';
+      document.title = 'Terms of Service — PDF Image Studio';
     } else if (currentRoute.includes('/blog')) {
-      document.title = 'Guides & Tutorials — NUVIO Knowledge Base';
+      document.title = 'Guides & Tutorials — PDF Image Studio Knowledge Base';
     } else if (currentRoute.includes('/all-tools')) {
-      document.title = 'All 18+ Browser File Tools — NUVIO';
+      document.title = 'All 18+ Browser File Tools — PDF Image Studio';
     } else {
-      document.title = 'NUVIO — Your files. Your way. | Private Browser File Tools';
+      document.title = 'PDF Image Studio — Private Browser File Tools';
     }
   }, [currentRoute, addRecent]);
 
@@ -186,6 +188,63 @@ export function NuvioApp() {
       return <BlogPage onNavigate={navigate} />;
     }
 
+    if (cleanPath === '/sitemap.xml' || cleanPath === '/sitemap') {
+      return (
+        <div className="max-w-4xl mx-auto px-4 py-12">
+          <div className="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
+            <div>
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                XML Sitemap — PDF Image Studio
+              </h1>
+              <p className="text-xs text-slate-500 mt-1">
+                Index of all valid routes and utilities available on pdfimage.pages.dev
+              </p>
+            </div>
+            <a
+              href="/sitemap.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs flex items-center gap-2"
+            >
+              <span>View Raw XML</span>
+            </a>
+          </div>
+
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+            <h2 className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+              Indexed URLs ({TOOLS.length + 5} Pages)
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+              <button onClick={() => navigate('/')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-bold transition">
+                https://pdfimage.pages.dev/
+              </button>
+              <button onClick={() => navigate('/all-tools')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-bold transition">
+                https://pdfimage.pages.dev/all-tools
+              </button>
+              {TOOLS.map((t) => (
+                <button
+                  key={t.id}
+                  onClick={() => navigate(t.route)}
+                  className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition"
+                >
+                  https://pdfimage.pages.dev{t.route}
+                </button>
+              ))}
+              <button onClick={() => navigate('/privacy')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
+                https://pdfimage.pages.dev/privacy
+              </button>
+              <button onClick={() => navigate('/about')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
+                https://pdfimage.pages.dev/about
+              </button>
+              <button onClick={() => navigate('/terms')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
+                https://pdfimage.pages.dev/terms
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     // 2. Interactive Tools Matching
     const currentTool = getToolByRoute(cleanPath);
 
@@ -261,7 +320,7 @@ export function NuvioApp() {
           onClick={() => navigate('/')}
           className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm"
         >
-          Return to NUVIO Home
+          Return to PDF Image Studio Home
         </button>
       </div>
     );

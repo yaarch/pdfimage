@@ -21,7 +21,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
           Your Files Never Touch a Server. Period.
         </h1>
         <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          NUVIO was engineered around a radical principle: you shouldn&apos;t have to sacrifice confidentiality or upload private documents to the cloud just to merge two PDFs or resize an image.
+          PDF Image Studio was engineered around a radical principle: you shouldn&apos;t have to sacrifice confidentiality or upload private documents to the cloud just to merge two PDFs or resize an image.
         </p>
       </div>
 
@@ -47,7 +47,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
             Zero File Uploads
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Unlike legacy online conversion websites that upload your files to remote Amazon S3 buckets or temporary server disks, NUVIO does not even have an upload endpoint. Open Network DevTools: no payload bytes are sent over the wire.
+            Unlike legacy online conversion websites that upload your files to remote Amazon S3 buckets or temporary server disks, PDF Image Studio does not even have an upload endpoint. Open Network DevTools: no payload bytes are sent over the wire.
           </p>
         </div>
 

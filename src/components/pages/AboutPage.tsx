@@ -13,7 +13,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          About NUVIO
+          About PDF Image Studio
         </h1>
         <p className="mt-3 text-base text-slate-600 dark:text-slate-400 font-medium">
           Your files. Your way.
@@ -38,7 +38,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           Modern web browsers are capable operating environments equipped with high-performance WebAssembly engines, Typed Arrays, Canvas 2D renderers, and native hardware acceleration.
         </p>
         <p>
-          NUVIO was engineered to leverage 100% of this client-side compute power. Instead of sending files across the globe to be manipulated by an expensive server farm, NUVIO processes files right inside your browser window. The result is instant speed, zero server costs, unlimited file processing, and guaranteed privacy.
+          PDF Image Studio was engineered to leverage 100% of this client-side compute power. Instead of sending files across the globe to be manipulated by an expensive server farm, PDF Image Studio processes files right inside your browser window. The result is instant speed, zero server costs, unlimited file processing, and guaranteed privacy.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
