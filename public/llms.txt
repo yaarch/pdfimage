@@ -1,0 +1,24 @@
+# PDF Image Studio
+
+> Private, 100% browser-based PDF and image tools. Fast, zero-upload processing with WebAssembly and HTML5 Canvas.
+
+## Overview
+PDF Image Studio is a privacy-first web application that converts, compresses, organizes, edits, and optimizes PDF documents and image files entirely on the client side. No files are uploaded to foreign or remote servers.
+
+## Key Features & Tools
+- PDF Page Organizer (/pdf-organizer): Reorder, rotate, delete, duplicate, and extract PDF pages visually.
+- Merge PDF (/merge-pdf): Combine multiple PDF documents into a single file.
+- Split PDF (/split-pdf): Extract page ranges or split PDFs by bookmarks.
+- Compress PDF (/compress-pdf): Reduce PDF file sizes with local canvas and image compression algorithms.
+- Image Compressor (/image-compressor): Lossless and lossy photo compression with live quality preview.
+- Image Converter (/image-converter): Convert between JPG, PNG, WebP, AVIF, and SVG.
+- Image Resizer & Crop (/image-resizer, /image-crop): Crop and adjust dimensions with pixel precision.
+- PDF Watermark & Page Numbers (/pdf-watermark, /pdf-page-numbers): Add stamps, watermarks, and headers/footers.
+- PDF Metadata & Flatten (/pdf-metadata, /pdf-flatten): Edit document properties and flatten form fields.
+- Batch Processor (/batch-processor): Execute batch transformations on multiple files concurrently.
+
+## Technical Architecture & Privacy
+- Execution: 100% Client-Side JavaScript, WebAssembly, and HTML5 Canvas.
+- Privacy: Zero file uploads. No telemetry or server-side document storage.
+- Offline Support: Progressive Web App (PWA) with Service Worker caching.
+- Base URL: https://pdfimage.pages.dev/

@@ -1,0 +1,46 @@
+# PDF Image Studio — Full Documentation for AI Agents
+
+> Comprehensive documentation for PDF Image Studio, a client-side web application for PDF and image manipulation.
+
+## System Capabilities
+PDF Image Studio operates entirely in the browser using HTML5 Canvas, WebAssembly, and pdf-lib. All operations run locally inside the client's device memory.
+
+## Available Routes & Operations
+
+### PDF Tools
+- `/pdf-organizer`: Visual drag-and-drop page reordering, page rotation (90, 180, 270 degrees), page deletion, duplication, and extraction.
+- `/merge-pdf`: Reorder multiple PDF files and merge them into a single PDF document.
+- `/split-pdf`: Split PDF documents by single pages, custom ranges (e.g. 1-3, 5, 8-10), or odd/even pages.
+- `/compress-pdf`: Compress PDF documents with customizable quality presets (High, Medium, Low, Extreme).
+- `/pdf-rotate`: Rotate all or selected pages in a PDF document.
+- `/pdf-watermark`: Overlay custom text or image watermarks with opacity, angle, and position controls.
+- `/pdf-page-numbers`: Add page numbers with customizable placement, font size, margin, and numbering format.
+- `/pdf-metadata`: View and edit PDF Title, Author, Subject, Keywords, Creator, and Producer metadata tags.
+- `/pdf-flatten`: Flatten interactive PDF form fields and annotations into static document content.
+- `/pdf-redact-sanitize`: Remove hidden metadata, annotations, attachments, and visual text redaction.
+- `/text-to-pdf`: Convert plain text or markdown formatted text into printable PDF documents.
+- `/images-to-pdf`: Convert multiple image files (JPG, PNG, WebP) into a single PDF document with custom margins and page sizes.
+- `/pdf-to-images`: Render PDF pages into high-resolution JPG or PNG images.
+
+### Image Tools
+- `/image-compressor`: Compress JPG, PNG, and WebP images with real-time target file size estimate.
+- `/image-resizer`: Resize images by pixels, percentage, or specific aspect ratio constraints.
+- `/image-converter`: Convert images between JPG, PNG, WebP, AVIF, BMP, and SVG formats.
+- `/image-crop`: Crop images with preset aspect ratios (16:9, 4:3, 1:1, 9:16) or custom bounding boxes.
+- `/image-rotate-flip`: Rotate images clockwise/counterclockwise and flip horizontally/vertically.
+- `/image-strip-exif`: View, inspect, and strip sensitive EXIF metadata (GPS location, camera model, date) from photos.
+- `/image-filter-adjust`: Apply brightness, contrast, saturation, blur, grayscale, and sepia filters.
+- `/image-color-palette`: Extract color palettes (HEX, RGB, HSL) from uploaded images.
+
+### Utility Pages
+- `/all-tools`: Complete directory of all 18+ browser file utilities.
+- `/batch-processor`: Process multiple files across tools in a single unified workspace.
+- `/privacy`: Technical architecture whitepaper on client-side security and 100% in-memory execution.
+- `/about`: Mission statement on replacing ad-heavy cloud file converters with local browser computing.
+- `/terms`: Terms of service.
+- `/blog`: Educational articles and tutorials on PDF and image workflows.
+
+## Technical Specifications
+- Base Domain: https://pdfimage.pages.dev/
+- OpenGraph & Canonical Tags: Configured for rich social sharing and search engine indexing.
+- PWA Compliant: Service worker enabled for offline usage.

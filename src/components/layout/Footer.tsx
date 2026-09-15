@@ -20,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">100% Client-Side</span>
-              <span className="text-[11px] text-slate-500">Files never leave your browser</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Files never leave your browser</span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 p-2">
@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <UserX className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">No Account Required</span>
-              <span className="text-[11px] text-slate-500">Free, direct access to all core tools</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Free, direct access to all core tools</span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 p-2">
@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Zap className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Instant Hardware Speed</span>
-              <span className="text-[11px] text-slate-500">Accelerated by modern browser APIs</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Accelerated by modern browser APIs</span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 p-2">
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Smartphone className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Mobile & Offline Ready</span>
-              <span className="text-[11px] text-slate-500">Installable PWA for any device</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Installable PWA for any device</span>
             </div>
           </div>
         </div>
@@ -175,8 +175,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/about')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                  About NUVIO
+                <button onClick={() => onNavigate('/about')} className="hover:text-indigo-600 dark:hover:text-indigo-400 transition min-h-[36px] inline-flex items-center">
+                  About PDF Image Studio
                 </button>
               </li>
               <li>
@@ -194,9 +194,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
+        <div className="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600 dark:text-slate-400 gap-3">
           <div>
-            &copy; {new Date().getFullYear()} NUVIO. {t.tagline} All rights reserved.
+            &copy; {new Date().getFullYear()} PDF Image Studio. {t.tagline} All rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1">

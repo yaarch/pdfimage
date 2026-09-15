@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
 Sitemap: https://pdfimage.pages.dev/sitemap.xml
+# LLMs Documentation
+# https://pdfimage.pages.dev/llms.txt
