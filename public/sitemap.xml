@@ -1,117 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nuvio.app/</loc>
+    <loc>https://pdfimage.pages.dev/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/all-tools</loc>
+    <loc>https://pdfimage.pages.dev/all-tools</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/pdf-organizer</loc>
+    <loc>https://pdfimage.pages.dev/pdf-organizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/merge-pdf</loc>
+    <loc>https://pdfimage.pages.dev/merge-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/split-pdf</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nuvio.app/compress-pdf</loc>
+    <loc>https://pdfimage.pages.dev/split-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/rotate-pdf</loc>
+    <loc>https://pdfimage.pages.dev/compress-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/rotate-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/pdf-watermark</loc>
+    <loc>https://pdfimage.pages.dev/pdf-watermark</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/pdf-page-numbers</loc>
+    <loc>https://pdfimage.pages.dev/pdf-page-numbers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/pdf-metadata</loc>
+    <loc>https://pdfimage.pages.dev/pdf-metadata</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/images-to-pdf</loc>
+    <loc>https://pdfimage.pages.dev/pdf-redact-sanitize</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/pdf-flatten</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/images-to-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/pdf-to-images</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://nuvio.app/image-compressor</loc>
+    <loc>https://pdfimage.pages.dev/pdf-to-images</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/image-resizer</loc>
+    <loc>https://pdfimage.pages.dev/text-to-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/image-compressor</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/image-converter</loc>
+    <loc>https://pdfimage.pages.dev/image-resizer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/image-crop</loc>
+    <loc>https://pdfimage.pages.dev/image-converter</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/image-crop</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/image-rotate-flip</loc>
+    <loc>https://pdfimage.pages.dev/image-rotate-flip</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/image-strip-exif</loc>
+    <loc>https://pdfimage.pages.dev/image-strip-exif</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/batch-processor</loc>
+    <loc>https://pdfimage.pages.dev/image-filter-adjust</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/privacy</loc>
+    <loc>https://pdfimage.pages.dev/image-color-palette</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/batch-processor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/privacy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/about</loc>
+    <loc>https://pdfimage.pages.dev/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/terms</loc>
+    <loc>https://pdfimage.pages.dev/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://nuvio.app/blog</loc>
+    <loc>https://pdfimage.pages.dev/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
