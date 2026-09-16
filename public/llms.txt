@@ -2,23 +2,29 @@
 
 > Private, 100% browser-based PDF and image tools. Fast, zero-upload processing with WebAssembly and HTML5 Canvas.
 
-## Overview
 PDF Image Studio is a privacy-first web application that converts, compresses, organizes, edits, and optimizes PDF documents and image files entirely on the client side. No files are uploaded to foreign or remote servers.
 
-## Key Features & Tools
-- PDF Page Organizer (/pdf-organizer): Reorder, rotate, delete, duplicate, and extract PDF pages visually.
-- Merge PDF (/merge-pdf): Combine multiple PDF documents into a single file.
-- Split PDF (/split-pdf): Extract page ranges or split PDFs by bookmarks.
-- Compress PDF (/compress-pdf): Reduce PDF file sizes with local canvas and image compression algorithms.
-- Image Compressor (/image-compressor): Lossless and lossy photo compression with live quality preview.
-- Image Converter (/image-converter): Convert between JPG, PNG, WebP, AVIF, and SVG.
-- Image Resizer & Crop (/image-resizer, /image-crop): Crop and adjust dimensions with pixel precision.
-- PDF Watermark & Page Numbers (/pdf-watermark, /pdf-page-numbers): Add stamps, watermarks, and headers/footers.
-- PDF Metadata & Flatten (/pdf-metadata, /pdf-flatten): Edit document properties and flatten form fields.
-- Batch Processor (/batch-processor): Execute batch transformations on multiple files concurrently.
+## Tools & Features
 
-## Technical Architecture & Privacy
-- Execution: 100% Client-Side JavaScript, WebAssembly, and HTML5 Canvas.
-- Privacy: Zero file uploads. No telemetry or server-side document storage.
-- Offline Support: Progressive Web App (PWA) with Service Worker caching.
-- Base URL: https://pdfimage.pages.dev/
+- [PDF Page Organizer](https://pdfimage.pages.dev/pdf-organizer): Reorder, rotate, delete, duplicate, and extract PDF pages visually.
+- [Merge PDF](https://pdfimage.pages.dev/merge-pdf): Combine multiple PDF documents into a single file.
+- [Split PDF](https://pdfimage.pages.dev/split-pdf): Extract page ranges or split PDFs by bookmarks.
+- [Compress PDF](https://pdfimage.pages.dev/compress-pdf): Reduce PDF file sizes with local canvas and image compression algorithms.
+- [Image Compressor](https://pdfimage.pages.dev/image-compressor): Lossless and lossy photo compression with live quality preview.
+- [Image Converter](https://pdfimage.pages.dev/image-converter): Convert between JPG, PNG, WebP, AVIF, and SVG formats.
+- [Image Resizer](https://pdfimage.pages.dev/image-resizer): Crop and adjust image dimensions with pixel precision.
+- [Image Crop](https://pdfimage.pages.dev/image-crop): Interactive image cropping with standard aspect ratio presets.
+- [PDF Watermark](https://pdfimage.pages.dev/pdf-watermark): Overlay custom text or image watermarks with opacity and angle controls.
+- [PDF Page Numbers](https://pdfimage.pages.dev/pdf-page-numbers): Add page numbers with customizable placement and formatting.
+- [PDF Metadata](https://pdfimage.pages.dev/pdf-metadata): View and edit PDF document properties and metadata tags.
+- [PDF Flatten](https://pdfimage.pages.dev/pdf-flatten): Flatten interactive PDF form fields into static content.
+- [Batch Processor](https://pdfimage.pages.dev/batch-processor): Execute batch transformations on multiple files concurrently.
+
+## System Architecture
+
+- [Privacy Policy](https://pdfimage.pages.dev/privacy): Technical architecture whitepaper on client-side security and zero-upload processing.
+- [About](https://pdfimage.pages.dev/about): Mission statement on replacing ad-heavy cloud file converters with local browser computing.
+
+## Optional
+
+- [Full Documentation](https://pdfimage.pages.dev/llms-full.txt): Detailed developer and AI agent specifications for all 18+ browser utilities.
