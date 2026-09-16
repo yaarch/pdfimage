@@ -112,7 +112,7 @@ export const Header: React.FC<HeaderProps> = ({
                   STUDIO
                 </span>
               </div>
-              <span className="text-[9px] font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase mt-0.5">
+              <span className="text-[9px] font-bold tracking-widest text-slate-600 dark:text-slate-400 uppercase mt-0.5">
                 Private Browser Tools
               </span>
             </div>
@@ -221,12 +221,12 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             id="btn-quick-search"
             onClick={onOpenSearch}
-            className="flex items-center gap-2 px-3 py-1.5 text-xs text-slate-500 dark:text-slate-400 bg-slate-100/90 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-xl transition shadow-2xs"
+            className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 rounded-xl transition shadow-2xs"
             title="Search all tools (Cmd+K / Ctrl+K)"
           >
-            <Search className="w-3.5 h-3.5" />
+            <Search className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
             <span className="hidden sm:inline">{t.searchTools}</span>
-            <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-[10px] font-semibold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded text-slate-500 dark:text-slate-400">
+            <kbd className="hidden lg:inline-block px-1.5 py-0.5 text-[10px] font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded text-slate-700 dark:text-slate-300">
               ⌘K
             </kbd>
           </button>

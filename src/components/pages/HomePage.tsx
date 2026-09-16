@@ -387,16 +387,16 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
 
                   <div
-                    className={`mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-400 transition-colors ${
+                    className={`mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300 transition-colors ${
                       isImageTool
                         ? 'group-hover:text-sky-600 dark:group-hover:text-sky-400'
                         : 'group-hover:text-red-600 dark:group-hover:text-red-400'
                     }`}
                   >
-                    <span className="text-[10px] uppercase tracking-wider font-mono">
+                    <span className="text-[10px] uppercase tracking-wider font-mono font-bold text-slate-700 dark:text-slate-300">
                       {tool.category}
                     </span>
-                    <span className="flex items-center gap-1 text-xs">
+                    <span className="flex items-center gap-1 text-xs font-extrabold">
                       <span>{t.openTool}</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
                     </span>
