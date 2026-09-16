@@ -74,7 +74,7 @@ export function NuvioApp() {
     };
   }, []);
 
-  // Update document title and track recents on route change
+  // Update document title, dynamic canonical link, and track recents on route change
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -100,6 +100,33 @@ export function NuvioApp() {
       document.title = 'All 18+ Browser File Tools — PDF Image Studio';
     } else {
       document.title = 'PDF Image Studio — Private Browser File Tools';
+    }
+
+    // Dynamic canonical link update
+    try {
+      // 1. Determine clean path without query parameters or hash, normalized
+      const cleanPathName = (currentRoute.split('?')[0].split('#')[0] || '/')
+        .replace(/\/index\.html$/i, '')
+        .replace(/\/+$/, '') || '/';
+      
+      // Ensure it starts with a '/' if it's not empty, and doesn't end with a '/' unless it's just '/'
+      const pathWithSlash = cleanPathName.startsWith('/') ? cleanPathName : `/${cleanPathName}`;
+      const normalizedPath = pathWithSlash === '/' ? '' : pathWithSlash;
+
+      // 2. Build official HTTPS clean URL
+      const canonicalUrl = `https://pdfimage.pages.dev${normalizedPath}`;
+
+      // 3. Find or create the canonical link tag in the head
+      let linkElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+      if (!linkElement) {
+        linkElement = document.createElement('link');
+        linkElement.setAttribute('rel', 'canonical');
+        document.head.appendChild(linkElement);
+      }
+      
+      linkElement.setAttribute('href', canonicalUrl);
+    } catch (error) {
+      console.error('Error updating canonical URL:', error);
     }
   }, [currentRoute, addRecent]);
 
