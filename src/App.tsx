@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { I18nProvider } from './i18n/context';
 import { ThemeProvider } from './hooks/useTheme';
 import { Header } from './components/layout/Header';
@@ -6,39 +6,41 @@ import { Footer } from './components/layout/Footer';
 import { CommandPalette } from './components/common/CommandPalette';
 import { ToolLayout } from './components/common/ToolLayout';
 import { HomePage } from './components/pages/HomePage';
-import { AllToolsCatalog } from './components/pages/AllToolsCatalog';
-import { PrivacyPage } from './components/pages/PrivacyPage';
-import { AboutPage } from './components/pages/AboutPage';
-import { TermsPage } from './components/pages/TermsPage';
-import { BlogPage } from './components/pages/BlogPage';
 
-// PDF Tools
-import { PdfOrganizer } from './components/tools/PdfOrganizer';
-import { PdfMergeTool } from './components/tools/PdfMergeTool';
-import { PdfSplitTool } from './components/tools/PdfSplitTool';
-import { PdfCompressTool } from './components/tools/PdfCompressTool';
-import { PdfRotateTool } from './components/tools/PdfRotateTool';
-import { PdfWatermarkTool } from './components/tools/PdfWatermarkTool';
-import { PdfPageNumbersTool } from './components/tools/PdfPageNumbersTool';
-import { PdfMetadataTool } from './components/tools/PdfMetadataTool';
-import { PdfFlattenTool } from './components/tools/PdfFlattenTool';
-import { PdfRedactSanitizeTool } from './components/tools/PdfRedactSanitizeTool';
-import { TextToPdfTool } from './components/tools/TextToPdfTool';
-import { ImagesToPdfTool } from './components/tools/ImagesToPdfTool';
-import { PdfToImagesTool } from './components/tools/PdfToImagesTool';
+// Lazy loaded secondary pages
+const AllToolsCatalog = lazy(() => import('./components/pages/AllToolsCatalog').then(m => ({ default: m.AllToolsCatalog })));
+const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
+const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const TermsPage = lazy(() => import('./components/pages/TermsPage').then(m => ({ default: m.TermsPage })));
+const BlogPage = lazy(() => import('./components/pages/BlogPage').then(m => ({ default: m.BlogPage })));
 
-// Image Tools
-import { ImageCompressTool } from './components/tools/ImageCompressTool';
-import { ImageResizeTool } from './components/tools/ImageResizeTool';
-import { ImageConvertTool } from './components/tools/ImageConvertTool';
-import { ImageCropTool } from './components/tools/ImageCropTool';
-import { ImageRotateFlipTool } from './components/tools/ImageRotateFlipTool';
-import { ImageExifTool } from './components/tools/ImageExifTool';
-import { ImageFilterTool } from './components/tools/ImageFilterTool';
-import { ImageColorPaletteTool } from './components/tools/ImageColorPaletteTool';
+// Lazy loaded PDF Tools
+const PdfOrganizer = lazy(() => import('./components/tools/PdfOrganizer').then(m => ({ default: m.PdfOrganizer })));
+const PdfMergeTool = lazy(() => import('./components/tools/PdfMergeTool').then(m => ({ default: m.PdfMergeTool })));
+const PdfSplitTool = lazy(() => import('./components/tools/PdfSplitTool').then(m => ({ default: m.PdfSplitTool })));
+const PdfCompressTool = lazy(() => import('./components/tools/PdfCompressTool').then(m => ({ default: m.PdfCompressTool })));
+const PdfRotateTool = lazy(() => import('./components/tools/PdfRotateTool').then(m => ({ default: m.PdfRotateTool })));
+const PdfWatermarkTool = lazy(() => import('./components/tools/PdfWatermarkTool').then(m => ({ default: m.PdfWatermarkTool })));
+const PdfPageNumbersTool = lazy(() => import('./components/tools/PdfPageNumbersTool').then(m => ({ default: m.PdfPageNumbersTool })));
+const PdfMetadataTool = lazy(() => import('./components/tools/PdfMetadataTool').then(m => ({ default: m.PdfMetadataTool })));
+const PdfFlattenTool = lazy(() => import('./components/tools/PdfFlattenTool').then(m => ({ default: m.PdfFlattenTool })));
+const PdfRedactSanitizeTool = lazy(() => import('./components/tools/PdfRedactSanitizeTool').then(m => ({ default: m.PdfRedactSanitizeTool })));
+const TextToPdfTool = lazy(() => import('./components/tools/TextToPdfTool').then(m => ({ default: m.TextToPdfTool })));
+const ImagesToPdfTool = lazy(() => import('./components/tools/ImagesToPdfTool').then(m => ({ default: m.ImagesToPdfTool })));
+const PdfToImagesTool = lazy(() => import('./components/tools/PdfToImagesTool').then(m => ({ default: m.PdfToImagesTool })));
 
-// Batch Tool
-import { BatchProcessorTool } from './components/tools/BatchProcessorTool';
+// Lazy loaded Image Tools
+const ImageCompressTool = lazy(() => import('./components/tools/ImageCompressTool').then(m => ({ default: m.ImageCompressTool })));
+const ImageResizeTool = lazy(() => import('./components/tools/ImageResizeTool').then(m => ({ default: m.ImageResizeTool })));
+const ImageConvertTool = lazy(() => import('./components/tools/ImageConvertTool').then(m => ({ default: m.ImageConvertTool })));
+const ImageCropTool = lazy(() => import('./components/tools/ImageCropTool').then(m => ({ default: m.ImageCropTool })));
+const ImageRotateFlipTool = lazy(() => import('./components/tools/ImageRotateFlipTool').then(m => ({ default: m.ImageRotateFlipTool })));
+const ImageExifTool = lazy(() => import('./components/tools/ImageExifTool').then(m => ({ default: m.ImageExifTool })));
+const ImageFilterTool = lazy(() => import('./components/tools/ImageFilterTool').then(m => ({ default: m.ImageFilterTool })));
+const ImageColorPaletteTool = lazy(() => import('./components/tools/ImageColorPaletteTool').then(m => ({ default: m.ImageColorPaletteTool })));
+
+// Lazy loaded Batch Tool
+const BatchProcessorTool = lazy(() => import('./components/tools/BatchProcessorTool').then(m => ({ default: m.BatchProcessorTool })));
 
 import { TOOLS, getToolByRoute, getToolById } from './data/tools';
 import { ToolDefinition } from './types';
@@ -336,7 +338,15 @@ export function NuvioApp() {
       />
 
       {/* Main View Area */}
-      <main className="flex-1">{renderContent()}</main>
+      <main className="flex-1">
+        <Suspense fallback={
+          <div className="min-h-[50vh] flex items-center justify-center p-12 text-center">
+            <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+          </div>
+        }>
+          {renderContent()}
+        </Suspense>
+      </main>
 
       {/* Global Command Palette */}
       <CommandPalette

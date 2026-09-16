@@ -113,7 +113,7 @@ export const DropZone: React.FC<DropZoneProps> = ({
             <span>{t.chooseFileBtn}</span>
           </button>
 
-          <p className="mt-4 text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400">
+          <p className="mt-4 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200">
             {t.orDropHere}
           </p>
 

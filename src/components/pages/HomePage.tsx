@@ -116,7 +116,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-200">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="w-4 h-4 text-red-500" />
             {t.freeUnlimited}
@@ -248,7 +248,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
               {t.allPdfImageUtilities}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mt-1 font-medium">
               {t.selectToolToProcess}
             </p>
           </div>
@@ -381,7 +381,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     >
                       {localized.name}
                     </h3>
-                    <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2 font-medium">
+                    <p className="mt-1.5 text-xs text-slate-700 dark:text-slate-300 leading-relaxed line-clamp-2 font-medium">
                       {localized.tagline}
                     </p>
                   </div>
