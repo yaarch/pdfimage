@@ -67,15 +67,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <span className="font-black text-lg tracking-tight text-slate-900 dark:text-white leading-none">
                   PDF Image Studio
                 </span>
-                <span className="text-[9px] font-bold tracking-widest text-slate-400 uppercase mt-0.5">
+                <span className="text-[9px] font-bold tracking-widest text-slate-600 dark:text-slate-400 uppercase mt-0.5">
                   Private Browser Tools
                 </span>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-700 dark:text-slate-300 max-w-sm leading-relaxed">
               {t.heroSubtitle}
             </p>
-            <div className="pt-2 text-[11px] text-slate-400">
+            <div className="pt-2 text-[11px] text-slate-600 dark:text-slate-400">
               Compatible with Cloudflare Pages &bull; Open Web Standards
             </div>
           </div>

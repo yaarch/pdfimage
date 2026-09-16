@@ -199,31 +199,31 @@ export const HomePage: React.FC<HomePageProps> = ({
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
                 <button
                   onClick={() => onNavigate('/image-compressor')}
-                  className="px-2.5 py-2 rounded-xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400 text-left rtl:text-right transition"
+                  className="px-2.5 py-2 rounded-xl bg-slate-900/90 border border-sky-500/40 hover:border-sky-400 text-left rtl:text-right transition"
                 >
                   <div className="text-[10px] font-bold text-sky-400">{t.optimize}</div>
-                  <div className="text-[9px] text-slate-400">JPG/PNG/WebP</div>
+                  <div className="text-[9px] text-slate-300 font-medium">JPG/PNG/WebP</div>
                 </button>
                 <button
                   onClick={() => onNavigate('/image-resizer')}
-                  className="px-2.5 py-2 rounded-xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400 text-left rtl:text-right transition"
+                  className="px-2.5 py-2 rounded-xl bg-slate-900/90 border border-sky-500/40 hover:border-sky-400 text-left rtl:text-right transition"
                 >
                   <div className="text-[10px] font-bold text-emerald-400">Resize</div>
-                  <div className="text-[9px] text-slate-400">Pixels & %</div>
+                  <div className="text-[9px] text-slate-300 font-medium">Pixels & %</div>
                 </button>
                 <button
                   onClick={() => onNavigate('/image-crop')}
-                  className="px-2.5 py-2 rounded-xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400 text-left rtl:text-right transition"
+                  className="px-2.5 py-2 rounded-xl bg-slate-900/90 border border-sky-500/40 hover:border-sky-400 text-left rtl:text-right transition"
                 >
                   <div className="text-[10px] font-bold text-amber-400">Crop</div>
-                  <div className="text-[9px] text-slate-400">Square, 16:9</div>
+                  <div className="text-[9px] text-slate-300 font-medium">Square, 16:9</div>
                 </button>
                 <button
                   onClick={() => onNavigate('/image-converter')}
-                  className="px-2.5 py-2 rounded-xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400 text-left rtl:text-right transition"
+                  className="px-2.5 py-2 rounded-xl bg-slate-900/90 border border-sky-500/40 hover:border-sky-400 text-left rtl:text-right transition"
                 >
                   <div className="text-[10px] font-bold text-purple-400">{t.convert}</div>
-                  <div className="text-[9px] text-slate-400">To WebP/JPG</div>
+                  <div className="text-[9px] text-slate-300 font-medium">To WebP/JPG</div>
                 </button>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="pt-6 relative z-10">
               <button
                 onClick={() => onNavigate('/image-compressor')}
-                className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-sky-600 hover:bg-sky-700 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-sky-600/30 transition-all flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-sky-700 hover:bg-sky-800 text-white text-xs sm:text-sm font-extrabold shadow-lg shadow-sky-700/30 transition-all flex items-center justify-center gap-2"
               >
                 <span>{t.launchImageSuite}</span>
                 <ArrowRight className="w-4 h-4 rtl:rotate-180" />
