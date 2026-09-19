@@ -6,6 +6,7 @@ import { DynamicIcon } from '../common/DynamicIcon';
 import { useFavoritesAndRecents } from '../../hooks/useFavoritesAndRecents';
 import { useTranslation } from '../../i18n/context';
 import { getLocalizedTool } from '../../i18n/toolTranslations';
+import { formatLocalizedRoute } from '../../i18n/urlUtils';
 
 interface AllToolsCatalogProps {
   onNavigate: (route: string) => void;
@@ -111,7 +112,7 @@ export const AllToolsCatalog: React.FC<AllToolsCatalogProps> = ({
           return (
             <div
               key={tool.id}
-              onClick={() => onNavigate(tool.route)}
+              onClick={() => onNavigate(formatLocalizedRoute(tool.route, language, language !== 'en'))}
               className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-2xs hover:shadow-md hover:border-indigo-400 dark:hover:border-indigo-500 transition-all duration-200 flex flex-col justify-between cursor-pointer"
             >
               <div>

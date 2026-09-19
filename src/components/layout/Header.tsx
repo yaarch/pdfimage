@@ -28,6 +28,7 @@ import { useTranslation } from '../../i18n/context';
 import { useTheme } from '../../hooks/useTheme';
 import { LanguageCode, ThemeMode } from '../../types';
 import { PWAInstallButton } from '../common/PWAInstallButton';
+import { extractLanguageAndPath, formatLocalizedRoute } from '../../i18n/urlUtils';
 
 interface HeaderProps {
   currentRoute: string;
@@ -58,14 +59,24 @@ export const Header: React.FC<HeaderProps> = ({
     { code: 'ar', label: 'العربية', flag: 'عربي' },
     { code: 'es', label: 'Español', flag: 'ES' },
     { code: 'fr', label: 'Français', flag: 'FR' },
+    { code: 'de', label: 'Deutsch', flag: 'DE' },
   ];
 
-  const handleNavClick = (route: string) => {
-    onNavigate(route);
+  const handleNavClick = (pureRoute: string) => {
+    const targetRoute = formatLocalizedRoute(pureRoute, language, language !== 'en');
+    onNavigate(targetRoute);
     setMobileMenuOpen(false);
     setConvertMenuOpen(false);
     setMegaMenuOpen(false);
     setImageMenuOpen(false);
+  };
+
+  const handleLanguageChange = (newLang: LanguageCode) => {
+    setLanguage(newLang);
+    setLangMenuOpen(false);
+    const { purePath } = extractLanguageAndPath(currentRoute);
+    const targetRoute = formatLocalizedRoute(purePath, newLang, newLang !== 'en');
+    onNavigate(targetRoute);
   };
 
   // Close dropdowns when clicking outside
@@ -257,10 +268,7 @@ export const Header: React.FC<HeaderProps> = ({
                 {languages.map((l) => (
                   <button
                     key={l.code}
-                    onClick={() => {
-                      setLanguage(l.code);
-                      setLangMenuOpen(false);
-                    }}
+                    onClick={() => handleLanguageChange(l.code)}
                     className={`w-full text-left px-3 py-1.5 text-xs flex items-center justify-between hover:bg-slate-100 dark:hover:bg-slate-800 transition ${
                       language === l.code
                         ? 'font-bold text-red-600 dark:text-red-400 bg-red-50/50 dark:bg-red-950/40'

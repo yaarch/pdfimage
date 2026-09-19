@@ -1,11 +1,14 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { I18nProvider } from './i18n/context';
+import React, { useState, useEffect, lazy, Suspense, useMemo } from 'react';
+import { I18nProvider, useTranslation } from './i18n/context';
 import { ThemeProvider } from './hooks/useTheme';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CommandPalette } from './components/common/CommandPalette';
 import { ToolLayout } from './components/common/ToolLayout';
 import { HomePage } from './components/pages/HomePage';
+import { SEOHead } from './components/common/SEOHead';
+import { extractLanguageAndPath, formatLocalizedRoute, SUPPORTED_LANGUAGES } from './i18n/urlUtils';
+import { getLocalizedTool } from './i18n/toolTranslations';
 
 // Lazy loaded secondary pages
 const AllToolsCatalog = lazy(() => import('./components/pages/AllToolsCatalog').then(m => ({ default: m.AllToolsCatalog })));
@@ -13,6 +16,7 @@ const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage').then(m =
 const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const TermsPage = lazy(() => import('./components/pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const BlogPage = lazy(() => import('./components/pages/BlogPage').then(m => ({ default: m.BlogPage })));
+const SitemapView = lazy(() => import('./components/common/SitemapView').then(m => ({ default: m.SitemapView })));
 
 // Lazy loaded PDF Tools
 const PdfOrganizer = lazy(() => import('./components/tools/PdfOrganizer').then(m => ({ default: m.PdfOrganizer })));
@@ -47,12 +51,12 @@ const ImageBorderRoundTool = lazy(() => import('./components/tools/ImageBorderRo
 // Lazy loaded Batch Tool
 const BatchProcessorTool = lazy(() => import('./components/tools/BatchProcessorTool').then(m => ({ default: m.BatchProcessorTool })));
 
-import { TOOLS, getToolByRoute, getToolById } from './data/tools';
-import { STATIC_SEO_PAGES } from './data/seoMetadata';
+import { TOOLS, getToolByRoute } from './data/tools';
 import { ToolDefinition } from './types';
 import { useFavoritesAndRecents } from './hooks/useFavoritesAndRecents';
 
-export function NuvioApp() {
+function MainAppContent() {
+  const { language, setLanguage } = useTranslation();
   const [currentRoute, setCurrentRoute] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash ? window.location.hash.replace(/^#/, '') : '';
@@ -64,6 +68,18 @@ export function NuvioApp() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
   const [preloadedFiles, setPreloadedFiles] = useState<File[]>([]);
   const { addRecent } = useFavoritesAndRecents();
+
+  // Extract language code and pure path from current route
+  const { language: routeLang, purePath } = useMemo(() => {
+    return extractLanguageAndPath(currentRoute);
+  }, [currentRoute]);
+
+  // Synchronize language when URL has a language prefix
+  useEffect(() => {
+    if (routeLang && routeLang !== language) {
+      setLanguage(routeLang);
+    }
+  }, [routeLang, language, setLanguage]);
 
   // Synchronize browser history, popstate, and hashchange
   useEffect(() => {
@@ -80,118 +96,43 @@ export function NuvioApp() {
     };
   }, []);
 
-  // Update comprehensive SEO metadata (title, description, canonical, Open Graph, Twitter) on route change
+  // Determine currently active tool if any
+  const currentTool = useMemo(() => {
+    return getToolByRoute(purePath) || getToolByRoute(currentRoute);
+  }, [purePath, currentRoute]);
+
+  // Track recent tools
   useEffect(() => {
-    window.scrollTo(0, 0);
-
-    try {
-      // 1. Determine clean path without query parameters or hash, normalized
-      const cleanPathName = (currentRoute.split('?')[0].split('#')[0] || '/')
-        .replace(/\/index\.html$/i, '')
-        .replace(/\/+$/, '') || '/';
-      
-      const pathWithSlash = cleanPathName.startsWith('/') ? cleanPathName : `/${cleanPathName}`;
-      const normalizedPath = pathWithSlash === '/' ? '' : pathWithSlash;
-      const canonicalUrl = `https://pdfimage.pages.dev${normalizedPath}`;
-
-      const tool = getToolByRoute(currentRoute);
-      let pageTitle = 'PDF Image Studio — Private Browser File Tools';
-      let pageDescription = 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, 100% private client-side processing, zero server uploads.';
-
-      if (tool) {
-        pageTitle = tool.seoTitle || `${tool.name} — PDF Image Studio | Private Browser File Tools`;
-        pageDescription = tool.seoDescription || tool.description;
-        addRecent(tool.id);
-      } else if (STATIC_SEO_PAGES[cleanPathName]) {
-        pageTitle = STATIC_SEO_PAGES[cleanPathName].title;
-        pageDescription = STATIC_SEO_PAGES[cleanPathName].description;
-      } else if (cleanPathName.includes('/sitemap.xml')) {
-        pageTitle = 'XML Sitemap — PDF Image Studio';
-        pageDescription = 'XML sitemap for PDF Image Studio directory.';
-      } else if (cleanPathName.includes('/pdf-tools')) {
-        pageTitle = 'PDF Utilities & Tools — PDF Image Studio';
-        pageDescription = 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. 100% private and secure in your browser.';
-      } else if (cleanPathName.includes('/image-tools')) {
-        pageTitle = 'Image Editing & Conversion Tools — PDF Image Studio';
-        pageDescription = 'Free online image editing tools to compress, resize, crop, convert, and filter photos privately in your browser.';
-      } else if (cleanPathName.includes('/blog')) {
-        pageTitle = 'Guides & Tutorials — PDF Image Studio Knowledge Base';
-        pageDescription = 'Read expert guides and tutorials on how to manage, compress, and edit PDF documents and images securely in your web browser.';
-      }
-
-      // Update document title
-      document.title = pageTitle;
-
-      // Helper to set or create meta tag
-      const setMetaTag = (attrName: string, attrValue: string, content: string) => {
-        let meta = document.querySelector(`meta[${attrName}="${attrValue}"]`) as HTMLMetaElement | null;
-        if (!meta) {
-          meta = document.createElement('meta');
-          meta.setAttribute(attrName, attrValue);
-          document.head.appendChild(meta);
-        }
-        meta.setAttribute('content', content);
-      };
-
-      // Update meta description
-      setMetaTag('name', 'description', pageDescription);
-
-      // Update Open Graph tags
-      setMetaTag('property', 'og:title', pageTitle);
-      setMetaTag('property', 'og:description', pageDescription);
-      setMetaTag('property', 'og:url', canonicalUrl);
-      setMetaTag('property', 'og:type', 'website');
-
-      // Update Twitter tags
-      setMetaTag('name', 'twitter:title', pageTitle);
-      setMetaTag('name', 'twitter:description', pageDescription);
-      setMetaTag('name', 'twitter:card', 'summary_large_image');
-
-      // Update canonical link
-      let linkElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-      if (!linkElement) {
-        linkElement = document.createElement('link');
-        linkElement.setAttribute('rel', 'canonical');
-        document.head.appendChild(linkElement);
-      }
-      
-      linkElement.setAttribute('href', canonicalUrl);
-    } catch (error) {
-      console.error('Error updating SEO metadata:', error);
+    if (currentTool) {
+      addRecent(currentTool.id);
     }
-  }, [currentRoute, addRecent]);
+  }, [currentTool, addRecent]);
 
-  const navigate = (route: string) => {
+  const navigate = (targetRoute: string) => {
     try {
-      if (window.location.pathname !== route) {
-        window.history.pushState({}, '', route);
+      if (window.location.pathname !== targetRoute) {
+        window.history.pushState({}, '', targetRoute);
       }
-    } catch (e) {
+    } catch {
       try {
-        window.location.hash = `#${route}`;
-      } catch (err) {
+        window.location.hash = `#${targetRoute}`;
+      } catch {
         // ignore hash error
       }
     }
-    setCurrentRoute(route);
+    setCurrentRoute(targetRoute);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleFilePreload = (files: File[], targetTool?: ToolDefinition) => {
     setPreloadedFiles(files);
-    if (targetTool) {
-      navigate(targetTool.route);
-    } else if (files[0]?.type.includes('pdf')) {
-      navigate('/pdf-organizer');
-    } else {
-      navigate('/image-compressor');
-    }
+    const dest = targetTool ? targetTool.route : files[0]?.type.includes('pdf') ? '/pdf-organizer' : '/image-compressor';
+    const localizedDest = formatLocalizedRoute(dest, language, language !== 'en');
+    navigate(localizedDest);
   };
 
-  // Clean and normalize path for static and tool route checking
-  const cleanPath = (currentRoute.split('?')[0].split('#')[0] || '/')
-    .replace(/\/index\.html$/i, '')
-    .replace(/\/+$/, '') || '/';
+  // Clean path without trailing slashes
+  const cleanPath = purePath.replace(/\/+$/, '') || '/';
 
   // Render view depending on route
   const renderContent = () => {
@@ -248,66 +189,15 @@ export function NuvioApp() {
       return <BlogPage onNavigate={navigate} />;
     }
 
-    if (cleanPath === '/sitemap.xml' || cleanPath === '/sitemap') {
-      return (
-        <div className="max-w-4xl mx-auto px-4 py-12">
-          <div className="flex items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200 dark:border-slate-800">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                XML Sitemap — PDF Image Studio
-              </h1>
-              <p className="text-xs text-slate-500 mt-1">
-                Index of all valid routes and utilities available on pdfimage.pages.dev
-              </p>
-            </div>
-            <a
-              href="/sitemap.xml"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs flex items-center gap-2"
-            >
-              <span>View Raw XML</span>
-            </a>
-          </div>
-
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-            <h2 className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-              Indexed URLs ({TOOLS.length + 5} Pages)
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
-              <button onClick={() => navigate('/')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-bold transition">
-                https://pdfimage.pages.dev/
-              </button>
-              <button onClick={() => navigate('/all-tools')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-bold transition">
-                https://pdfimage.pages.dev/all-tools
-              </button>
-              {TOOLS.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => navigate(t.route)}
-                  className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition"
-                >
-                  https://pdfimage.pages.dev{t.route}
-                </button>
-              ))}
-              <button onClick={() => navigate('/privacy')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
-                https://pdfimage.pages.dev/privacy
-              </button>
-              <button onClick={() => navigate('/about')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
-                https://pdfimage.pages.dev/about
-              </button>
-              <button onClick={() => navigate('/terms')} className="p-2.5 text-left rounded-lg bg-slate-50 dark:bg-slate-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 transition">
-                https://pdfimage.pages.dev/terms
-              </button>
-            </div>
-          </div>
-        </div>
-      );
+    if (
+      cleanPath === '/sitemap' ||
+      cleanPath === '/sitemap.xml' ||
+      cleanPath.startsWith('/sitemap-')
+    ) {
+      return <SitemapView onNavigate={navigate} />;
     }
 
     // 2. Interactive Tools Matching
-    const currentTool = getToolByRoute(cleanPath);
-
     if (currentTool) {
       const toolElement = (() => {
         switch (currentTool.id) {
@@ -387,8 +277,8 @@ export function NuvioApp() {
           The file utility or page you requested could not be located.
         </p>
         <button
-          onClick={() => navigate('/')}
-          className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm"
+          onClick={() => navigate(formatLocalizedRoute('/', language, language !== 'en'))}
+          className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-xs"
         >
           Return to PDF Image Studio Home
         </button>
@@ -398,6 +288,9 @@ export function NuvioApp() {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-indigo-500/20 selection:text-indigo-600">
+      {/* Comprehensive Dynamic SEO Head */}
+      <SEOHead purePath={cleanPath} currentLanguage={language} tool={currentTool} />
+
       {/* Top Header Navigation */}
       <Header
         currentRoute={currentRoute}
@@ -430,13 +323,16 @@ export function NuvioApp() {
   );
 }
 
+export function NuvioApp() {
+  return <MainAppContent />;
+}
+
 export default function App() {
   return (
     <ThemeProvider>
       <I18nProvider>
-        <NuvioApp />
+        <MainAppContent />
       </I18nProvider>
     </ThemeProvider>
   );
 }
-

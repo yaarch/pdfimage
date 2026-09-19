@@ -255,28 +255,79 @@ export async function convertImage(
   });
 }
 
+export interface CropImageOptions {
+  quality?: number;
+  targetFormat?: 'image/jpeg' | 'image/png' | 'image/webp';
+  isCircle?: boolean;
+  rotationAngle?: number; // 0, 90, 180, 270
+  flipHorizontal?: boolean;
+  flipVertical?: boolean;
+}
+
 export async function cropImage(
   file: File,
   cropArea: { x: number; y: number; width: number; height: number },
-  quality = 0.92
+  optionsOrQuality: CropImageOptions | number = 0.92
 ): Promise<Blob> {
+  const options: CropImageOptions =
+    typeof optionsOrQuality === 'number'
+      ? { quality: optionsOrQuality }
+      : optionsOrQuality;
+
+  const quality = options.quality ?? 0.92;
+  const targetFormat = options.targetFormat || (options.isCircle ? 'image/png' : (file.type as any) || 'image/jpeg');
+  const rotationAngle = options.rotationAngle || 0;
+  const flipH = options.flipHorizontal || false;
+  const flipV = options.flipVertical || false;
+  const isCircle = options.isCircle || false;
+
   return new Promise((resolve, reject) => {
     const img = new Image();
     const url = URL.createObjectURL(file);
 
     img.onload = () => {
       URL.revokeObjectURL(url);
+
+      const targetW = Math.max(1, Math.round(cropArea.width));
+      const targetH = Math.max(1, Math.round(cropArea.height));
+
       const canvas = document.createElement('canvas');
-      canvas.width = Math.max(1, cropArea.width);
-      canvas.height = Math.max(1, cropArea.height);
+      canvas.width = targetW;
+      canvas.height = targetH;
 
       const ctx = canvas.getContext('2d');
       if (!ctx) return reject(new Error('Canvas context error'));
 
-      if (file.type === 'image/jpeg') {
+      if (targetFormat === 'image/jpeg' && !isCircle) {
         ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, targetW, targetH);
       }
+
+      ctx.save();
+
+      // Circular masking if enabled
+      if (isCircle) {
+        ctx.beginPath();
+        const centerX = targetW / 2;
+        const centerY = targetH / 2;
+        const radius = Math.min(targetW, targetH) / 2;
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+      }
+
+      // Handle orientation transforms if applied
+      if (rotationAngle !== 0 || flipH || flipV) {
+        ctx.translate(targetW / 2, targetH / 2);
+        if (rotationAngle !== 0) {
+          ctx.rotate((rotationAngle * Math.PI) / 180);
+        }
+        ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+        ctx.translate(-targetW / 2, -targetH / 2);
+      }
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
 
       ctx.drawImage(
         img,
@@ -286,9 +337,11 @@ export async function cropImage(
         cropArea.height,
         0,
         0,
-        cropArea.width,
-        cropArea.height
+        targetW,
+        targetH
       );
+
+      ctx.restore();
 
       canvas.toBlob(
         (blob) => {
@@ -297,7 +350,7 @@ export async function cropImage(
           if (blob) resolve(blob);
           else reject(new Error('Failed to crop image'));
         },
-        file.type || 'image/jpeg',
+        targetFormat,
         quality
       );
     };

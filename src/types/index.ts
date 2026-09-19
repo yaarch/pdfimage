@@ -60,7 +60,7 @@ export interface PdfPageItem {
 }
 
 export type ThemeMode = 'light' | 'dark' | 'system';
-export type LanguageCode = 'en' | 'ar' | 'es' | 'fr';
+export type LanguageCode = 'en' | 'ar' | 'es' | 'fr' | 'de';
 
 export interface ArticlePreview {
   slug: string;

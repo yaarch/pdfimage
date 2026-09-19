@@ -144,7 +144,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       <div className="mb-14">{children}</div>
 
       {/* FAQ Section */}
-      {tool.faqs.length > 0 && (
+      {currentToolLoc.faqs && currentToolLoc.faqs.length > 0 && (
         <div className="mb-14 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs">
           <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
             {t.faqs}
@@ -154,7 +154,7 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
           </p>
 
           <div className="space-y-3">
-            {tool.faqs.map((faq, idx) => {
+            {currentToolLoc.faqs.map((faq, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
                 <div

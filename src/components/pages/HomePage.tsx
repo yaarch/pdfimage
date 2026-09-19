@@ -34,6 +34,7 @@ import { DynamicIcon } from '../common/DynamicIcon';
 import { useFavoritesAndRecents } from '../../hooks/useFavoritesAndRecents';
 import { useTranslation } from '../../i18n/context';
 import { getLocalizedTool } from '../../i18n/toolTranslations';
+import { formatLocalizedRoute } from '../../i18n/urlUtils';
 
 interface HomePageProps {
   onNavigate: (route: string) => void;
@@ -321,7 +322,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               return (
                 <div
                   key={tool.id}
-                  onClick={() => onNavigate(tool.route)}
+                  onClick={() => onNavigate(formatLocalizedRoute(tool.route, language, language !== 'en'))}
                   className={`group relative bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 shadow-xs hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                     isImageTool
                       ? 'hover:border-sky-400 dark:hover:border-sky-500'

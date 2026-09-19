@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://pdfimage.pages.dev/ar</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/all-tools</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/all-tools" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/all-tools" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/all-tools" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/all-tools" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/all-tools" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/all-tools" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-tools</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-tools" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-tools" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-tools" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-tools" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-tools" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-tools" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-tools</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-tools" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-tools" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-tools" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-tools" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-tools" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-tools" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/batch-processor</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/batch-processor" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/privacy</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/privacy" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/privacy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/privacy" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/privacy" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/privacy" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/terms</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/terms" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/terms" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/terms" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/terms" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/terms" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/terms" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/about</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/about" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/about" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/about" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/about" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/about" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/blog</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-organizer</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-organizer" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-organizer" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-organizer" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-organizer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-organizer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-organizer" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/merge-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/merge-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/merge-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/merge-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/merge-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/merge-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/merge-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/split-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/split-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/split-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/split-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/split-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/split-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/split-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/compress-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/compress-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/compress-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/compress-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/compress-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/compress-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/compress-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/rotate-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/rotate-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/rotate-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/rotate-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/rotate-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/rotate-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/rotate-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-watermark</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-watermark" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-watermark" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-watermark" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-watermark" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-watermark" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-watermark" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-page-numbers</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-page-numbers" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-page-numbers" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-page-numbers" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-page-numbers" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-page-numbers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-page-numbers" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/images-to-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/images-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/images-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/images-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/images-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/images-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/images-to-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-to-images</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-to-images" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-to-images" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-to-images" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-to-images" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-to-images" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-to-images" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-metadata</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-metadata" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-metadata" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-metadata" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-metadata" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-metadata" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-metadata" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-flatten</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-flatten" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-flatten" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-flatten" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-flatten" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-flatten" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-flatten" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-redact-sanitize</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-redact-sanitize" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-redact-sanitize" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-redact-sanitize" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-redact-sanitize" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-redact-sanitize" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-redact-sanitize" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/text-to-pdf</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/text-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/text-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/text-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/text-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/text-to-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/text-to-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-color-palette</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-color-palette" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-color-palette" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-color-palette" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-color-palette" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-color-palette" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-color-palette" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-compressor</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-compressor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-compressor" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-resizer</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-resizer" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-resizer" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-resizer" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-resizer" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-resizer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-resizer" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-converter</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-converter" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-converter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-converter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-converter" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-converter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-converter" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-crop</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-crop" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-crop" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-crop" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-crop" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-crop" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-crop" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-rotate-flip</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-rotate-flip" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-rotate-flip" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-rotate-flip" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-rotate-flip" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-rotate-flip" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-rotate-flip" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-strip-exif</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-strip-exif" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-strip-exif" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-strip-exif" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-strip-exif" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-strip-exif" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-strip-exif" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-filter</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-filter" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-filter" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-filter" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-filter" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-filter" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-filter" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/batch-processor</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/batch-processor" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/batch-processor" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-extract-text</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-extract-text" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-extract-text" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-extract-text" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-extract-text" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-extract-text" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-extract-text" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/pdf-sign</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-sign" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/pdf-sign" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/pdf-sign" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/pdf-sign" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/pdf-sign" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/pdf-sign" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-watermark</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-watermark" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-watermark" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-watermark" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-watermark" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-watermark" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-watermark" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-base64</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-base64" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-base64" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-base64" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-base64" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-base64" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-base64" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/ar/image-border-round</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-border-round" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/image-border-round" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/image-border-round" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/image-border-round" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-border-round" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-border-round" />
+  </url>
+</urlset>

@@ -15,7 +15,7 @@ export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [language, setLanguageState] = useState<LanguageCode>(() => {
     try {
       const saved = localStorage.getItem('nuvio_lang') as LanguageCode;
-      if (saved && ['en', 'ar', 'es', 'fr'].includes(saved)) {
+      if (saved && ['en', 'ar', 'es', 'fr', 'de'].includes(saved)) {
         return saved;
       }
     } catch {

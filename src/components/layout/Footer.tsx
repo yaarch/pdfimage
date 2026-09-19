@@ -2,13 +2,19 @@ import React from 'react';
 import { ShieldCheck, Zap, Smartphone, UserX, Heart, FileText, Image } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
 import { TOOLS } from '../../data/tools';
+import { formatLocalizedRoute } from '../../i18n/urlUtils';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+
+  const handleNav = (pureRoute: string) => {
+    const targetRoute = formatLocalizedRoute(pureRoute, language, language !== 'en');
+    onNavigate(targetRoute);
+  };
 
   return (
     <footer className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 transition-colors">
@@ -88,32 +94,32 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1 text-xs font-medium text-slate-700 dark:text-slate-300">
               <li>
-                <button onClick={() => onNavigate('/pdf-organizer')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/pdf-organizer')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   PDF Organizer
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/merge-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/merge-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Merge PDF
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/split-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/split-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Split PDF
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/compress-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/compress-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Compress PDF
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/images-to-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/images-to-pdf')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Images to PDF
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/pdf-to-images')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/pdf-to-images')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   PDF to Images
                 </button>
               </li>
@@ -127,32 +133,32 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1 text-xs font-medium text-slate-700 dark:text-slate-300">
               <li>
-                <button onClick={() => onNavigate('/image-compressor')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/image-compressor')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Compress Image
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/image-resizer')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/image-resizer')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Resize Image
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/image-converter')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/image-converter')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Convert Format
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/image-crop')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/image-crop')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Crop Image
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/image-strip-exif')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/image-strip-exif')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Remove Metadata
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/batch-processor')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/batch-processor')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Batch Processor (ZIP)
                 </button>
               </li>
@@ -166,28 +172,33 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1 text-xs font-medium text-slate-700 dark:text-slate-300">
               <li>
-                <button onClick={() => onNavigate('/privacy')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-bold text-emerald-700 dark:text-emerald-400">
+                <button onClick={() => handleNav('/privacy')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-bold text-emerald-700 dark:text-emerald-400">
                   Privacy Architecture
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/blog')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/blog')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Guides & Tutorials
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/about')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/about')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   About PDF Image Studio
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/terms')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/terms')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Terms of Service
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('/all-tools')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                <button onClick={() => handleNav('/all-tools')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   {t.allToolsCatalog} ({TOOLS.length}+)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('/sitemap.xml')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-mono text-[11px] text-slate-500 dark:text-slate-400">
+                  XML Sitemap (Index & 5 Locales)
                 </button>
               </li>
             </ul>

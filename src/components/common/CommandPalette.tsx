@@ -4,6 +4,8 @@ import { TOOLS } from '../../data/tools';
 import { ToolDefinition } from '../../types';
 import { DynamicIcon } from './DynamicIcon';
 import { useTranslation } from '../../i18n/context';
+import { getLocalizedTool } from '../../i18n/toolTranslations';
+import { formatLocalizedRoute } from '../../i18n/urlUtils';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -21,16 +23,20 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   const filteredTools = TOOLS.filter((tool) => {
     const q = query.toLowerCase().trim();
     if (!q) return true;
+    const loc = getLocalizedTool(tool, language);
     return (
       tool.name.toLowerCase().includes(q) ||
+      loc.name.toLowerCase().includes(q) ||
       tool.tagline.toLowerCase().includes(q) ||
+      loc.tagline.toLowerCase().includes(q) ||
       tool.category.toLowerCase().includes(q) ||
-      tool.keywords.some((kw) => kw.toLowerCase().includes(q))
+      tool.keywords.some((kw) => kw.toLowerCase().includes(q)) ||
+      loc.keywords.some((kw) => kw.toLowerCase().includes(q))
     );
   });
 
@@ -60,7 +66,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
   const handleSelect = (tool: ToolDefinition) => {
     const nav = onSelectTool || onNavigate;
-    if (nav) nav(tool.route);
+    if (nav) {
+      const targetRoute = formatLocalizedRoute(tool.route, language, language !== 'en');
+      nav(targetRoute);
+    }
     onClose();
   };
 
@@ -123,55 +132,58 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               No matching tools found for &ldquo;{query}&rdquo;
             </div>
           ) : (
-            filteredTools.map((tool, idx) => (
-              <button
-                key={tool.id}
-                onClick={() => handleSelect(tool)}
-                onMouseEnter={() => setSelectedIndex(idx)}
-                className={`w-full text-left p-3 rounded-xl flex items-center justify-between gap-3 transition-colors ${
-                  selectedIndex === idx
-                    ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-900 dark:text-indigo-100'
-                    : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-9 h-9 rounded-lg flex items-center justify-center ${
-                      tool.category === 'pdf'
-                        ? 'bg-rose-100 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
-                        : tool.category === 'image'
-                        ? 'bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400'
-                        : 'bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
-                    }`}
-                  >
-                    <DynamicIcon name={tool.iconName} className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-slate-900 dark:text-white">
-                        {tool.name}
-                      </span>
-                      {tool.isFlagship && (
-                        <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
-                          FLAGSHIP
-                        </span>
-                      )}
-                      <span className="text-[10px] uppercase font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">
-                        {tool.category}
-                      </span>
+            filteredTools.map((tool, idx) => {
+              const loc = getLocalizedTool(tool, language);
+              return (
+                <button
+                  key={tool.id}
+                  onClick={() => handleSelect(tool)}
+                  onMouseEnter={() => setSelectedIndex(idx)}
+                  className={`w-full text-left rtl:text-right p-3 rounded-xl flex items-center justify-between gap-3 transition-colors ${
+                    selectedIndex === idx
+                      ? 'bg-indigo-50 dark:bg-indigo-950/50 text-indigo-900 dark:text-indigo-100'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
+                        tool.category === 'pdf'
+                          ? 'bg-rose-100 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400'
+                          : tool.category === 'image'
+                          ? 'bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400'
+                          : 'bg-indigo-100 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400'
+                      }`}
+                    >
+                      <DynamicIcon name={tool.iconName} className="w-4 h-4" />
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
-                      {tool.tagline}
-                    </p>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-semibold text-slate-900 dark:text-white">
+                          {loc.name}
+                        </span>
+                        {tool.isFlagship && (
+                          <span className="text-[10px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                            FLAGSHIP
+                          </span>
+                        )}
+                        <span className="text-[10px] uppercase font-mono px-1.5 py-0.2 rounded bg-slate-100 dark:bg-slate-800 text-slate-500">
+                          {tool.category}
+                        </span>
+                      </div>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
+                        {loc.tagline}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-center gap-1.5 text-xs text-slate-400">
-                  <span className="hidden sm:inline text-[11px]">Select</span>
-                  <CornerDownLeft className="w-3.5 h-3.5" />
-                </div>
-              </button>
-            ))
+                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                    <span className="hidden sm:inline text-[11px]">Select</span>
+                    <CornerDownLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+                  </div>
+                </button>
+              );
+            })
           )}
         </div>
 
