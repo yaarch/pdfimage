@@ -43,6 +43,7 @@ const ImageColorPaletteTool = lazy(() => import('./components/tools/ImageColorPa
 const BatchProcessorTool = lazy(() => import('./components/tools/BatchProcessorTool').then(m => ({ default: m.BatchProcessorTool })));
 
 import { TOOLS, getToolByRoute, getToolById } from './data/tools';
+import { STATIC_SEO_PAGES } from './data/seoMetadata';
 import { ToolDefinition } from './types';
 import { useFavoritesAndRecents } from './hooks/useFavoritesAndRecents';
 
@@ -74,49 +75,74 @@ export function NuvioApp() {
     };
   }, []);
 
-  // Update document title, dynamic canonical link, and track recents on route change
+  // Update comprehensive SEO metadata (title, description, canonical, Open Graph, Twitter) on route change
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    const tool = getToolByRoute(currentRoute);
-    if (tool) {
-      document.title = `${tool.name} — PDF Image Studio | Private Browser File Tools`;
-      addRecent(tool.id);
-    } else if (currentRoute.includes('/sitemap.xml')) {
-      document.title = 'XML Sitemap — PDF Image Studio';
-    } else if (currentRoute.includes('/pdf-tools')) {
-      document.title = 'PDF Utilities & Tools — PDF Image Studio';
-    } else if (currentRoute.includes('/image-tools')) {
-      document.title = 'Image Editing & Conversion Tools — PDF Image Studio';
-    } else if (currentRoute.includes('/privacy')) {
-      document.title = 'Privacy Architecture & Guarantee — PDF Image Studio';
-    } else if (currentRoute.includes('/about')) {
-      document.title = 'About PDF Image Studio — Private Browser File Tools';
-    } else if (currentRoute.includes('/terms')) {
-      document.title = 'Terms of Service — PDF Image Studio';
-    } else if (currentRoute.includes('/blog')) {
-      document.title = 'Guides & Tutorials — PDF Image Studio Knowledge Base';
-    } else if (currentRoute.includes('/all-tools')) {
-      document.title = 'All 18+ Browser File Tools — PDF Image Studio';
-    } else {
-      document.title = 'PDF Image Studio — Private Browser File Tools';
-    }
-
-    // Dynamic canonical link update
     try {
       // 1. Determine clean path without query parameters or hash, normalized
       const cleanPathName = (currentRoute.split('?')[0].split('#')[0] || '/')
         .replace(/\/index\.html$/i, '')
         .replace(/\/+$/, '') || '/';
       
-      // Ensure it starts with a '/' if it's not empty, and doesn't end with a '/' unless it's just '/'
       const pathWithSlash = cleanPathName.startsWith('/') ? cleanPathName : `/${cleanPathName}`;
       const normalizedPath = pathWithSlash === '/' ? '' : pathWithSlash;
-
-      // 2. Build official HTTPS clean URL
       const canonicalUrl = `https://pdfimage.pages.dev${normalizedPath}`;
 
-      // 3. Find or create the canonical link tag in the head
+      const tool = getToolByRoute(currentRoute);
+      let pageTitle = 'PDF Image Studio — Private Browser File Tools';
+      let pageDescription = 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, 100% private client-side processing, zero server uploads.';
+
+      if (tool) {
+        pageTitle = tool.seoTitle || `${tool.name} — PDF Image Studio | Private Browser File Tools`;
+        pageDescription = tool.seoDescription || tool.description;
+        addRecent(tool.id);
+      } else if (STATIC_SEO_PAGES[cleanPathName]) {
+        pageTitle = STATIC_SEO_PAGES[cleanPathName].title;
+        pageDescription = STATIC_SEO_PAGES[cleanPathName].description;
+      } else if (cleanPathName.includes('/sitemap.xml')) {
+        pageTitle = 'XML Sitemap — PDF Image Studio';
+        pageDescription = 'XML sitemap for PDF Image Studio directory.';
+      } else if (cleanPathName.includes('/pdf-tools')) {
+        pageTitle = 'PDF Utilities & Tools — PDF Image Studio';
+        pageDescription = 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. 100% private and secure in your browser.';
+      } else if (cleanPathName.includes('/image-tools')) {
+        pageTitle = 'Image Editing & Conversion Tools — PDF Image Studio';
+        pageDescription = 'Free online image editing tools to compress, resize, crop, convert, and filter photos privately in your browser.';
+      } else if (cleanPathName.includes('/blog')) {
+        pageTitle = 'Guides & Tutorials — PDF Image Studio Knowledge Base';
+        pageDescription = 'Read expert guides and tutorials on how to manage, compress, and edit PDF documents and images securely in your web browser.';
+      }
+
+      // Update document title
+      document.title = pageTitle;
+
+      // Helper to set or create meta tag
+      const setMetaTag = (attrName: string, attrValue: string, content: string) => {
+        let meta = document.querySelector(`meta[${attrName}="${attrValue}"]`) as HTMLMetaElement | null;
+        if (!meta) {
+          meta = document.createElement('meta');
+          meta.setAttribute(attrName, attrValue);
+          document.head.appendChild(meta);
+        }
+        meta.setAttribute('content', content);
+      };
+
+      // Update meta description
+      setMetaTag('name', 'description', pageDescription);
+
+      // Update Open Graph tags
+      setMetaTag('property', 'og:title', pageTitle);
+      setMetaTag('property', 'og:description', pageDescription);
+      setMetaTag('property', 'og:url', canonicalUrl);
+      setMetaTag('property', 'og:type', 'website');
+
+      // Update Twitter tags
+      setMetaTag('name', 'twitter:title', pageTitle);
+      setMetaTag('name', 'twitter:description', pageDescription);
+      setMetaTag('name', 'twitter:card', 'summary_large_image');
+
+      // Update canonical link
       let linkElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
       if (!linkElement) {
         linkElement = document.createElement('link');
@@ -126,7 +152,7 @@ export function NuvioApp() {
       
       linkElement.setAttribute('href', canonicalUrl);
     } catch (error) {
-      console.error('Error updating canonical URL:', error);
+      console.error('Error updating SEO metadata:', error);
     }
   }, [currentRoute, addRecent]);
 
