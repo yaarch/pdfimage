@@ -12,8 +12,8 @@ export const STATIC_SEO_PAGES: Record<string, SeoPageMetadata> = {
   },
   '/all-tools': {
     route: '/all-tools',
-    title: 'All 18+ Browser File Tools — PDF Image Studio',
-    description: 'Explore our complete suite of 100% private, client-side PDF and image tools. Compress, convert, organize, and edit files right in your browser.',
+    title: 'All Browser File Tools Catalog — PDF Image Studio',
+    description: 'Explore our complete suite of 100% private, client-side PDF and image tools. Compress, convert, organize, sign, extract, and edit files right in your browser.',
   },
   '/batch-processor': {
     route: '/batch-processor',

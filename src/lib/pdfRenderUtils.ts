@@ -73,3 +73,88 @@ export async function renderRealPdfPageToCanvas(
   }
 }
 
+export interface ExtractedPageText {
+  pageNumber: number;
+  text: string;
+  wordCount: number;
+}
+
+/**
+ * Extracts raw and structured text from all pages of a PDF file using Mozilla PDF.js
+ */
+export async function extractTextFromPdfPages(
+  file: File | ArrayBuffer | Uint8Array,
+  onProgress?: (progressPercent: number, currentPage: number, totalPages: number) => void
+): Promise<{
+  pages: ExtractedPageText[];
+  fullText: string;
+  totalWords: number;
+  totalPages: number;
+}> {
+  let bytes: Uint8Array;
+  if (file instanceof File) {
+    const ab = await file.arrayBuffer();
+    bytes = new Uint8Array(ab);
+  } else if (file instanceof ArrayBuffer) {
+    bytes = new Uint8Array(file);
+  } else {
+    bytes = file;
+  }
+
+  const loadingTask = pdfjsLib.getDocument({
+    data: bytes,
+    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
+    cMapPacked: true,
+  });
+
+  const pdfDoc = await loadingTask.promise;
+  const totalPages = pdfDoc.numPages;
+  const pages: ExtractedPageText[] = [];
+  let fullText = '';
+  let totalWords = 0;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const page = await pdfDoc.getPage(i);
+    const textContent = await page.getTextContent();
+    
+    // Group text items by line roughly based on transform Y coordinate
+    const items = textContent.items as Array<{ str: string; hasEOL?: boolean }>;
+    const pageStrings: string[] = [];
+    
+    for (const item of items) {
+      if (item.str) {
+        pageStrings.push(item.str);
+        if (item.hasEOL) {
+          pageStrings.push('\n');
+        } else {
+          pageStrings.push(' ');
+        }
+      }
+    }
+
+    const rawPageText = pageStrings.join('').replace(/[ ]+/g, ' ').replace(/\n +/g, '\n').trim();
+    const words = rawPageText ? rawPageText.split(/\s+/).filter(Boolean).length : 0;
+
+    pages.push({
+      pageNumber: i,
+      text: rawPageText,
+      wordCount: words,
+    });
+
+    fullText += (fullText ? '\n\n--- Page ' + i + ' ---\n\n' : '') + rawPageText;
+    totalWords += words;
+
+    if (onProgress) {
+      onProgress(Math.round((i / totalPages) * 100), i, totalPages);
+    }
+  }
+
+  return {
+    pages,
+    fullText,
+    totalWords,
+    totalPages,
+  };
+}
+
+

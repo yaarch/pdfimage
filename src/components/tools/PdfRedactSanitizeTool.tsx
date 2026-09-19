@@ -109,8 +109,8 @@ export function PdfRedactSanitizeTool({ initialFiles = [] }: PdfRedactSanitizeTo
         pdfDoc.setAuthor('');
         pdfDoc.setSubject('');
         pdfDoc.setKeywords([]);
-        pdfDoc.setProducer('NUVIO Private Redactor');
-        pdfDoc.setCreator('NUVIO Privacy Engine');
+        pdfDoc.setProducer('PDF Image Studio Private Redactor');
+        pdfDoc.setCreator('PDF Image Studio Privacy Engine');
       }
 
       const pages = pdfDoc.getPages();

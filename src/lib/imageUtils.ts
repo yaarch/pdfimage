@@ -372,3 +372,315 @@ export async function stripImageMetadata(file: File): Promise<Blob> {
   // Re-encoding image pixels through HTML5 canvas strips EXIF, IPTC, GPS, and XMP metadata entirely
   return convertImage(file, (file.type as any) || 'image/jpeg', 0.95);
 }
+
+export interface ImageWatermarkOptions {
+  type: 'text' | 'image';
+  text?: string;
+  textColor?: string;
+  fontSize?: number; // relative pt or px
+  opacity?: number; // 0.1 to 1
+  rotation?: number; // -180 to 180 degrees
+  position?: 'center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'tile';
+  logoFile?: File;
+  logoScalePercent?: number; // 10 to 80
+}
+
+export async function applyImageWatermark(
+  file: File,
+  options: ImageWatermarkOptions
+): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    const mainImg = new Image();
+    const mainUrl = URL.createObjectURL(file);
+
+    mainImg.onload = async () => {
+      URL.revokeObjectURL(mainUrl);
+      const width = mainImg.naturalWidth;
+      const height = mainImg.naturalHeight;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return reject(new Error('Canvas 2D context unavailable'));
+
+      // Draw base image
+      ctx.drawImage(mainImg, 0, 0, width, height);
+
+      const opacity = options.opacity ?? 0.5;
+      const rotationRad = ((options.rotation ?? -30) * Math.PI) / 180;
+      const pos = options.position ?? 'center';
+
+      if (options.type === 'text') {
+        const text = options.text || 'CONFIDENTIAL';
+        const fontSize = options.fontSize || Math.max(20, Math.round(width / 18));
+        const color = options.textColor || '#ffffff';
+
+        ctx.save();
+        ctx.globalAlpha = opacity;
+        ctx.fillStyle = color;
+        ctx.font = `bold ${fontSize}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        if (pos === 'tile') {
+          const stepX = Math.max(150, Math.round(width / 4));
+          const stepY = Math.max(100, Math.round(height / 4));
+          for (let x = -width; x < width * 2; x += stepX) {
+            for (let y = -height; y < height * 2; y += stepY) {
+              ctx.save();
+              ctx.translate(x, y);
+              ctx.rotate(rotationRad);
+              ctx.fillText(text, 0, 0);
+              ctx.restore();
+            }
+          }
+        } else {
+          let posX = width / 2;
+          let posY = height / 2;
+
+          if (pos === 'top-left') {
+            posX = width * 0.2;
+            posY = height * 0.15;
+          } else if (pos === 'top-right') {
+            posX = width * 0.8;
+            posY = height * 0.15;
+          } else if (pos === 'bottom-left') {
+            posX = width * 0.2;
+            posY = height * 0.85;
+          } else if (pos === 'bottom-right') {
+            posX = width * 0.8;
+            posY = height * 0.85;
+          }
+
+          ctx.translate(posX, posY);
+          ctx.rotate(rotationRad);
+          ctx.fillText(text, 0, 0);
+        }
+        ctx.restore();
+
+        canvas.toBlob((blob) => {
+          if (blob) resolve(blob);
+          else reject(new Error('Failed to watermark image'));
+        }, file.type || 'image/jpeg', 0.95);
+
+      } else if (options.type === 'image' && options.logoFile) {
+        const logoImg = new Image();
+        const logoUrl = URL.createObjectURL(options.logoFile);
+        logoImg.onload = () => {
+          URL.revokeObjectURL(logoUrl);
+          ctx.save();
+          ctx.globalAlpha = opacity;
+
+          const scalePercent = (options.logoScalePercent ?? 25) / 100;
+          const logoTargetWidth = width * scalePercent;
+          const logoTargetHeight = (logoTargetWidth / logoImg.naturalWidth) * logoImg.naturalHeight;
+
+          let posX = (width - logoTargetWidth) / 2;
+          let posY = (height - logoTargetHeight) / 2;
+
+          if (pos === 'top-left') {
+            posX = width * 0.05;
+            posY = height * 0.05;
+          } else if (pos === 'top-right') {
+            posX = width - logoTargetWidth - width * 0.05;
+            posY = height * 0.05;
+          } else if (pos === 'bottom-left') {
+            posX = width * 0.05;
+            posY = height - logoTargetHeight - height * 0.05;
+          } else if (pos === 'bottom-right') {
+            posX = width - logoTargetWidth - width * 0.05;
+            posY = height - logoTargetHeight - height * 0.05;
+          }
+
+          ctx.drawImage(logoImg, posX, posY, logoTargetWidth, logoTargetHeight);
+          ctx.restore();
+
+          canvas.toBlob((blob) => {
+            if (blob) resolve(blob);
+            else reject(new Error('Failed to stamp watermark logo'));
+          }, file.type || 'image/jpeg', 0.95);
+        };
+        logoImg.onerror = () => {
+          URL.revokeObjectURL(logoUrl);
+          reject(new Error('Failed to load logo watermark file'));
+        };
+        logoImg.src = logoUrl;
+      } else {
+        canvas.toBlob((blob) => {
+          if (blob) resolve(blob);
+          else reject(new Error('Failed to process image'));
+        }, file.type || 'image/jpeg', 0.95);
+      }
+    };
+
+    mainImg.onerror = () => {
+      URL.revokeObjectURL(mainUrl);
+      reject(new Error('Failed to load main image'));
+    };
+    mainImg.src = mainUrl;
+  });
+}
+
+export interface ImageBorderRoundOptions {
+  borderWidth: number; // 0 to 50
+  borderColor: string;
+  cornerRadius: number; // 0 to 500 (or 50% for circle)
+  isCircle: boolean;
+  padding: number; // 0 to 100
+  backgroundColor: string;
+  shadowBlur: number; // 0 to 50
+  shadowColor: string;
+}
+
+export async function applyImageBorderAndCorners(
+  file: File,
+  options: ImageBorderRoundOptions
+): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      const origW = img.naturalWidth;
+      const origH = img.naturalHeight;
+
+      const pad = options.padding || 0;
+      const border = options.borderWidth || 0;
+      const totalExtra = (pad + border) * 2;
+
+      let targetW = origW;
+      let targetH = origH;
+
+      if (options.isCircle) {
+        const minDim = Math.min(origW, origH);
+        targetW = minDim;
+        targetH = minDim;
+      }
+
+      const canvas = document.createElement('canvas');
+      canvas.width = targetW + totalExtra;
+      canvas.height = targetH + totalExtra;
+
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return reject(new Error('Canvas 2D context unavailable'));
+
+      // If background color is set, fill whole canvas
+      if (options.backgroundColor && options.backgroundColor !== 'transparent') {
+        ctx.fillStyle = options.backgroundColor;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      const imgX = pad + border;
+      const imgY = pad + border;
+
+      ctx.save();
+
+      // Rounded path or circle path
+      ctx.beginPath();
+      if (options.isCircle) {
+        const centerX = imgX + targetW / 2;
+        const centerY = imgY + targetH / 2;
+        const radius = targetW / 2;
+        ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      } else if (options.cornerRadius > 0) {
+        const r = Math.min(options.cornerRadius, targetW / 2, targetH / 2);
+        ctx.moveTo(imgX + r, imgY);
+        ctx.lineTo(imgX + targetW - r, imgY);
+        ctx.quadraticCurveTo(imgX + targetW, imgY, imgX + targetW, imgY + r);
+        ctx.lineTo(imgX + targetW, imgY + targetH - r);
+        ctx.quadraticCurveTo(imgX + targetW, imgY + targetH, imgX + targetW - r, imgY + targetH);
+        ctx.lineTo(imgX + r, imgY + targetH);
+        ctx.quadraticCurveTo(imgX, imgY + targetH, imgX, imgY + targetH - r);
+        ctx.lineTo(imgX, imgY + r);
+        ctx.quadraticCurveTo(imgX, imgY, imgX + r, imgY);
+      } else {
+        ctx.rect(imgX, imgY, targetW, targetH);
+      }
+      ctx.closePath();
+
+      // Clip image to rounded / circular bounds
+      ctx.clip();
+
+      if (options.isCircle) {
+        const srcX = (origW - targetW) / 2;
+        const srcY = (origH - targetH) / 2;
+        ctx.drawImage(img, srcX, srcY, targetW, targetH, imgX, imgY, targetW, targetH);
+      } else {
+        ctx.drawImage(img, imgX, imgY, targetW, targetH);
+      }
+      ctx.restore();
+
+      // Draw border on top if requested
+      if (border > 0) {
+        ctx.save();
+        ctx.lineWidth = border;
+        ctx.strokeStyle = options.borderColor || '#000000';
+        ctx.beginPath();
+        if (options.isCircle) {
+          const centerX = imgX + targetW / 2;
+          const centerY = imgY + targetH / 2;
+          const radius = targetW / 2;
+          ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+        } else if (options.cornerRadius > 0) {
+          const r = Math.min(options.cornerRadius, targetW / 2, targetH / 2);
+          ctx.moveTo(imgX + r, imgY);
+          ctx.lineTo(imgX + targetW - r, imgY);
+          ctx.quadraticCurveTo(imgX + targetW, imgY, imgX + targetW, imgY + r);
+          ctx.lineTo(imgX + targetW, imgY + targetH - r);
+          ctx.quadraticCurveTo(imgX + targetW, imgY + targetH, imgX + targetW - r, imgY + targetH);
+          ctx.lineTo(imgX + r, imgY + targetH);
+          ctx.quadraticCurveTo(imgX, imgY + targetH, imgX, imgY + targetH - r);
+          ctx.lineTo(imgX, imgY + r);
+          ctx.quadraticCurveTo(imgX, imgY, imgX + r, imgY);
+        } else {
+          ctx.rect(imgX, imgY, targetW, targetH);
+        }
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      canvas.toBlob((blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error('Failed to frame image'));
+      }, 'image/png');
+    };
+
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('Failed to load image for framing'));
+    };
+    img.src = url;
+  });
+}
+
+export async function convertFileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = () => reject(new Error('Failed to read file as Base64'));
+    reader.readAsDataURL(file);
+  });
+}
+
+export function decodeBase64ToBlob(base64String: string): { blob: Blob; mimeType: string } {
+  let cleanBase64 = base64String.trim();
+  let mimeType = 'image/png';
+
+  const matches = cleanBase64.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
+  if (matches && matches.length === 3) {
+    mimeType = matches[1];
+    cleanBase64 = matches[2];
+  }
+
+  const binaryString = atob(cleanBase64);
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+
+  const blob = new Blob([bytes], { type: mimeType });
+  return { blob, mimeType };
+}
+

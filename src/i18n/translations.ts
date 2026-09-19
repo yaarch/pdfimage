@@ -99,6 +99,11 @@ export interface Translations {
   selectedPdf: string;
   changeFile: string;
   selectCompressionProfile: string;
+  allToolsCatalog: string;
+  confidentialityGuarantee: string;
+  confidentialityTitle: string;
+  confidentialityDesc: string;
+  readPrivacyWhitepaper: string;
 }
 
 export const translations: Record<LanguageCode, Translations> = {
@@ -201,6 +206,11 @@ export const translations: Record<LanguageCode, Translations> = {
     selectedPdf: 'Selected PDF',
     changeFile: 'Change File',
     selectCompressionProfile: 'Select Compression Profile',
+    allToolsCatalog: 'All Tools Catalog',
+    confidentialityGuarantee: 'Confidentiality Guarantee',
+    confidentialityTitle: 'Why Legal, Medical & Financial Teams Trust PDF Image Studio',
+    confidentialityDesc: 'When processing NDAs, invoices, medical records, or proprietary blueprints, conventional converter services introduce liability by transferring data to third-party servers. PDF Image Studio’s code executes exclusively within the client sandbox—your data never leaves your computer.',
+    readPrivacyWhitepaper: 'Read our complete Privacy Architecture Whitepaper',
   },
   ar: {
     tagline: 'ملفاتك. بطريقتك.',
@@ -301,6 +311,11 @@ export const translations: Record<LanguageCode, Translations> = {
     selectedPdf: 'ملف PDF المحدد',
     changeFile: 'تغيير الملف',
     selectCompressionProfile: 'اختر مستوى الضغط',
+    allToolsCatalog: 'دليل جميع الأدوات',
+    confidentialityGuarantee: 'ضمان السرية والخصوصية المطلقة',
+    confidentialityTitle: 'لماذا تثق الفرق القانونية والطبية والمالية بـ PDF Image Studio',
+    confidentialityDesc: 'عند التعامل مع اتفاقيات عدم الإفصاح، الفواتير، السجلات الطبية، أو المخططات السرية، تشكل المحولات السحابية التقليدية خطراً أمنياً بنقل بياناتك إلى خوادم خارجية. يعمل PDF Image Studio بالكامل داخل بيئة متصفحك المعزولة—بياناتك لا تغادر جهازك إطلاقاً.',
+    readPrivacyWhitepaper: 'اقرأ وثيقة معمارية الخصوصية والأمان الكاملة',
   },
   es: {
     tagline: 'Tus archivos. A tu manera.',
@@ -316,10 +331,10 @@ export const translations: Record<LanguageCode, Translations> = {
     pdfTools: 'Herramientas PDF',
     imageTools: 'Herramientas de imagen',
     allTools: 'Todas las herramientas',
-    whyNuvio: '¿Por qué NUVIO?',
+    whyNuvio: '¿Por qué PDF Image Studio?',
     howItWorks: 'Cómo funciona',
     privacyTitle: 'Privacidad por arquitectura, no solo promesa',
-    privacyDesc: 'La mayoría de servicios suben tus contratos y fotos a la nube. NUVIO procesa todo directamente en tu dispositivo.',
+    privacyDesc: 'La mayoría de servicios suben tus contratos y fotos a la nube. PDF Image Studio procesa todo directamente en tu dispositivo.',
     faqTitle: 'Preguntas frecuentes',
     faqSubtitle: 'Todo lo que necesitas saber sobre nuestra arquitectura privada.',
     recentTools: 'Usado recientemente',
@@ -352,7 +367,7 @@ export const translations: Record<LanguageCode, Translations> = {
     systemMode: 'Sistema',
     proNotice: 'Diseñado para máxima velocidad y privacidad absoluta.',
     terms: 'Términos de uso',
-    about: 'Acerca de NUVIO',
+    about: 'Acerca de PDF Image Studio',
     contact: 'Contacto',
     blog: 'Guías y artículos',
     readyToStart: '¿Listo para optimizar tus archivos?',
@@ -401,6 +416,11 @@ export const translations: Record<LanguageCode, Translations> = {
     selectedPdf: 'PDF Seleccionado',
     changeFile: 'Cambiar Archivo',
     selectCompressionProfile: 'Selecciona el nivel de compresión',
+    allToolsCatalog: 'Catálogo de Todas las Herramientas',
+    confidentialityGuarantee: 'Garantía de Confidencialidad',
+    confidentialityTitle: 'Por qué equipos legales, médicos y financieros confían en PDF Image Studio',
+    confidentialityDesc: 'Al procesar acuerdos de confidencialidad, facturas, historiales médicos o planos confidenciales, los convertidores convencionales generan riesgos al transferir datos a servidores externos. PDF Image Studio se ejecuta exclusivamente en el navegador—tus datos nunca salen de tu ordenador.',
+    readPrivacyWhitepaper: 'Lee nuestro informe completo de arquitectura de privacidad',
   },
   fr: {
     tagline: 'Vos fichiers. À votre façon.',
@@ -416,10 +436,10 @@ export const translations: Record<LanguageCode, Translations> = {
     pdfTools: 'Boîte à outils PDF',
     imageTools: 'Outils d’image',
     allTools: 'Tous les outils',
-    whyNuvio: 'Pourquoi NUVIO ?',
+    whyNuvio: 'Pourquoi PDF Image Studio ?',
     howItWorks: 'Comment ça marche',
     privacyTitle: 'La confidentialité par conception',
-    privacyDesc: 'Les outils classiques envoient vos documents vers des serveurs distants. NUVIO traite tout directement sur votre machine.',
+    privacyDesc: 'Les outils classiques envoient vos documents vers des serveurs distants. PDF Image Studio traite tout directement sur votre machine.',
     faqTitle: 'Foire aux questions',
     faqSubtitle: 'Tout ce que vous devez savoir sur notre architecture sécurisée.',
     recentTools: 'Récemment utilisés',
@@ -452,7 +472,7 @@ export const translations: Record<LanguageCode, Translations> = {
     systemMode: 'Système',
     proNotice: 'Conçu pour une vitesse instantanée et une confidentialité totale.',
     terms: 'Conditions d’utilisation',
-    about: 'À propos de NUVIO',
+    about: 'À propos de PDF Image Studio',
     contact: 'Contact',
     blog: 'Guides et articles',
     readyToStart: 'Prêt à optimiser vos fichiers en toute sécurité ?',
@@ -501,5 +521,10 @@ export const translations: Record<LanguageCode, Translations> = {
     selectedPdf: 'PDF Sélectionné',
     changeFile: 'Changer de fichier',
     selectCompressionProfile: 'Sélectionnez le niveau de compression',
+    allToolsCatalog: 'Catalogue de Tous les Outils',
+    confidentialityGuarantee: 'Garantie de Confidentialité',
+    confidentialityTitle: 'Pourquoi les équipes juridiques, médicales et financières font confiance à PDF Image Studio',
+    confidentialityDesc: 'Lors du traitement d’accords de confidentialité, factures, dossiers médicaux ou plans confidentiels, les services classiques créent des risques en transférant vos données. PDF Image Studio s’exécute exclusivement dans votre navigateur—vos données ne quittent jamais votre machine.',
+    readPrivacyWhitepaper: 'Lire notre livre blanc complet sur l’architecture de confidentialité',
   },
 };

@@ -47,14 +47,14 @@ export const PWAInstallButton: React.FC = () => {
                   <Smartphone className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold">Install NUVIO on iOS</h3>
+                  <h3 className="text-base font-bold">Install PDF Image Studio on iOS</h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400">Add to your iPhone / iPad Home Screen</p>
                 </div>
               </div>
               <ol className="mt-3 space-y-2 text-xs text-slate-600 dark:text-slate-300 list-decimal list-inside bg-slate-50 dark:bg-slate-800/60 p-3.5 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
                 <li className="leading-relaxed">Tap the <span className="font-semibold text-indigo-600 dark:text-indigo-400">Share</span> icon in Safari toolbar.</li>
                 <li className="leading-relaxed">Scroll down and tap <span className="font-semibold text-indigo-600 dark:text-indigo-400">Add to Home Screen</span>.</li>
-                <li className="leading-relaxed">Launch NUVIO from your home screen for fast, offline-ready utility access!</li>
+                <li className="leading-relaxed">Launch PDF Image Studio from your home screen for fast, offline-ready utility access!</li>
               </ol>
               <button
                 onClick={() => setShowIOSGuide(false)}

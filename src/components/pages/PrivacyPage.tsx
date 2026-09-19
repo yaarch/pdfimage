@@ -71,7 +71,7 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
             Offline Capable PWA
           </h3>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Once loaded, NUVIO can function completely disconnected from the Internet. You can turn off your Wi-Fi or airplane mode and continue organizing PDFs and converting photos uninterrupted.
+            Once loaded, PDF Image Studio can function completely disconnected from the Internet. You can turn off your Wi-Fi or airplane mode and continue organizing PDFs and converting photos uninterrupted.
           </p>
         </div>
       </div>
@@ -82,14 +82,14 @@ export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
           Ideal for Legal, Healthcare, Financial & Confidential Documents
         </h3>
         <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-          Under regulations like GDPR, HIPAA, FERPA, and CCPA, uploading proprietary or patient data to third-party file conversion servers can constitute a serious data breach or compliance violation. Because NUVIO never transmits data outside your client workstation, it satisfies the strictest corporate data residency policies without requiring specialized enterprise agreements.
+          Under regulations like GDPR, HIPAA, FERPA, and CCPA, uploading proprietary or patient data to third-party file conversion servers can constitute a serious data breach or compliance violation. Because PDF Image Studio never transmits data outside your client workstation, it satisfies the strictest corporate data residency policies without requiring specialized enterprise agreements.
         </p>
         <div className="pt-2">
           <button
             onClick={() => onNavigate('/')}
             className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm transition"
           >
-            Start Using NUVIO Now
+            Start Using PDF Image Studio
           </button>
         </div>
       </div>

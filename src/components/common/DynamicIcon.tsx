@@ -19,6 +19,9 @@ import {
   Boxes,
   FileText,
   Sparkles,
+  PenTool,
+  Code,
+  Maximize2,
   LucideProps,
 } from 'lucide-react';
 
@@ -46,6 +49,9 @@ const iconMap: Record<string, React.ComponentType<LucideProps>> = {
   Boxes,
   FileText,
   Sparkles,
+  PenTool,
+  Code,
+  Maximize2,
 };
 
 export const DynamicIcon: React.FC<DynamicIconProps> = ({ name, ...props }) => {

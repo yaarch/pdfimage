@@ -66,6 +66,11 @@ const toolTranslationsMap: Record<string, Record<Exclude<LanguageCode, 'en'>, Lo
     es: { name: 'Redactar y Limpiar PDF', tagline: 'Elimina texto confidencial y metadatos ocultos' },
     fr: { name: 'Caviarder et Assainir PDF', tagline: 'Masquez les données sensibles de vos PDF' },
   },
+  'text-to-pdf': {
+    ar: { name: 'تحويل النص إلى PDF', tagline: 'تحويل النصوص والمسودات إلى مستند PDF منسق' },
+    es: { name: 'Texto a PDF', tagline: 'Convierte texto plano o notas a documentos PDF' },
+    fr: { name: 'Texte en PDF', tagline: 'Convertissez du texte brut en documents PDF' },
+  },
   'image-compressor': {
     ar: { name: 'ضغط الصور', tagline: 'تقليل حجم JPG، PNG، و WebP حتى 80%' },
     es: { name: 'Comprimir Imagen', tagline: 'Reduce JPG, PNG y WebP hasta un 80%' },
@@ -86,6 +91,21 @@ const toolTranslationsMap: Record<string, Record<Exclude<LanguageCode, 'en'>, Lo
     es: { name: 'Recortar Imagen', tagline: 'Recorta fotos con proporciones cuadradas o libres' },
     fr: { name: 'Régler le Cadrage / Rogner', tagline: 'Roguez vos photos avec des ratios prédéfinis' },
   },
+  'image-rotate-flip': {
+    ar: { name: 'تدوير وقلب الصور', tagline: 'تدوير بزوايا مخصصة وقلب أفقي وعمودي' },
+    es: { name: 'Rotar y Voltear Imagen', tagline: 'Gira y voltea fotos horizontal o verticalmente' },
+    fr: { name: 'Faire Pivoter et Retourner', tagline: 'Pivotez et retournez vos images librement' },
+  },
+  'image-filter': {
+    ar: { name: 'فلاتر وتأثيرات الصور', tagline: 'تطبيق فلاتر وتعديل السطوع والتباين والتشبع' },
+    es: { name: 'Filtros y Efectos de Imagen', tagline: 'Ajusta brillo, contraste, saturación y filtros' },
+    fr: { name: 'Filtres et Effets d’Image', tagline: 'Ajustez luminosité, contraste et effets visuels' },
+  },
+  'image-color-palette': {
+    ar: { name: 'استخراج لوحة ألوان الصور', tagline: 'استخراج الألوان الأساسية ورموز HEX بدقة' },
+    es: { name: 'Extractor de Paleta de Colores', tagline: 'Extrae colores dominantes y códigos HEX' },
+    fr: { name: 'Palette de Couleurs d’Image', tagline: 'Extrayez les couleurs dominantes et codes HEX' },
+  },
   'image-strip-exif': {
     ar: { name: 'إزالة بيانات EXIF', tagline: 'حذف بيانات الكاميرا والموقع الجغرافي من الصور' },
     es: { name: 'Eliminar Metadatos EXIF', tagline: 'Elimina datos de cámara y ubicación de fotos' },
@@ -95,6 +115,31 @@ const toolTranslationsMap: Record<string, Record<Exclude<LanguageCode, 'en'>, Lo
     ar: { name: 'معالجة الدفعات (ZIP)', tagline: 'معالجة وضغط عشرات الملفات وتنزيلها كملف ZIP' },
     es: { name: 'Procesador por Lotes (ZIP)', tagline: 'Procesa múltiples archivos y descarga en ZIP' },
     fr: { name: 'Traitement par Lot (ZIP)', tagline: 'Traitez plusieurs fichiers et téléchargez en ZIP' },
+  },
+  'pdf-extract-text': {
+    ar: { name: 'استخراج النصوص من PDF', tagline: 'استخراج الكلمات والفقرات وتصديرها بصيغة TXT أو JSON' },
+    es: { name: 'Extraer Texto de PDF', tagline: 'Extrae texto y palabras con exportación a TXT o JSON' },
+    fr: { name: 'Extraire le Texte du PDF', tagline: 'Extrayez le texte et les mots au format TXT ou JSON' },
+  },
+  'pdf-sign': {
+    ar: { name: 'توقيع مستند PDF', tagline: 'رسم أو كتابة أو رفع التوقيع ووضعه على صفحات المستند' },
+    es: { name: 'Firmar Documento PDF', tagline: 'Dibuja, escribe o sube tu firma electrónica al PDF' },
+    fr: { name: 'Signer un Document PDF', tagline: 'Dessinez, écrivez ou importez votre signature sur PDF' },
+  },
+  'image-watermark': {
+    ar: { name: 'إضافة علامة مائية للصور', tagline: 'إضافة نصوص وشعارات لحماية الصور مع التحكم بالشفافية والتدوير' },
+    es: { name: 'Marca de Agua para Imágenes', tagline: 'Añade textos o logos a tus fotos con control de opacidad' },
+    fr: { name: 'Filigrane sur Image', tagline: 'Ajoutez du texte ou un logo avec contrôle d’opacité' },
+  },
+  'image-base64': {
+    ar: { name: 'تحويل الصور إلى Base64', tagline: 'تحويل الصور إلى Data URI وCSS وHTML أو فك تشفيرها' },
+    es: { name: 'Conversor Imagen a Base64', tagline: 'Convierte imágenes a Data URI, CSS, HTML o decodifica' },
+    fr: { name: 'Convertisseur Image vers Base64', tagline: 'Encodez en Data URI, CSS, HTML ou décodez en image' },
+  },
+  'image-border-round': {
+    ar: { name: 'إطارات وتدوير حواف الصور', tagline: 'إضافة إطارات ملونة وتدوير الحواف وإنشاء صور رمزية دائرية' },
+    es: { name: 'Bordes y Esquinas Redondeadas', tagline: 'Añade marcos, bordes y crea avatares circulares' },
+    fr: { name: 'Bordures et Coins Arrondis', tagline: 'Ajoutez des cadres et créez des avatars circulaires' },
   },
 };
 

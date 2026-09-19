@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Zap, Smartphone, UserX, Heart, FileText, Image } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
+import { TOOLS } from '../../data/tools';
 
 interface FooterProps {
   onNavigate: (route: string) => void;
@@ -186,7 +187,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button onClick={() => onNavigate('/all-tools')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                  All 18+ Tools Catalog
+                  {t.allToolsCatalog} ({TOOLS.length}+)
                 </button>
               </li>
             </ul>

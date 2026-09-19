@@ -28,6 +28,8 @@ const PdfRedactSanitizeTool = lazy(() => import('./components/tools/PdfRedactSan
 const TextToPdfTool = lazy(() => import('./components/tools/TextToPdfTool').then(m => ({ default: m.TextToPdfTool })));
 const ImagesToPdfTool = lazy(() => import('./components/tools/ImagesToPdfTool').then(m => ({ default: m.ImagesToPdfTool })));
 const PdfToImagesTool = lazy(() => import('./components/tools/PdfToImagesTool').then(m => ({ default: m.PdfToImagesTool })));
+const PdfExtractTextTool = lazy(() => import('./components/tools/PdfExtractTextTool').then(m => ({ default: m.PdfExtractTextTool })));
+const PdfSignTool = lazy(() => import('./components/tools/PdfSignTool').then(m => ({ default: m.PdfSignTool })));
 
 // Lazy loaded Image Tools
 const ImageCompressTool = lazy(() => import('./components/tools/ImageCompressTool').then(m => ({ default: m.ImageCompressTool })));
@@ -38,6 +40,9 @@ const ImageRotateFlipTool = lazy(() => import('./components/tools/ImageRotateFli
 const ImageExifTool = lazy(() => import('./components/tools/ImageExifTool').then(m => ({ default: m.ImageExifTool })));
 const ImageFilterTool = lazy(() => import('./components/tools/ImageFilterTool').then(m => ({ default: m.ImageFilterTool })));
 const ImageColorPaletteTool = lazy(() => import('./components/tools/ImageColorPaletteTool').then(m => ({ default: m.ImageColorPaletteTool })));
+const ImageWatermarkTool = lazy(() => import('./components/tools/ImageWatermarkTool').then(m => ({ default: m.ImageWatermarkTool })));
+const ImageBase64Tool = lazy(() => import('./components/tools/ImageBase64Tool').then(m => ({ default: m.ImageBase64Tool })));
+const ImageBorderRoundTool = lazy(() => import('./components/tools/ImageBorderRoundTool').then(m => ({ default: m.ImageBorderRoundTool })));
 
 // Lazy loaded Batch Tool
 const BatchProcessorTool = lazy(() => import('./components/tools/BatchProcessorTool').then(m => ({ default: m.BatchProcessorTool })));
@@ -348,6 +353,16 @@ export function NuvioApp() {
             return <ImageFilterTool initialFiles={preloadedFiles} />;
           case 'image-color-palette':
             return <ImageColorPaletteTool />;
+          case 'image-watermark':
+            return <ImageWatermarkTool initialFiles={preloadedFiles} />;
+          case 'image-base64':
+            return <ImageBase64Tool initialFiles={preloadedFiles} />;
+          case 'image-border-round':
+            return <ImageBorderRoundTool initialFiles={preloadedFiles} />;
+          case 'pdf-extract-text':
+            return <PdfExtractTextTool initialFiles={preloadedFiles} />;
+          case 'pdf-sign':
+            return <PdfSignTool initialFiles={preloadedFiles} />;
           case 'batch-processor':
             return <BatchProcessorTool />;
           default:

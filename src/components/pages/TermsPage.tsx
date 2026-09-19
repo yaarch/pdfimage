@@ -22,7 +22,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate }) => {
             1. Client-Side Service Architecture
           </h2>
           <p>
-            NUVIO provides client-side file manipulation software that runs locally on your device. By accessing or using NUVIO, you acknowledge that all file reading, processing, and rendering occur entirely within your browser environment.
+            PDF Image Studio provides client-side file manipulation software that runs locally on your device. By accessing or using PDF Image Studio, you acknowledge that all file reading, processing, and rendering occur entirely within your browser environment.
           </p>
         </div>
 
@@ -31,7 +31,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate }) => {
             2. Intellectual Property & File Ownership
           </h2>
           <p>
-            You retain 100% full, exclusive ownership of any documents, graphics, and images processed through NUVIO. We do not claim any rights, title, or interest in your files, nor do our systems possess the technical ability to store or copy them.
+            You retain 100% full, exclusive ownership of any documents, graphics, and images processed through PDF Image Studio. We do not claim any rights, title, or interest in your files, nor do our systems possess the technical ability to store or copy them.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ export const TermsPage: React.FC<TermsPageProps> = ({ onNavigate }) => {
             3. Disclaimer of Warranties
           </h2>
           <p>
-            NUVIO is provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis without warranties of any kind, whether express or implied. While our routines are thoroughly tested against standard PDF specifications and image encodings, we recommend maintaining original backups of critical files.
+            PDF Image Studio is provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis without warranties of any kind, whether express or implied. While our routines are thoroughly tested against standard PDF specifications and image encodings, we recommend maintaining original backups of critical files.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ import { renderRealPdfPageToCanvas } from '../../lib/pdfRenderUtils';
 
 export function TextToPdfTool() {
   const [title, setTitle] = useState('Document Title');
-  const [content, setContent] = useState(`Welcome to NUVIO Text to PDF!
+  const [content, setContent] = useState(`Welcome to PDF Image Studio Text to PDF!
 
 You can type or paste any text or notes here.
 All formatting and PDF creation takes place 100% privately inside your browser.

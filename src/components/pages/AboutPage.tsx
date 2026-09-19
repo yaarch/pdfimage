@@ -1,6 +1,7 @@
 import React from 'react';
 import { Sparkles, ShieldCheck, Zap, Globe2 } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
+import { TOOLS } from '../../data/tools';
 
 interface AboutPageProps {
   onNavigate: (route: string) => void;
@@ -16,7 +17,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           About PDF Image Studio
         </h1>
         <p className="mt-3 text-base text-slate-600 dark:text-slate-400 font-medium">
-          Your files. Your way.
+          {t.tagline}
         </p>
       </div>
 
@@ -51,7 +52,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             <span className="text-xs text-slate-500 font-medium">Local Privacy</span>
           </div>
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-center">
-            <span className="block text-2xl font-extrabold text-sky-600 dark:text-sky-400">18+</span>
+            <span className="block text-2xl font-extrabold text-sky-600 dark:text-sky-400">{TOOLS.length}+</span>
             <span className="text-xs text-slate-500 font-medium">In-Browser Tools</span>
           </div>
         </div>
@@ -61,7 +62,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             onClick={() => onNavigate('/all-tools')}
             className="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-md transition"
           >
-            Explore All NUVIO Utilities
+            {t.exploreTools} ({TOOLS.length}+)
           </button>
         </div>
       </div>

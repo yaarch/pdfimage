@@ -101,7 +101,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <span>{t.secureNotice}</span>
         </div>
 
-        {/* Hero Headline - Signature NUVIO Professional Styling */}
+        {/* Hero Headline - Signature Professional Styling */}
         <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
           {t.heroTitle}
         </h1>
@@ -446,20 +446,20 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold mb-4">
               <Lock className="w-3.5 h-3.5" />
-              <span>Confidentiality Guarantee</span>
+              <span>{t.confidentialityGuarantee}</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
-              Why Legal, Medical & Financial Teams Trust NUVIO
+              {t.confidentialityTitle}
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-              When processing NDAs, invoices, medical records, or proprietary blueprints, conventional converter services introduce liability by transferring data to third-party servers. NUVIO&apos;s code executes exclusively within the client sandbox—your data never leaves your computer.
+              {t.confidentialityDesc}
             </p>
             <button
               onClick={() => onNavigate('/privacy')}
               className="text-xs font-bold text-emerald-700 dark:text-emerald-400 hover:underline flex items-center gap-1.5"
             >
-              <span>Read our complete Privacy Architecture Whitepaper</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>{t.readPrivacyWhitepaper}</span>
+              <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
             </button>
           </div>
         </div>

@@ -463,3 +463,55 @@ export async function renderPdfPageToCanvas(
   return renderRealPdfPageToCanvas(bytes, pageIndex + 1, scale);
 }
 
+export interface SignaturePlacement {
+  pageIndex: number; // 0-indexed
+  xPercent: number; // 0 to 100 from left
+  yPercent: number; // 0 to 100 from top
+  widthPercent: number; // 0 to 100
+  signatureDataUrl: string; // PNG base64 data URL
+}
+
+export async function signPdfDocument(
+  file: File,
+  signatures: SignaturePlacement[]
+): Promise<Blob> {
+  const arrayBuffer = await file.arrayBuffer();
+  const pdfDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+
+  for (const sig of signatures) {
+    if (sig.pageIndex < 0 || sig.pageIndex >= pdfDoc.getPageCount()) continue;
+
+    const page = pdfDoc.getPage(sig.pageIndex);
+    const { width: pageWidth, height: pageHeight } = page.getSize();
+
+    // Convert data URL to bytes
+    const base64Data = sig.signatureDataUrl.replace(/^data:image\/\w+;base64,/, '');
+    const binaryString = atob(base64Data);
+    const bytes = new Uint8Array(binaryString.length);
+    for (let i = 0; i < binaryString.length; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+
+    const embeddedPng = await pdfDoc.embedPng(bytes);
+
+    // Calculate dimensions
+    const sigWidth = (sig.widthPercent / 100) * pageWidth;
+    const sigHeight = (sigWidth / embeddedPng.width) * embeddedPng.height;
+
+    // Convert top-left coordinates to PDF coordinate system (bottom-left origin)
+    const x = (sig.xPercent / 100) * pageWidth;
+    const y = pageHeight - (sig.yPercent / 100) * pageHeight - sigHeight;
+
+    page.drawImage(embeddedPng, {
+      x: Math.max(0, Math.min(pageWidth - sigWidth, x)),
+      y: Math.max(0, Math.min(pageHeight - sigHeight, y)),
+      width: sigWidth,
+      height: sigHeight,
+    });
+  }
+
+  const outputBytes = await pdfDoc.save();
+  return new Blob([outputBytes], { type: 'application/pdf' });
+}
+
+

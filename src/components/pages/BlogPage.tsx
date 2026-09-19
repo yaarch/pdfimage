@@ -19,7 +19,7 @@ const ARTICLES: BlogArticle[] = [
     readTime: '4 min read',
     content: `When you upload a confidential contract or healthcare invoice to a conventional cloud converter, that file travels over the public internet and sits on an unknown server hard drive. Even if the service promises to delete files after one hour, your data is exposed to server-side breaches, third-party loggers, and regulatory compliance risks under GDPR and HIPAA.
 
-NUVIO solves this problem by performing 100% of the byte manipulation inside your browser's private sandbox. Using modern WebAssembly and JavaScript typed arrays, NUVIO never transmits document bytes across the wire. When you finish editing and close the browser tab, the memory is instantly scrubbed.`,
+PDF Image Studio solves this problem by performing 100% of the byte manipulation inside your browser's private sandbox. Using modern WebAssembly and JavaScript typed arrays, PDF Image Studio never transmits document bytes across the wire. When you finish editing and close the browser tab, the memory is instantly scrubbed.`,
   },
   {
     id: 'compress-pdf-guide',
@@ -29,7 +29,7 @@ NUVIO solves this problem by performing 100% of the byte manipulation inside you
     readTime: '3 min read',
     content: `Many people believe compressing a PDF means lowering font resolution or blurring scan text. In reality, modern PDF compression targets redundant internal objects, uncompressed embedded font tables, and duplicated stream buffers.
 
-With NUVIO Compress PDF, the document layout is parsed, font descriptors are deduplicated, and internal cross-reference tables are repacked without degrading typographic clarity. This allows files to shrink by 40% to 75% while keeping text sharp at any zoom level.`,
+With PDF Image Studio Compress PDF, the document layout is parsed, font descriptors are deduplicated, and internal cross-reference tables are repacked without degrading typographic clarity. This allows files to shrink by 40% to 75% while keeping text sharp at any zoom level.`,
   },
   {
     id: 'webp-vs-jpg-png',
@@ -87,7 +87,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
             onClick={() => onNavigate('/all-tools')}
             className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm"
           >
-            Launch NUVIO Tools
+            Launch Tools Catalog
           </button>
         </div>
       </div>
@@ -102,7 +102,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
           <span>Guides & Insights</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          NUVIO Knowledge Base
+          PDF Image Studio Knowledge Base
         </h1>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
           Master file compression, document security, and image optimization with expert browser engineering tutorials.
