@@ -73,8 +73,8 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
             {language === 'ar'
-              ? 'خرائط XML مخصصة ومستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية) مع وسوم hreflang المتبادلة لفهرسة سريعة في Google Search Console.'
-              : 'Dedicated XML sitemaps per language with cross-referencing xhtml:link hreflang annotations for maximum multi-regional search engine indexing.'}
+              ? 'خرائط XML مخصصة ومستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية) مع وسوم hreflang المتبادلة لفهرسة منظمة في محركات البحث.'
+              : 'Dedicated XML sitemaps per language with cross-referencing xhtml:link hreflang annotations for structured multi-regional search engine indexing.'}
           </p>
         </div>
 
@@ -321,13 +321,15 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-5 h-5 text-emerald-500" />
           <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
-            {language === 'ar' ? 'لماذا يعد فصل خرائط الموقع لكل لغة المعيار الأفضل للـ SEO؟' : 'Why Per-Language Sitemaps with Sitemap Index is the Gold Standard for Multilingual SEO'}
+            {language === 'ar'
+              ? 'هيكلية وتفاصيل خرائط الموقع متعددة اللغات (Multilingual XML Sitemaps)'
+              : 'Multilingual XML Sitemap Architecture & Specification'}
           </h3>
         </div>
         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
           {language === 'ar'
-            ? 'توصي إرشادات Google Search Central الدولية باستخدام ملف فهرس خرائط المواقع (Sitemap Index) يحتوي على خرائط مستقلة لكل لغة. هذا يمنح محركات البحث قدرة أسرع على اكتشاف المحتوى المترجم، وتتبع أداء وفهرسة الصفحات العربية والإنجليزية بشكل مستقل، مع تجنب تضخم حجم ملف الـ XML الواحد وضمان توافق تام مع معايير xhtml:link hreflang و x-default.'
-            : 'Google Search Central officially recommends structured Sitemap Indexes pointing to language-specific sitemaps. This architecture speeds up bot crawl discovery, allows per-region error diagnosis in Google Search Console, avoids bloated monolithic XML files, and ensures 100% compliance with xhtml:link hreflang and x-default multi-region specifications.'}
+            ? 'يعتمد الموقع على ملف فهرس خرائط المواقع (Sitemap Index) يرتبط بخرائط مستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية). ويتضمن كل رابط مفهرس إشارات xhtml:link hreflang متبادلة مع خيار x-default، وذلك بالتوافق الكامل مع معايير بروتوكول خرائط المواقع Sitemap Protocol 0.9 المعتمد لدى Google وBing.'
+            : 'This platform uses a sitemap index file pointing to separate language sitemaps (English, Arabic, Spanish, French, German). Each indexed URL includes cross-referencing xhtml:link hreflang annotations and an x-default fallback, fully following the standard Google and Bing compatible Sitemap Protocol 0.9 specification.'}
         </p>
       </div>
     </div>
