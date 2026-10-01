@@ -1,5 +1,6 @@
 import { PDFDocument, rgb, degrees, StandardFonts } from 'pdf-lib';
-import { renderRealPdfPageToCanvas } from './pdfRenderUtils';
+import { renderRealPdfPageToCanvas, loadPdfJsDocument, renderPdfJsPageToCanvas } from './pdfRenderUtils';
+export { loadPdfJsDocument, renderPdfJsPageToCanvas };
 
 export interface PdfMetadataInfo {
   pageCount: number;

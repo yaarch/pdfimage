@@ -14,12 +14,12 @@ const ARTICLES: BlogArticle[] = [
   {
     id: 'client-side-privacy',
     title: 'Why Browser-Based PDF Processing is Crucial for Confidential Documents',
-    excerpt: 'Traditional online converters upload your tax returns, medical files, and legal agreements to remote servers. Here is why client-side WebAssembly and JavaScript engines are transforming data protection.',
+    excerpt: 'Traditional online converters upload your tax returns, medical files, and legal agreements to remote servers. Here is why client-side JavaScript engines are transforming data protection.',
     category: 'Security & Privacy',
     readTime: '4 min read',
     content: `When you upload a confidential contract or healthcare invoice to a conventional cloud converter, that file travels over the public internet and sits on an unknown server hard drive. Even if the service promises to delete files after one hour, your data is exposed to server-side breaches, third-party loggers, and regulatory compliance risks under GDPR and HIPAA.
 
-PDF Image Studio solves this problem by performing 100% of the byte manipulation inside your browser's private sandbox. Using modern WebAssembly and JavaScript typed arrays, PDF Image Studio never transmits document bytes across the wire. When you finish editing and close the browser tab, the memory is instantly scrubbed.`,
+PDF Image Studio solves this problem by performing 100% of the byte manipulation inside your browser's private sandbox. Using modern JavaScript typed arrays and Canvas APIs, PDF Image Studio never transmits document bytes across the wire. When you finish editing and close the browser tab, the memory is instantly scrubbed.`,
   },
   {
     id: 'compress-pdf-guide',

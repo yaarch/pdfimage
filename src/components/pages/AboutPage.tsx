@@ -36,7 +36,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           The Modern Browser Revolution
         </h2>
         <p>
-          Modern web browsers are capable operating environments equipped with high-performance WebAssembly engines, Typed Arrays, Canvas 2D renderers, and native hardware acceleration.
+          Modern web browsers are capable operating environments equipped with high-performance JavaScript engines, Typed Arrays, Canvas 2D renderers, and native hardware acceleration.
         </p>
         <p>
           PDF Image Studio was engineered to leverage 100% of this client-side compute power. Instead of sending files across the globe to be manipulated by an expensive server farm, PDF Image Studio processes files right inside your browser window. The result is instant speed, zero server costs, unlimited file processing, and guaranteed privacy.

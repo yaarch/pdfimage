@@ -22,7 +22,7 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       faqs: [
         {
           question: 'كيف تحمي أداة تنظيم صفحات PDF خصوصيتي؟',
-          answer: 'تتم كافة عمليات المعالجة والعرض في ذاكرة متصفحك محلياً باستخدام WebAssembly و Canvas دون إرسال أي بايت لخوادم خارجية.',
+          answer: 'تتم كافة عمليات المعالجة والعرض في ذاكرة متصفحك محلياً باستخدام JavaScript و Canvas دون إرسال أي بايت لخوادم خارجية.',
         },
         {
           question: 'هل يمكنني تدوير وحذف عدة صفحات معاً؟',
@@ -44,7 +44,7 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       faqs: [
         {
           question: '¿Cómo protege mi privacidad el Organizador de PDF?',
-          answer: 'Procesa el archivo directamente en la memoria del navegador con WebAssembly. Tu archivo nunca sale de tu dispositivo.',
+          answer: 'Procesa el archivo directamente en la memoria del navegador con JavaScript y Canvas. Tu archivo nunca sale de tu dispositivo.',
         },
         {
           question: '¿Puedo rotar o borrar varias páginas a la vez?',
@@ -62,7 +62,7 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       faqs: [
         {
           question: 'Comment l\'organiseur de PDF protège-t-il mes données ?',
-          answer: 'Tout s\'exécute localement dans votre navigateur grâce à WebAssembly. Aucun fichier n\'est envoyé sur un serveur distant.',
+          answer: 'Tout s\'exécute localement dans votre navigateur grâce à JavaScript et Canvas. Aucun fichier n\'est envoyé sur un serveur distant.',
         },
         {
           question: 'La qualité du document est-elle préservée ?',
@@ -80,7 +80,7 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       faqs: [
         {
           question: 'Wie schützt der PDF-Organisator meine Privatsphäre?',
-          answer: 'Die PDF-Verarbeitung erfolgt vollständig im Arbeitsspeicher Ihres Browsers mittels WebAssembly und Canvas. Ihr Dokument verlässt zu keinem Zeitpunkt Ihr Gerät.',
+          answer: 'Die PDF-Verarbeitung erfolgt vollständig im Arbeitsspeicher Ihres Browsers mittels JavaScript und Canvas. Ihr Dokument verlässt zu keinem Zeitpunkt Ihr Gerät.',
         },
         {
           question: 'Kann ich mehrere Seiten gleichzeitig drehen oder löschen?',
@@ -100,7 +100,15 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       faqs: [
         {
           question: 'كم عدد ملفات PDF التي يمكنني دمجها في وقت واحد؟',
-          answer: 'يمكنك دمج عشرات الملفات دفعة واحدة بدون أي قيود اصطناعية نظراً لأن المعالجة تتم على جهازك.',
+          answer: 'يمكنك دمج عشرات الملفات دفعة واحدة بدون أي قيود اصطناعية نظراً لأن المعالجة تتم على جهازك محلياً.',
+        },
+        {
+          question: 'هل يمكنني إعادة ترتيب الملفات قبل الدمج؟',
+          answer: 'نعم! يمكنك بسهولة إعادة ترتيب الملفات بسحبها وإفلاتها أو استخدام أزرار التقديم والتأخير لترتيب الملفات بالشكل الذي تريده قبل الدمج.',
+        },
+        {
+          question: 'هل يتم رفع أو تخزين مستندات الـ PDF الخاصة بي أثناء الدمج؟',
+          answer: 'كلا، تتم عملية الدمج داخل ذاكرة متصفحك محلياً دون إرسال أو رفع ملفاتك إلى أي سيرفرات.',
         },
       ],
     },
@@ -116,6 +124,14 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
           question: '¿Hay límite de archivos para combinar?',
           answer: 'No hay límite estricto de archivos ya que la unión se efectúa en tu propio dispositivo.',
         },
+        {
+          question: '¿Puedo reorganizar el orden de los archivos antes de unirlos?',
+          answer: '¡Sí! Puedes cambiar fácilmente el orden de los archivos arrastrándolos o usando los botones para mover arriba/abajo antes de unir los PDF.',
+        },
+        {
+          question: '¿Se almacenan o suben mis documentos PDF al unirlos?',
+          answer: 'No. Unir PDF se ejecuta 100% en la memoria de tu navegador sin enviar tus documentos a servidores.',
+        },
       ],
     },
     fr: {
@@ -130,6 +146,14 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
           question: 'Y a-t-il une limite sur le nombre de PDF ?',
           answer: 'Non, vous pouvez fusionner autant de documents que votre mémoire système le permet.',
         },
+        {
+          question: 'Puis-je réorganiser l\'ordre des fichiers avant la fusion ?',
+          answer: 'Oui ! Vous pouvez facilement réordonner vos fichiers PDF par glisser-déposer ou en utilisant les boutons monter/descendre avant de lancer la fusion.',
+        },
+        {
+          question: 'Mes documents PDF sont-ils enregistrés ou téléversés pendant la fusion ?',
+          answer: 'Non. La fusion s\'effectue intégralement dans la mémoire de votre navigateur sans aucun téléversement.',
+        },
       ],
     },
     de: {
@@ -143,6 +167,14 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
         {
           question: 'Gibt es ein Limit für die Anzahl an PDF-Dateien?',
           answer: 'Nein, Sie können beliebig viele Dokumente auf einmal zusammenfügen, solange Ihr Arbeitsspeicher ausreicht.',
+        },
+        {
+          question: 'Kann ich die Reihenfolge der Dateien vor dem Zusammenfügen ändern?',
+          answer: 'Ja! Sie können die PDF-Dateien einfach per Drag & Drop in die gewünschte Reihenfolge bringen oder die Pfeiltasten zur Sortierung vor dem Zusammenfügen nutzen.',
+        },
+        {
+          question: 'Werden meine PDF-Dokumente beim Zusammenfügen gespeichert oder hochgeladen?',
+          answer: 'Nein. Das Zusammenfügen erfolgt vollständig im Arbeitsspeicher Ihres Browsers ohne Datenübertragung an Server.',
         },
       ],
     },
@@ -383,6 +415,40 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       seoTitle: 'تحويل PDF إلى صور JPG و PNG بجودة عالية مجاناً | PDF Image Studio',
       seoDescription: 'استخرج صور صفحات الـ PDF بدقة ووضوح عاليين مباشرة في المتصفح مع خيار تنزيل ZIP فوري.',
       keywords: ['تحويل pdf الى صور', 'pdf الى jpg', 'pdf الى png', 'استخراج صور pdf'],
+      faqs: [
+        {
+          question: 'هل يتم رفع ملفات الـ PDF الخاصة بي إلى خوادم؟',
+          answer: 'تتم معالجة ملف PDF الخاص بك داخل متصفحك ولا يتم رفعه إلى خوادمنا إطلاقاً. يتم تصيير الصفحات محلياً على جهازك بالكامل عبر تقنيات المتصفح الحديثة.',
+        },
+        {
+          question: 'هل يمكنني استخدام الأداة على الهاتف المحمول؟',
+          answer: 'نعم. يمكنك استخدام الأداة في أي متصفح ويب حديث على الهواتف والأجهزة اللوحية (iOS و Android) دون الحاجة لتثبيت أي تطبيقات إضافية.',
+        },
+        {
+          question: 'هل تعمل الأداة دون اتصال بالإنترنت (Offline)؟',
+          answer: 'نعم. بمجرد تحميل الصفحة ومكتبات المعالجة في متصفحك، يمكنك تحويل الصفحات إلى صور حتى في حال انقطاع اتصالك بالإنترنت.',
+        },
+        {
+          question: 'ماذا يحدث لملفاتي بعد انتهاء التحويل؟',
+          answer: 'يبقى ملف PDF والصور المستخرجة في الذاكرة المؤقتة لمتصفحك فقط. بمجرد تحديث الصفحة أو إغلاق علامة التبويب أو اختيار ملف آخر، يتم مسح بيانات الجلسة تلقائياً.',
+        },
+        {
+          question: 'ما هي صيغ الصور المدعومة في الأداة؟',
+          answer: 'تدعم الأداة تصدير صفحات PDF بصيغتي JPG (JPEG) و PNG، مع خيارات متعددة لمقياس دقة ووضوح الصورة.',
+        },
+        {
+          question: 'هل يمكنني تحويل ملفات PDF متعددة الصفحات؟',
+          answer: 'نعم. تقوم الأداة بمعالجة جميع الصفحات بالتتابع. يمكنك تنزيل كل صفحة كصورة مستقلة أو تنزيل جميع الصفحات دفعة واحدة كملف مضغوط ZIP.',
+        },
+        {
+          question: 'ما العوامل التي تؤثر على سرعة التحويل؟',
+          answer: 'تعتمد سرعة التحويل على أداء معالج جهازك والذاكرة المتاحة، وعدد صفحات المستند، ومقياس الدقة (DPI) المختار، ودرجة تعقيد الرسومات والخطوط داخل الصفحات.',
+        },
+        {
+          question: 'هل توجد قيود عند معالجة ملفات PDF كبيرة الحجم جداً؟',
+          answer: 'نظراً لأن التصيير يجري بالكامل في ذاكرة المتصفح، فإن المستندات الضخمة التي تحتوي على مئات الصفحات الثقيلة أو درجات الدقة الفائقة قد تستهلك قدراً كبيراً من ذاكرة RAM. يُنصح باختيار الدقة القياسية لضمان سلاسة الأداء على الأجهزة ذات الذاكرة المحدودة.',
+        },
+      ],
     },
     es: {
       name: 'PDF a Imágenes',
@@ -391,6 +457,40 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       seoTitle: 'Convertir PDF a JPG y PNG Gratis Online | PDF Image Studio',
       seoDescription: 'Extrae páginas de PDF como imágenes nítidas JPG o PNG sin perder resolución y con total privacidad.',
       keywords: ['pdf a jpg', 'pdf a png', 'extraer imagenes de pdf', 'convertir pdf a fotos'],
+      faqs: [
+        {
+          question: '¿Se suben mis archivos PDF a algún servidor?',
+          answer: 'Tu PDF se procesa en tu navegador y no se sube a nuestros servidores. Todo el renderizado se realiza directamente en tu dispositivo mediante JavaScript y HTML5 Canvas.',
+        },
+        {
+          question: '¿Puedo usar la herramienta en el móvil?',
+          answer: 'Sí. Puedes usar la herramienta en cualquier navegador móvil moderno en iOS y Android sin instalar aplicaciones adicionales.',
+        },
+        {
+          question: '¿Funciona la herramienta sin conexión (offline)?',
+          answer: 'Sí. Una vez cargada la página y sus librerías en tu navegador, puedes convertir páginas a imágenes incluso sin conexión activa a Internet.',
+        },
+        {
+          question: '¿Qué ocurre con mis archivos después de la conversión?',
+          answer: 'Tu PDF y las imágenes generadas existen únicamente en la memoria temporal de tu navegador. Al recargar la página, cerrar la pestaña o cambiar de archivo, se eliminan por completo.',
+        },
+        {
+          question: '¿Qué formatos de imagen son compatibles?',
+          answer: 'La herramienta permite exportar páginas PDF a formatos JPG (JPEG) y PNG, con opciones de escala de resolución configurables.',
+        },
+        {
+          question: '¿Puedo convertir documentos PDF de varias páginas?',
+          answer: 'Sí. La herramienta procesa todas las páginas secuencialmente. Puedes descargar páginas individuales o todas juntas en un archivo ZIP.',
+        },
+        {
+          question: '¿Qué factores influyen en la velocidad de conversión?',
+          answer: 'La velocidad depende del procesador y memoria de tu dispositivo, el número de páginas, la escala de renderizado (DPI) y la complejidad gráfica del documento.',
+        },
+        {
+          question: '¿Hay limitaciones al procesar archivos PDF muy pesados?',
+          answer: 'Dado que el proceso ocurre en la memoria del navegador, documentos con cientos de páginas o DPI muy alto pueden requerir suficiente memoria RAM. Usar la resolución estándar ayuda a mantener un rendimiento óptimo.',
+        },
+      ],
     },
     fr: {
       name: 'PDF en Images',
@@ -399,6 +499,40 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       seoTitle: 'Convertir PDF en JPG et PNG en Ligne Gratuit | PDF Image Studio',
       seoDescription: 'Exportez les pages de vos fichiers PDF au format image JPG ou PNG sans perte de qualité.',
       keywords: ['pdf en jpg', 'pdf en png', 'extraire images pdf', 'convertir pdf image'],
+      faqs: [
+        {
+          question: 'Mes fichiers PDF sont-ils téléversés sur un serveur ?',
+          answer: 'Votre PDF est traité dans votre navigateur et n\'est pas téléversé sur nos serveurs. Tout le rendu s\'effectue directement sur votre appareil grâce aux technologies locales JavaScript et Canvas HTML5.',
+        },
+        {
+          question: 'Puis-je utiliser l\'outil sur smartphone ou tablette ?',
+          answer: 'Oui. Vous pouvez utiliser l\'outil dans n\'importe quel navigateur mobile moderne sur iOS et Android, sans installer d\'application supplémentaire.',
+        },
+        {
+          question: 'L\'outil fonctionne-t-il hors ligne ?',
+          answer: 'Oui. Une fois la page et son moteur de conversion chargés dans votre navigateur, vous pouvez convertir vos pages en images même sans connexion Internet active.',
+        },
+        {
+          question: 'Que deviennent mes fichiers après la conversion ?',
+          answer: 'Votre fichier PDF source et les images générées résident uniquement dans la mémoire vive temporaire de votre navigateur. Dès que vous actualisez la page, fermez l\'onglet ou choisissez un autre fichier, cette mémoire est effacée.',
+        },
+        {
+          question: 'Quels sont les formats d\'image pris en charge ?',
+          answer: 'L\'outil prend en charge l\'exportation des pages PDF aux formats JPG (JPEG) et PNG, avec un choix d\'échelle de résolution.',
+        },
+        {
+          question: 'Est-il possible de convertir des PDF multipages ?',
+          answer: 'Oui. L\'outil traite toutes les pages séquentiellement. Vous pouvez télécharger chaque page individuellement ou récupérer l\'ensemble dans une archive ZIP.',
+        },
+        {
+          question: 'Quels facteurs influencent la vitesse de conversion ?',
+          answer: 'La vitesse de conversion dépend de la puissance du processeur et de la mémoire de votre appareil, du nombre de pages, de l\'échelle DPI sélectionnée et de la complexité visuelle du document.',
+        },
+        {
+          question: 'Y a-t-il des limites lors du traitement de très gros PDF ?',
+          answer: 'Le rendu s\'exécutant intégralement dans la mémoire du navigateur, les documents très volumineux ou dotés de centaines de pages peuvent solliciter beaucoup de mémoire vive. Utiliser la résolution standard garantit une exécution fluide sur les appareils modestes.',
+        },
+      ],
     },
     de: {
       name: 'PDF in Bilder exportieren',
@@ -407,6 +541,40 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
       seoTitle: 'PDF in JPG & PNG umwandeln online — Kostenlos | PDF Image Studio',
       seoDescription: 'PDF-Seiten in hochauflösende Bilder exportieren ohne Qualitätsverlust und ohne Server-Uploads.',
       keywords: ['pdf in jpg', 'pdf in png', 'pdf seiten als bild', 'pdf in bilder umwandeln'],
+      faqs: [
+        {
+          question: 'Werden meine PDF-Dateien auf einen Server hochgeladen?',
+          answer: 'Ihre PDF-Datei wird im Browser verarbeitet und wird nicht auf unsere Server hochgeladen. Das gesamte Rendern erfolgt lokal auf Ihrem Gerät mittels JavaScript und HTML5 Canvas.',
+        },
+        {
+          question: 'Kann ich das Werkzeug auf dem Smartphone oder Tablet nutzen?',
+          answer: 'Ja. Sie können das Tool in jedem modernen mobilen Browser auf iOS- und Android-Geräten ohne zusätzliche App-Installationen verwenden.',
+        },
+        {
+          question: 'Funktioniert das Tool offline?',
+          answer: 'Ja. Sobald die Seite und ihre Programmbibliotheken in Ihren Browser geladen wurden, können Sie PDF-Seiten auch ohne aktive Internetverbindung in Bilder umwandeln.',
+        },
+        {
+          question: 'Was passiert mit meinen Dateien nach der Konvertierung?',
+          answer: 'Ihre PDF-Quelldatei und die generierten Bilder existieren ausschließlich im temporären Arbeitsspeicher Ihres Browsers. Beim Neuladen, Schließen des Tabs oder Auswählen einer neuen Datei wird dieser Speicher geleert.',
+        },
+        {
+          question: 'Welche Bildformate werden unterstützt?',
+          answer: 'Das Tool unterstützt den Export von PDF-Seiten in die Formate JPG (JPEG) und PNG mit konfigurierbaren DPI-Auflösungsskalen.',
+        },
+        {
+          question: 'Kann ich mehrseitige PDFs umwandeln?',
+          answer: 'Ja. Das Tool verarbeitet alle Seiten nacheinander. Sie können einzelne Seitenbilder herunterladen oder alle Seiten gebündelt in einem ZIP-Archiv speichern.',
+        },
+        {
+          question: 'Was beeinflusst die Konvertierungsgeschwindigkeit?',
+          answer: 'Die Geschwindigkeit hängt von der Prozessorleistung und dem Arbeitsspeicher Ihres Geräts, der Seitenanzahl, der gewählten DPI-Auflösung und der Komplexität der Grafiken im Dokument ab.',
+        },
+        {
+          question: 'Gibt es Einschränkungen bei sehr großen PDF-Dateien?',
+          answer: 'Da das Rendern im lokalen Browserspeicher stattfindet, können Dokumente mit hunderten komplexen Seiten viel RAM beanspruchen. Die Standardauflösung gewährleistet eine reibungslose Verarbeitung auch auf Geräten mit geringerem Arbeitsspeicher.',
+        },
+      ],
     },
   },
   'pdf-metadata': {
@@ -1023,13 +1191,93 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
   },
 };
 
-export function getLocalizedTool(tool: ToolDefinition, lang: LanguageCode): {
-  name: string;
-  tagline: string;
-  description: string;
-  seoTitle: string;
-  seoDescription: string;
-  keywords: string[];
+function getFallbackLocalizedFaqs(tool: ToolDefinition, toolName: string, lang: LanguageCode): { question: string; answer: string }[] {
+  if (tool.faqs && tool.faqs.length > 0) {
+    return tool.faqs.map(f => {
+      let q = f.question;
+      let a = f.answer;
+      if (lang === 'ar') {
+        if (q.toLowerCase().includes('uploaded')) {
+          q = `هل يتم رفع ملفاتي لأي خوادم خارجية عند استخدام أداة ${toolName}؟`;
+          a = `كلا، تتم معالجة ملفاتك محلياً بالكامل داخل متصفحك باستخدام تقنيات JavaScript و Canvas دون أي رفع أو تخزين على خوادم.`;
+        } else if (q.toLowerCase().includes('free') || q.toLowerCase().includes('limit')) {
+          q = `هل أداة ${toolName} مجانية ولا تتطلب تسجيلاً؟`;
+          a = `نعم، الأداة مجانية بالكامل، بدون إعلانات مزعجة وبدون قيود على عدد الملفات أو حجمها.`;
+        } else {
+          q = `كيف تضمن أداة ${toolName} جودة وأمان المستندات؟`;
+          a = `تعتمد الأداة على ذاكرة متصفحك المباشرة للحفاظ على أعلى مستوى من الأمان والسرعة ودقة التصدير.`;
+        }
+      } else if (lang === 'es') {
+        if (q.toLowerCase().includes('uploaded')) {
+          q = `¿Se suben mis archivos a algún servidor con ${toolName}?`;
+          a = `No, tus archivos se procesan 100% de forma local en tu navegador con JavaScript y Canvas, garantizando privacidad absoluta.`;
+        } else if (q.toLowerCase().includes('free') || q.toLowerCase().includes('limit')) {
+          q = `¿Es gratis la herramienta ${toolName}?`;
+          a = `Sí, es completamente gratuita, sin registro ni límites de uso.`;
+        } else {
+          q = `¿Cómo garantiza la herramienta ${toolName} la calidad del resultado?`;
+          a = `La herramienta utiliza el motor interno del navegador para mantener la resolución y definición original sin pérdidas.`;
+        }
+      } else if (lang === 'fr') {
+        if (q.toLowerCase().includes('uploaded')) {
+          q = `Mes fichiers sont-ils téléversés sur un serveur avec ${toolName} ?`;
+          a = `Non, le traitement est entièrement exécuté en local dans votre navigateur grâce à JavaScript et Canvas sans aucun stockage distant.`;
+        } else if (q.toLowerCase().includes('free') || q.toLowerCase().includes('limit')) {
+          q = `L'outil ${toolName} est-il gratuit et sans inscription ?`;
+          a = `Oui, l'outil est 100% gratuit, sans publicité intrusive et sans création de compte requise.`;
+        } else {
+          q = `Comment ${toolName} préserve-t-il la qualité de mes documents ?`;
+          a = `L'outil utilise directement la mémoire de votre navigateur pour maintenir la netteté et la précision d'origine.`;
+        }
+      } else if (lang === 'de') {
+        if (q.toLowerCase().includes('uploaded')) {
+          q = `Werden meine Dateien bei der Nutzung von ${toolName} hochgeladen?`;
+          a = `Nein, Ihre Dateien werden zu 100% lokal in Ihrem Browser mittels JavaScript und Canvas verarbeitet. Es findet kein Server-Upload statt.`;
+        } else if (q.toLowerCase().includes('free') || q.toLowerCase().includes('limit')) {
+          q = `Ist ${toolName} kostenlos und ohne Registrierung nutzbar?`;
+          a = `Ja, das Tool ist vollständig kostenlos, werbefrei und erfordert keine Registrierung.`;
+        } else {
+          q = `Wie stellt ${toolName} die Qualität des Ergebnisses sicher?`;
+          a = `Das Tool arbeitet direkt im Arbeitsspeicher Ihres Browsers und bewahrt die ursprüngliche Auflösung und Schärfe.`;
+        }
+      }
+      return { question: q, answer: a };
+    });
+  }
+
+  if (lang === 'ar') {
+    return [
+      { question: `هل تتم معالجة الملفات في أداة ${toolName} محلياً؟`, answer: `نعم، المعالجة تتم 100% داخل ذاكرة متصفحك محلياً دون أي رفع للسيرفر.` },
+      { question: `هل أداة ${toolName} مجانية للاستخدام؟`, answer: `نعم، الأداة مجانية بالكامل وبدون حدود للاستخدام.` },
+      { question: `هل يمكنني استخدام أداة ${toolName} على الهواتف الذكية؟`, answer: `نعم، تعمل الأداة بسلاسة على أجهزة الهواتف الذكية والأجهزة اللوحية والحواسيب.` }
+    ];
+  }
+  if (lang === 'es') {
+    return [
+      { question: `¿Se procesan los archivos localmente en ${toolName}?`, answer: `Sí, el procesamiento se ejecuta 100% en tu navegador sin enviar datos a servidores.` },
+      { question: `¿Es gratuita la herramienta ${toolName}?`, answer: `Sí, es completamente gratuita y sin límites de uso.` },
+      { question: `¿Puedo usar ${toolName} en dispositivos móviles?`, answer: `Sí, funciona perfectamente en teléfonos, tabletas y ordenadores.` }
+    ];
+  }
+  if (lang === 'fr') {
+    return [
+      { question: `Le traitement est-il exécuté localement dans ${toolName} ?`, answer: `Oui, le traitement s'exécute à 100% dans votre navigateur sans téléversement serveur.` },
+      { question: `L'outil ${toolName} est-il gratuit ?`, answer: `Oui, il est entièrement gratuit et sans aucune limitation.` },
+      { question: `Puis-je utiliser ${toolName} sur mobile ?`, answer: `Oui, l'outil est pleinement compatible avec smartphones, tablettes et ordinateurs.` }
+    ];
+  }
+  if (lang === 'de') {
+    return [
+      { question: `Erfolgt die Verarbeitung in ${toolName} lokal?`, answer: `Ja, die Verarbeitung läuft zu 100% lokal in Ihrem Browser ab ohne Server-Uploads.` },
+      { question: `Ist ${toolName} kostenlos nutzbar?`, answer: `Ja, das Werkzeug ist absolut kostenlos und ohne Einschränkungen.` },
+      { question: `Kann ich ${toolName} auf Mobilgeräten nutzen?`, answer: `Ja, das Tool funktioniert einwandfrei auf Smartphones, Tablets und PCs.` }
+    ];
+  }
+
+  return tool.faqs || [];
+}
+
+export function getLocalizedTool(tool: ToolDefinition, lang: LanguageCode): LocalizedToolInfo & {
   faqs: { question: string; answer: string }[];
 } {
   if (lang === 'en' || !toolTranslationsMap[tool.id]) {
@@ -1046,24 +1294,30 @@ export function getLocalizedTool(tool: ToolDefinition, lang: LanguageCode): {
 
   const langEntry = toolTranslationsMap[tool.id][lang as Exclude<LanguageCode, 'en'>];
   if (!langEntry) {
+    const fallbackName = tool.name;
     return {
-      name: tool.name,
+      name: fallbackName,
       tagline: tool.tagline,
       description: tool.description,
-      seoTitle: tool.seoTitle || `${tool.name} — PDF Image Studio`,
+      seoTitle: tool.seoTitle || `${fallbackName} — PDF Image Studio`,
       seoDescription: tool.seoDescription || tool.description,
       keywords: tool.keywords || [],
-      faqs: tool.faqs || [],
+      faqs: getFallbackLocalizedFaqs(tool, fallbackName, lang),
     };
   }
 
+  const localizedName = langEntry.name || tool.name;
+  const localizedFaqs = (langEntry.faqs && langEntry.faqs.length > 0)
+    ? langEntry.faqs
+    : getFallbackLocalizedFaqs(tool, localizedName, lang);
+
   return {
-    name: langEntry.name || tool.name,
+    name: localizedName,
     tagline: langEntry.tagline || tool.tagline,
     description: langEntry.description || tool.description,
-    seoTitle: langEntry.seoTitle || `${langEntry.name} — PDF Image Studio`,
+    seoTitle: langEntry.seoTitle || `${localizedName} — PDF Image Studio`,
     seoDescription: langEntry.seoDescription || langEntry.description || tool.seoDescription,
     keywords: langEntry.keywords && langEntry.keywords.length > 0 ? langEntry.keywords : tool.keywords,
-    faqs: langEntry.faqs && langEntry.faqs.length > 0 ? langEntry.faqs : tool.faqs,
+    faqs: localizedFaqs,
   };
 }

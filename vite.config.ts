@@ -44,7 +44,8 @@ export default defineConfig(() => {
           ],
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2,bcmap,properties,pfb}'],
+          maximumFileSizeToCacheInBytes: 3500000,
         },
         devOptions: {
           enabled: true,

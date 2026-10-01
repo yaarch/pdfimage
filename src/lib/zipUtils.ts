@@ -17,6 +17,10 @@ export async function createZipArchive(
 }
 
 export function triggerDownload(blob: Blob, filename: string) {
+  if (!blob || blob.size === 0) {
+    console.error('Download aborted: generated blob is empty or null');
+    return;
+  }
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -24,7 +28,7 @@ export function triggerDownload(blob: Blob, filename: string) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 4000);
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
 export function formatBytes(bytes: number, decimals = 1): string {

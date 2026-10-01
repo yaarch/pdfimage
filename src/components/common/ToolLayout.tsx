@@ -14,6 +14,7 @@ import { DynamicIcon } from './DynamicIcon';
 import { useFavoritesAndRecents } from '../../hooks/useFavoritesAndRecents';
 import { useTranslation } from '../../i18n/context';
 import { getLocalizedTool } from '../../i18n/toolTranslations';
+import { ToolContentSection } from './ToolContentSection';
 
 interface ToolLayoutProps {
   tool: ToolDefinition;
@@ -143,46 +144,8 @@ export const ToolLayout: React.FC<ToolLayoutProps> = ({
       {/* Main Interactive Tool Workspace */}
       <div className="mb-14">{children}</div>
 
-      {/* FAQ Section */}
-      {currentToolLoc.faqs && currentToolLoc.faqs.length > 0 && (
-        <div className="mb-14 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs">
-          <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
-            {t.faqs}
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">
-            {t.faqSub}
-          </p>
-
-          <div className="space-y-3">
-            {currentToolLoc.faqs.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
-                <div
-                  key={idx}
-                  className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition"
-                >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full text-left rtl:text-right px-5 py-4 flex items-center justify-between gap-4 font-semibold text-sm text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition"
-                  >
-                    <span>{faq.question}</span>
-                    <ChevronDown
-                      className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${
-                        isOpen ? 'rotate-180 text-indigo-600' : ''
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-5 pb-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-3">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
+      {/* Rich Tool Content Section: Overview, How to Use, Options, Tips & FAQs */}
+      <ToolContentSection tool={tool} language={language} onNavigate={onNavigate} />
 
       {/* Related Tools Recommendation */}
       {relatedTools.length > 0 && (

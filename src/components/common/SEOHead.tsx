@@ -117,7 +117,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({ purePath, currentLanguage, too
         url: canonicalUrl,
         applicationCategory: isToolPage ? 'UtilitiesApplication' : 'MultimediaApplication',
         operatingSystem: 'All (Windows, macOS, Linux, iOS, Android)',
-        browserRequirements: 'Requires JavaScript. Requires HTML5 Canvas & WebAssembly.',
+        browserRequirements: 'Requires JavaScript and HTML5 Canvas support.',
         description: description,
         inLanguage: currentLanguage,
         offers: {

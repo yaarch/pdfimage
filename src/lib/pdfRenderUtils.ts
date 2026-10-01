@@ -1,8 +1,87 @@
 import * as pdfjsLib from 'pdfjs-dist';
 
-// Configure Mozilla PDF.js worker with reliable CDN fallback
+// Configure Mozilla PDF.js worker using same-origin bundled worker with CDN fallback
 if (typeof window !== 'undefined' && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
-  pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version || '4.10.38'}/build/pdf.worker.min.mjs`;
+  try {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
+      'pdfjs-dist/build/pdf.worker.min.mjs',
+      import.meta.url
+    ).href;
+  } catch {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version || '4.10.38'}/build/pdf.worker.min.mjs`;
+  }
+}
+
+/**
+ * Returns parameters for PDF.js document loading with same-origin standard fonts & cmaps
+ */
+function getPdfJsDocumentParams(data: Uint8Array) {
+  const isBrowser = typeof window !== 'undefined';
+  const origin = isBrowser && window.location?.origin ? window.location.origin : '';
+
+  return {
+    data,
+    cMapUrl: isBrowser && origin ? `${origin}/cmaps/` : 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
+    cMapPacked: true,
+    standardFontDataUrl: isBrowser && origin ? `${origin}/standard_fonts/` : 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/standard_fonts/',
+  };
+}
+
+/**
+ * Loads a PDF Document using Mozilla PDF.js once
+ */
+export async function loadPdfJsDocument(
+  pdfData: ArrayBuffer | Uint8Array | File
+): Promise<pdfjsLib.PDFDocumentProxy> {
+  let bytes: Uint8Array;
+  if (pdfData instanceof File) {
+    const ab = await pdfData.arrayBuffer();
+    bytes = new Uint8Array(ab);
+  } else if (pdfData instanceof ArrayBuffer) {
+    // Clone buffer so worker transfer doesn't detach caller's buffer
+    bytes = new Uint8Array(pdfData.slice(0));
+  } else if (pdfData instanceof Uint8Array) {
+    bytes = new Uint8Array(pdfData.buffer.slice(pdfData.byteOffset, pdfData.byteOffset + pdfData.byteLength));
+  } else {
+    throw new Error('Unsupported PDF data format');
+  }
+
+  const loadingTask = pdfjsLib.getDocument(getPdfJsDocumentParams(bytes));
+  return await loadingTask.promise;
+}
+
+/**
+ * Renders an already retrieved PDF page to an HTML5 Canvas using Mozilla PDF.js
+ */
+export async function renderPdfJsPageToCanvas(
+  page: pdfjsLib.PDFPageProxy,
+  scale: number = 1.5
+): Promise<HTMLCanvasElement> {
+  const viewport = page.getViewport({ scale });
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.floor(viewport.width);
+  canvas.height = Math.floor(viewport.height);
+
+  if (!canvas.width || !canvas.height) {
+    throw new Error('Invalid page viewport dimensions');
+  }
+
+  const ctx = canvas.getContext('2d', { alpha: false }) || canvas.getContext('2d');
+  if (!ctx) {
+    throw new Error('Canvas 2D context is unavailable');
+  }
+
+  // Pre-fill solid white background so transparent pages and JPEG exports never produce black or blank canvases
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const renderTask = page.render({
+    canvasContext: ctx,
+    viewport: viewport,
+  });
+
+  await renderTask.promise;
+  return canvas;
 }
 
 /**
@@ -13,64 +92,15 @@ export async function renderRealPdfPageToCanvas(
   pageNumber: number, // 1-indexed
   scale: number = 1.5
 ): Promise<HTMLCanvasElement> {
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  
-  try {
-    let bytes: Uint8Array;
+  const pdfDoc = await loadPdfJsDocument(pdfData);
+  const page = await pdfDoc.getPage(pageNumber);
+  const canvas = await renderPdfJsPageToCanvas(page, scale);
 
-    if (pdfData instanceof File) {
-      const ab = await pdfData.arrayBuffer();
-      bytes = new Uint8Array(ab);
-    } else if (pdfData instanceof ArrayBuffer) {
-      bytes = new Uint8Array(pdfData);
-    } else {
-      bytes = pdfData;
-    }
-
-    const loadingTask = pdfjsLib.getDocument({
-      data: bytes,
-      cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-      cMapPacked: true,
-    });
-
-    const pdfDoc = await loadingTask.promise;
-    const page = await pdfDoc.getPage(pageNumber);
-    const viewport = page.getViewport({ scale });
-
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
-
-    if (!ctx) {
-      throw new Error('Canvas 2D context is unavailable');
-    }
-
-    const renderContext = {
-      canvasContext: ctx,
-      viewport: viewport,
-      canvas: canvas,
-    };
-
-    await page.render(renderContext).promise;
-    return canvas;
-  } catch (err) {
-    console.warn(`PDF.js page ${pageNumber} render warning:`, err);
-    // Render clean fallback thumbnail on canvas
-    canvas.width = 300;
-    canvas.height = 400;
-    if (ctx) {
-      ctx.fillStyle = '#f8fafc';
-      ctx.fillRect(0, 0, 300, 400);
-      ctx.strokeStyle = '#e2e8f0';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(10, 10, 280, 380);
-      ctx.fillStyle = '#64748b';
-      ctx.font = 'bold 16px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(`Page ${pageNumber}`, 150, 200);
-    }
-    return canvas;
+  if (typeof (page as any).cleanup === 'function') {
+    (page as any).cleanup();
   }
+
+  return canvas;
 }
 
 export interface ExtractedPageText {
@@ -96,17 +126,14 @@ export async function extractTextFromPdfPages(
     const ab = await file.arrayBuffer();
     bytes = new Uint8Array(ab);
   } else if (file instanceof ArrayBuffer) {
-    bytes = new Uint8Array(file);
+    bytes = new Uint8Array(file.slice(0));
+  } else if (file instanceof Uint8Array) {
+    bytes = new Uint8Array(file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength));
   } else {
-    bytes = file;
+    throw new Error('Unsupported PDF data format');
   }
 
-  const loadingTask = pdfjsLib.getDocument({
-    data: bytes,
-    cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/',
-    cMapPacked: true,
-  });
-
+  const loadingTask = pdfjsLib.getDocument(getPdfJsDocumentParams(bytes));
   const pdfDoc = await loadingTask.promise;
   const totalPages = pdfDoc.numPages;
   const pages: ExtractedPageText[] = [];
@@ -116,11 +143,11 @@ export async function extractTextFromPdfPages(
   for (let i = 1; i <= totalPages; i++) {
     const page = await pdfDoc.getPage(i);
     const textContent = await page.getTextContent();
-    
+
     // Group text items by line roughly based on transform Y coordinate
     const items = textContent.items as Array<{ str: string; hasEOL?: boolean }>;
     const pageStrings: string[] = [];
-    
+
     for (const item of items) {
       if (item.str) {
         pageStrings.push(item.str);
@@ -156,5 +183,3 @@ export async function extractTextFromPdfPages(
     totalPages,
   };
 }
-
-

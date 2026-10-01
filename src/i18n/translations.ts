@@ -104,13 +104,51 @@ export interface Translations {
   confidentialityTitle: string;
   confidentialityDesc: string;
   readPrivacyWhitepaper: string;
+  // PDF to Images Tool Specific
+  pdfToImagesChooseFile: string;
+  pdfToImagesChooseDesc: string;
+  pdfToImagesSourceDocument: string;
+  pdfToImagesOutputFormat: string;
+  pdfToImagesClarityDpi: string;
+  pdfToImagesDpiStandard: string;
+  pdfToImagesDpiHigh: string;
+  pdfToImagesDpiUltra: string;
+  pdfToImagesJpgOption: string;
+  pdfToImagesPngOption: string;
+  pdfToImagesConvertBtn: string;
+  pdfToImagesRenderingProgress: string;
+  pdfToImagesOf: string;
+  pdfToImagesConvertedPages: string;
+  pdfToImagesDownloadZip: string;
+  pdfToImagesDownloadSingle: string;
+  pdfToImagesExtractError: string;
+  // How to convert section
+  pdfToImagesHowToTitle: string;
+  pdfToImagesHowToSubtitle: string;
+  pdfToImagesStep1Title: string;
+  pdfToImagesStep1Desc: string;
+  pdfToImagesStep2Title: string;
+  pdfToImagesStep2Desc: string;
+  pdfToImagesStep3Title: string;
+  pdfToImagesStep3Desc: string;
+  pdfToImagesStep4Title: string;
+  pdfToImagesStep4Desc: string;
+  // JPG vs PNG section
+  pdfToImagesCompareTitle: string;
+  pdfToImagesCompareSubtitle: string;
+  pdfToImagesJpgTitle: string;
+  pdfToImagesJpgBadge: string;
+  pdfToImagesJpgDesc: string;
+  pdfToImagesPngTitle: string;
+  pdfToImagesPngBadge: string;
+  pdfToImagesPngDesc: string;
 }
 
 export const translations: Record<LanguageCode, Translations> = {
   en: {
     tagline: 'Your files. Your way.',
     heroTitle: 'Powerful file tools. Private by design.',
-    heroSubtitle: 'Convert, compress, organize, edit and optimize your files directly in your browser without uploading to foreign servers.',
+    heroSubtitle: 'Convert, compress, organize, edit and optimize your files directly in your browser without uploading your files to a remote server.',
     chooseFile: 'Choose a file',
     exploreTools: 'Explore all tools',
     dropFilesHere: 'Drop your files here to start',
@@ -124,7 +162,7 @@ export const translations: Record<LanguageCode, Translations> = {
     whyNuvio: 'Why Choose PDF Image Studio?',
     howItWorks: 'How It Works',
     privacyTitle: 'Private by Architecture, Not Just Policy',
-    privacyDesc: 'Most online file tools upload your sensitive contracts, photos, and records to remote cloud servers. PDF Image Studio runs modern WebAssembly and Canvas engines directly in your browser sandbox.',
+    privacyDesc: 'Most online file tools upload your sensitive contracts, photos, and records to remote cloud servers. PDF Image Studio runs modern JavaScript and Canvas engines directly in your browser sandbox.',
     faqTitle: 'Frequently Asked Questions',
     faqSubtitle: 'Everything you need to know about PDF Image Studio’s privacy-first architecture.',
     recentTools: 'Recently Used',
@@ -211,11 +249,49 @@ export const translations: Record<LanguageCode, Translations> = {
     confidentialityTitle: 'Why Legal, Medical & Financial Teams Trust PDF Image Studio',
     confidentialityDesc: 'When processing NDAs, invoices, medical records, or proprietary blueprints, conventional converter services introduce liability by transferring data to third-party servers. PDF Image Studio’s code executes exclusively within the client sandbox—your data never leaves your computer.',
     readPrivacyWhitepaper: 'Read our complete Privacy Architecture Whitepaper',
+    // PDF to Images Tool Specific
+    pdfToImagesChooseFile: 'Choose a PDF to Convert to Images',
+    pdfToImagesChooseDesc: 'Render every page into high-resolution JPG or PNG pictures directly in your browser.',
+    pdfToImagesSourceDocument: 'Source Document',
+    pdfToImagesOutputFormat: 'Output Image Format',
+    pdfToImagesClarityDpi: 'Render Clarity (DPI Scale)',
+    pdfToImagesDpiStandard: 'Standard 150 DPI',
+    pdfToImagesDpiHigh: 'High Resolution 200 DPI (Recommended)',
+    pdfToImagesDpiUltra: 'Ultra Print 300 DPI',
+    pdfToImagesJpgOption: 'JPG (Standard photo format, small size)',
+    pdfToImagesPngOption: 'PNG (Lossless clarity for text & diagrams)',
+    pdfToImagesConvertBtn: 'Convert All Pages to Images',
+    pdfToImagesRenderingProgress: 'Rendering Page',
+    pdfToImagesOf: 'of',
+    pdfToImagesConvertedPages: 'Converted Pages',
+    pdfToImagesDownloadZip: 'Download All as ZIP',
+    pdfToImagesDownloadSingle: 'Download Page Image',
+    pdfToImagesExtractError: 'Failed to extract images from PDF. The document may be password-protected or corrupted.',
+    // How to convert section
+    pdfToImagesHowToTitle: 'How to Convert PDF to Images',
+    pdfToImagesHowToSubtitle: 'Convert your document pages into clean JPG or PNG image files in four simple steps.',
+    pdfToImagesStep1Title: 'Choose a PDF file',
+    pdfToImagesStep1Desc: 'Select your PDF document from your device or drag it into the converter. Your file stays strictly in your browser.',
+    pdfToImagesStep2Title: 'Select JPG or PNG',
+    pdfToImagesStep2Desc: 'Pick your preferred image format and choose a rendering scale (DPI) to match your quality requirements.',
+    pdfToImagesStep3Title: 'Let the browser render the PDF pages',
+    pdfToImagesStep3Desc: 'Click convert and let your browser render each page sequentially in local device memory using HTML5 Canvas.',
+    pdfToImagesStep4Title: 'Download the generated images',
+    pdfToImagesStep4Desc: 'Download individual page images one by one or save the complete document set in a single ZIP archive.',
+    // JPG vs PNG section
+    pdfToImagesCompareTitle: 'JPG vs PNG: Which Should You Choose?',
+    pdfToImagesCompareSubtitle: 'Understand the general differences to select the right format for your document needs.',
+    pdfToImagesJpgTitle: 'JPG (JPEG)',
+    pdfToImagesJpgBadge: 'Photos & Scanned Documents',
+    pdfToImagesJpgDesc: 'JPG is generally suitable for photos, rich continuous-tone pictures, and scanned physical documents. It typically produces smaller file sizes due to compression, making it convenient when modest compression is acceptable.',
+    pdfToImagesPngTitle: 'PNG',
+    pdfToImagesPngBadge: 'Sharp Text & Line Graphics',
+    pdfToImagesPngDesc: 'PNG is generally better for sharp text, technical diagrams, spreadsheets, and line illustrations. Because PNG is a lossless format, it preserves clean edges without compression artifacts, though file sizes may be larger.',
   },
   ar: {
     tagline: 'ملفاتك. بطريقتك.',
     heroTitle: 'أدوات ملفات فائقة القوة. خصوصية تامة.',
-    heroSubtitle: 'تحويل، ضغط، تنظيم، وتعديل ملفاتك وصورك مباشرة في متصفحك دون رفعها إلى أي خوادم خارجية.',
+    heroSubtitle: 'تحويل، ضغط، تنظيم، وتعديل ملفاتك وصورك مباشرة في متصفحك دون رفع ملفاتك إلى أي خادم بعيد.',
     chooseFile: 'اختر ملفاً',
     exploreTools: 'استكشف كافة الأدوات',
     dropFilesHere: 'أفلت ملفاتك هنا للبدء',
@@ -316,11 +392,49 @@ export const translations: Record<LanguageCode, Translations> = {
     confidentialityTitle: 'لماذا تثق الفرق القانونية والطبية والمالية بـ PDF Image Studio',
     confidentialityDesc: 'عند التعامل مع اتفاقيات عدم الإفصاح، الفواتير، السجلات الطبية، أو المخططات السرية، تشكل المحولات السحابية التقليدية خطراً أمنياً بنقل بياناتك إلى خوادم خارجية. يعمل PDF Image Studio بالكامل داخل بيئة متصفحك المعزولة—بياناتك لا تغادر جهازك إطلاقاً.',
     readPrivacyWhitepaper: 'اقرأ وثيقة معمارية الخصوصية والأمان الكاملة',
+    // PDF to Images Tool Specific
+    pdfToImagesChooseFile: 'اختر ملف PDF لتحويله إلى صور',
+    pdfToImagesChooseDesc: 'قم بتصيير كل صفحة من المستند إلى صور JPG أو PNG عالية الدقة مباشرة في متصفحك.',
+    pdfToImagesSourceDocument: 'المستند المصدر',
+    pdfToImagesOutputFormat: 'صيغة الصورة الناتجة',
+    pdfToImagesClarityDpi: 'دقة ووضوح الرندرة (مقياس DPI)',
+    pdfToImagesDpiStandard: 'قياسي 150 DPI',
+    pdfToImagesDpiHigh: 'عالي الدقة 200 DPI (موصى به)',
+    pdfToImagesDpiUltra: 'فائق الدقة للطباعة 300 DPI',
+    pdfToImagesJpgOption: 'JPG (صيغة قياسية، حجم ملف أصغر)',
+    pdfToImagesPngOption: 'PNG (وضوح نقي بدون فقدان للنصوص والمخططات)',
+    pdfToImagesConvertBtn: 'تحويل جميع الصفحات إلى صور',
+    pdfToImagesRenderingProgress: 'جارٍ تصيير صفحة',
+    pdfToImagesOf: 'من',
+    pdfToImagesConvertedPages: 'الصفحات المحولة',
+    pdfToImagesDownloadZip: 'تنزيل الكل كملف ZIP',
+    pdfToImagesDownloadSingle: 'تنزيل صورة الصفحة',
+    pdfToImagesExtractError: 'فشل استخراج الصور من ملف PDF. قد يكون المستند محمياً بكلمة مرور أو تالفاً.',
+    // How to convert section
+    pdfToImagesHowToTitle: 'كيفية تحويل PDF إلى صور',
+    pdfToImagesHowToSubtitle: 'حوّل صفحات مستندك إلى ملفات صور JPG أو PNG نقية بأربع خطوات سهلة ومباشرة.',
+    pdfToImagesStep1Title: 'اختر ملف PDF',
+    pdfToImagesStep1Desc: 'حدد مستند الـ PDF من جهازك أو اسحبه إلى مساحة التحويل. يبقى ملفك محفوظاً في متصفحك محلياً.',
+    pdfToImagesStep2Title: 'حدد صيغة JPG أو PNG',
+    pdfToImagesStep2Desc: 'اختر صيغة الصور المفضلة لديك وحدد مقياس دقة الرندرة (DPI) بما يناسب احتياجاتك.',
+    pdfToImagesStep3Title: 'دع المتصفح يُصيّر صفحات الـ PDF',
+    pdfToImagesStep3Desc: 'انقر على تحويل ليقوم المتصفح برسم كل صفحة تباعاً في ذاكرة جهازك المحلية عبر تقنية Canvas.',
+    pdfToImagesStep4Title: 'نزّل الصور المستخرجة',
+    pdfToImagesStep4Desc: 'نزّل كل صورة صفحة على حدة، أو احصل على كامل صفحات المستند دفعة واحدة في ملف ZIP مضغوط.',
+    // JPG vs PNG section
+    pdfToImagesCompareTitle: 'مقارنة JPG و PNG: أيهما تختار؟',
+    pdfToImagesCompareSubtitle: 'تعرف على الفروق العامة لاختيار الصيغة المثلى لنوع مستندك واحتياجك.',
+    pdfToImagesJpgTitle: 'JPG (JPEG)',
+    pdfToImagesJpgBadge: 'الصور الفوتوغرافية والمسح الضوئي',
+    pdfToImagesJpgDesc: 'تعتبر صيغة JPG ملائمة عموماً للصور الفوتوغرافية والمستندات الورقية الممسوحة ضوئياً. وعادة ما ينتج عنها حجم ملف أصغر بفضل الضغط المتوازن، مما يجعلها ملائمة للمشاركة السريعة عندما تكون نسبة الضغط البسيطة مقبولة.',
+    pdfToImagesPngTitle: 'PNG',
+    pdfToImagesPngBadge: 'النصوص الحادة والرسومات الخطية',
+    pdfToImagesPngDesc: 'تعتبر صيغة PNG الخيار الأفضل عموماً للنصوص الدقيقة، والمخططات الهندسية، والجداول والرسومات التوضيحية. ونظراً لأن PNG ضغط غير منقوص (Lossless)، فإنها تحافظ على حواف الحروف نقية بدون تشويش، مع احتمال زيادة حجم الملف بحسب طبيعة المحتوى.',
   },
   es: {
     tagline: 'Tus archivos. A tu manera.',
     heroTitle: 'Herramientas potentes. Privadas por diseño.',
-    heroSubtitle: 'Convierte, comprime, organiza, edita y optimiza tus archivos directamente en tu navegador sin subirlos a ningún servidor.',
+    heroSubtitle: 'Convierte, comprime, organiza, edita y optimiza tus archivos directamente en tu navegador sin subir tus archivos a un servidor remoto.',
     chooseFile: 'Elegir un archivo',
     exploreTools: 'Explorar herramientas',
     dropFilesHere: 'Arrastra tus archivos aquí para comenzar',
@@ -421,11 +535,49 @@ export const translations: Record<LanguageCode, Translations> = {
     confidentialityTitle: 'Por qué equipos legales, médicos y financieros confían en PDF Image Studio',
     confidentialityDesc: 'Al procesar acuerdos de confidencialidad, facturas, historiales médicos o planos confidenciales, los convertidores convencionales generan riesgos al transferir datos a servidores externos. PDF Image Studio se ejecuta exclusivamente en el navegador—tus datos nunca salen de tu ordenador.',
     readPrivacyWhitepaper: 'Lee nuestro informe completo de arquitectura de privacidad',
+    // PDF to Images Tool Specific
+    pdfToImagesChooseFile: 'Elegir un PDF para convertir a imágenes',
+    pdfToImagesChooseDesc: 'Convierte cada página en imágenes JPG o PNG de alta resolución directamente en tu navegador.',
+    pdfToImagesSourceDocument: 'Documento fuente',
+    pdfToImagesOutputFormat: 'Formato de imagen de salida',
+    pdfToImagesClarityDpi: 'Claridad de renderizado (Escala DPI)',
+    pdfToImagesDpiStandard: 'Estándar 150 DPI',
+    pdfToImagesDpiHigh: 'Alta resolución 200 DPI (Recomendado)',
+    pdfToImagesDpiUltra: 'Impresión ultra 300 DPI',
+    pdfToImagesJpgOption: 'JPG (Formato estándar, menor tamaño)',
+    pdfToImagesPngOption: 'PNG (Claridad sin pérdidas para texto y diagramas)',
+    pdfToImagesConvertBtn: 'Convertir todas las páginas a imágenes',
+    pdfToImagesRenderingProgress: 'Renderizando página',
+    pdfToImagesOf: 'de',
+    pdfToImagesConvertedPages: 'Páginas convertidas',
+    pdfToImagesDownloadZip: 'Descargar todo como ZIP',
+    pdfToImagesDownloadSingle: 'Descargar imagen de página',
+    pdfToImagesExtractError: 'Error al extraer imágenes del PDF. El documento puede estar protegido por contraseña o dañado.',
+    // How to convert section
+    pdfToImagesHowToTitle: 'Cómo convertir PDF a imágenes',
+    pdfToImagesHowToSubtitle: 'Convierte las páginas de tu documento en imágenes JPG o PNG nítidas en cuatro sencillos pasos.',
+    pdfToImagesStep1Title: 'Elige un archivo PDF',
+    pdfToImagesStep1Desc: 'Selecciona tu documento PDF desde tu dispositivo o arrástralo. El archivo permanece exclusivamente en tu navegador.',
+    pdfToImagesStep2Title: 'Selecciona JPG o PNG',
+    pdfToImagesStep2Desc: 'Elige tu formato preferido y selecciona la escala de resolución (DPI) según tus requerimientos.',
+    pdfToImagesStep3Title: 'Deja que el navegador renderice las páginas PDF',
+    pdfToImagesStep3Desc: 'Haz clic en convertir y deja que tu navegador procese cada página secuencialmente en la memoria local mediante HTML5 Canvas.',
+    pdfToImagesStep4Title: 'Descarga las imágenes generadas',
+    pdfToImagesStep4Desc: 'Descarga imágenes individuales una por una o guarda el conjunto completo en un práctico archivo ZIP.',
+    // JPG vs PNG section
+    pdfToImagesCompareTitle: 'JPG vs PNG: ¿Cuál deberías elegir?',
+    pdfToImagesCompareSubtitle: 'Comprende las diferencias generales para elegir el formato adecuado según tu documento.',
+    pdfToImagesJpgTitle: 'JPG (JPEG)',
+    pdfToImagesJpgBadge: 'Fotos y documentos escaneados',
+    pdfToImagesJpgDesc: 'JPG suele ser adecuado para fotos, ilustraciones continuas y documentos escaneados. Generalmente produce archivos de menor tamaño debido a la compresión, siendo conveniente cuando una compresión moderada es aceptable.',
+    pdfToImagesPngTitle: 'PNG',
+    pdfToImagesPngBadge: 'Texto nítido y gráficos',
+    pdfToImagesPngDesc: 'PNG suele ser mejor para textos nítidos, diagramas técnicos y tablas. Al ser un formato sin pérdidas, conserva los bordes limpios sin artefactos, aunque el tamaño de archivo puede ser mayor según el contenido.',
   },
   fr: {
     tagline: 'Vos fichiers. À votre façon.',
     heroTitle: 'Outils de fichiers puissants. Privés par conception.',
-    heroSubtitle: 'Convertissez, compressez, organisez, éditez et optimisez vos fichiers directement dans votre navigateur sans téléversement vers des serveurs distants.',
+    heroSubtitle: 'Convertissez, compressez, organisez, éditez et optimisez vos fichiers directement dans votre navigateur sans téléverser vos fichiers vers un serveur distant.',
     chooseFile: 'Choisir un fichier',
     exploreTools: 'Explorer tous les outils',
     dropFilesHere: 'Glissez vos fichiers ici pour commencer',
@@ -526,11 +678,49 @@ export const translations: Record<LanguageCode, Translations> = {
     confidentialityTitle: 'Pourquoi les équipes juridiques, médicales et financières font confiance à PDF Image Studio',
     confidentialityDesc: 'Lors du traitement d’accords de confidentialité, factures, dossiers médicaux ou plans confidentiels, les services classiques créent des risques en transférant vos données. PDF Image Studio s’exécute exclusivement dans votre navigateur—vos données ne quittent jamais votre machine.',
     readPrivacyWhitepaper: 'Lire notre livre blanc complet sur l’architecture de confidentialité',
+    // PDF to Images Tool Specific
+    pdfToImagesChooseFile: 'Choisir un PDF à convertir en images',
+    pdfToImagesChooseDesc: 'Rendez chaque page en images haute définition JPG ou PNG directement dans votre navigateur.',
+    pdfToImagesSourceDocument: 'Document source',
+    pdfToImagesOutputFormat: 'Format d’image de sortie',
+    pdfToImagesClarityDpi: 'Netteté du rendu (Échelle DPI)',
+    pdfToImagesDpiStandard: 'Standard 150 DPI',
+    pdfToImagesDpiHigh: 'Haute résolution 200 DPI (Recommandé)',
+    pdfToImagesDpiUltra: 'Impression ultra 300 DPI',
+    pdfToImagesJpgOption: 'JPG (Format standard, taille réduite)',
+    pdfToImagesPngOption: 'PNG (Clarté sans perte pour texte et diagrammes)',
+    pdfToImagesConvertBtn: 'Convertir toutes les pages en images',
+    pdfToImagesRenderingProgress: 'Rendu de la page',
+    pdfToImagesOf: 'sur',
+    pdfToImagesConvertedPages: 'Pages converties',
+    pdfToImagesDownloadZip: 'Tout télécharger en ZIP',
+    pdfToImagesDownloadSingle: 'Télécharger l’image de la page',
+    pdfToImagesExtractError: 'Échec de l’extraction des images du PDF. Le document est peut-être protégé par mot de passe ou endommagé.',
+    // How to convert section
+    pdfToImagesHowToTitle: 'Comment convertir un PDF en images',
+    pdfToImagesHowToSubtitle: 'Convertissez les pages de votre document en images JPG ou PNG nettes en quatre étapes simples.',
+    pdfToImagesStep1Title: 'Choisissez un fichier PDF',
+    pdfToImagesStep1Desc: 'Sélectionnez votre document PDF depuis votre appareil ou glissez-le dans l’outil. Votre fichier reste exclusivement dans votre navigateur.',
+    pdfToImagesStep2Title: 'Sélectionnez JPG ou PNG',
+    pdfToImagesStep2Desc: 'Choisissez votre format d’image préféré ainsi que l’échelle de résolution (DPI) adaptée à vos besoins.',
+    pdfToImagesStep3Title: 'Laissez le navigateur rendre les pages PDF',
+    pdfToImagesStep3Desc: 'Cliquez sur convertir pour que votre navigateur rende chaque page localement en mémoire via HTML5 Canvas.',
+    pdfToImagesStep4Title: 'Téléchargez les images générées',
+    pdfToImagesStep4Desc: 'Téléchargez les images individuellement ou sauvegardez l’ensemble des pages dans une archive ZIP pratique.',
+    // JPG vs PNG section
+    pdfToImagesCompareTitle: 'JPG ou PNG : Lequel choisir ?',
+    pdfToImagesCompareSubtitle: 'Découvrez les différences générales pour sélectionner le format adapté à votre document.',
+    pdfToImagesJpgTitle: 'JPG (JPEG)',
+    pdfToImagesJpgBadge: 'Photos et documents numérisés',
+    pdfToImagesJpgDesc: 'Le format JPG convient généralement aux photos, images détaillées et documents papier numérisés. Il produit généralement des fichiers plus légers grâce à la compression, ce qui facilite les échanges lorsque de légères pertes de détails sont acceptables.',
+    pdfToImagesPngTitle: 'PNG',
+    pdfToImagesPngBadge: 'Texte net et graphiques au trait',
+    pdfToImagesPngDesc: 'Le format PNG est généralement préférable pour les textes nets, diagrammes, graphiques et captures d’écran. Comme le PNG est sans perte, il évite les artefacts autour des caractères, même si le fichier peut être plus volumineux selon le contenu.',
   },
   de: {
     tagline: 'Ihre Dateien. Nach Ihren Wünschen.',
     heroTitle: 'Leistungsstarke Datei-Tools. Von Grund auf privat.',
-    heroSubtitle: 'Konvertieren, komprimieren, organisieren, bearbeiten und optimieren Sie Ihre Dateien direkt im Browser – ohne Upload auf fremde Server.',
+    heroSubtitle: 'Konvertieren, komprimieren, organisieren, bearbeiten und optimieren Sie Ihre Dateien direkt im Browser – ohne Upload Ihrer Dateien auf einen Remote-Server.',
     chooseFile: 'Datei auswählen',
     exploreTools: 'Alle Tools entdecken',
     dropFilesHere: 'Dateien hier ablegen',
@@ -544,7 +734,7 @@ export const translations: Record<LanguageCode, Translations> = {
     whyNuvio: 'Warum PDF Image Studio?',
     howItWorks: 'Wie es funktioniert',
     privacyTitle: 'Privatsphäre durch Architektur, nicht nur Versprechen',
-    privacyDesc: 'Klassische Online-Dienste laden Ihre vertraulichen Dokumente auf externe Server hoch. PDF Image Studio nutzt moderne WebAssembly- und Canvas-Technologien direkt in Ihrem Browser.',
+    privacyDesc: 'Klassische Online-Dienste laden Ihre vertraulichen Dokumente auf externe Server hoch. PDF Image Studio nutzt moderne JavaScript- und Canvas-Technologien direkt in Ihrem Browser.',
     faqTitle: 'Häufig gestellte Fragen',
     faqSubtitle: 'Alles, was Sie über die sichere, lokale Ausführung von PDF Image Studio wissen müssen.',
     recentTools: 'Kürzlich verwendet',
@@ -631,5 +821,43 @@ export const translations: Record<LanguageCode, Translations> = {
     confidentialityTitle: 'Warum Rechts-, Medizin- und Finanzteams PDF Image Studio vertrauen',
     confidentialityDesc: 'Bei der Verarbeitung von Geheimhaltungsvereinbarungen, Rechnungen, Krankenakten oder vertraulichen Plänen bergen herkömmliche Online-Dienste Risiken durch Server-Übertragungen. Der Code von PDF Image Studio läuft ausschließlich lokal im Browser – Ihre Daten verlassen niemals Ihren Rechner.',
     readPrivacyWhitepaper: 'Vollständigen Bericht zur Sicherheitsarchitektur lesen',
+    // PDF to Images Tool Specific
+    pdfToImagesChooseFile: 'PDF auswählen, um es in Bilder umzuwandeln',
+    pdfToImagesChooseDesc: 'Rendern Sie jede Seite direkt im Browser in hochauflösende JPG- oder PNG-Bilder.',
+    pdfToImagesSourceDocument: 'Quelldokument',
+    pdfToImagesOutputFormat: 'Ausgabe-Bildformat',
+    pdfToImagesClarityDpi: 'Render-Schärfe (DPI-Skala)',
+    pdfToImagesDpiStandard: 'Standard 150 DPI',
+    pdfToImagesDpiHigh: 'Hohe Auflösung 200 DPI (Empfohlen)',
+    pdfToImagesDpiUltra: 'Ultra-Druck 300 DPI',
+    pdfToImagesJpgOption: 'JPG (Standardformat, kleinere Dateigröße)',
+    pdfToImagesPngOption: 'PNG (Verlustfreie Klarheit für Text & Diagramme)',
+    pdfToImagesConvertBtn: 'Alle Seiten in Bilder umwandeln',
+    pdfToImagesRenderingProgress: 'Rendere Seite',
+    pdfToImagesOf: 'von',
+    pdfToImagesConvertedPages: 'Konvertierte Seiten',
+    pdfToImagesDownloadZip: 'Alle als ZIP herunterladen',
+    pdfToImagesDownloadSingle: 'Seitenbild herunterladen',
+    pdfToImagesExtractError: 'Fehler beim Extrahieren von Bildern aus dem PDF. Das Dokument ist möglicherweise passwortgeschützt oder beschädigt.',
+    // How to convert section
+    pdfToImagesHowToTitle: 'So konvertieren Sie PDF in Bilder',
+    pdfToImagesHowToSubtitle: 'Wandeln Sie Ihre Dokumentseiten in vier einfachen Schritten in saubere JPG- oder PNG-Bilddateien um.',
+    pdfToImagesStep1Title: 'PDF-Datei auswählen',
+    pdfToImagesStep1Desc: 'Wählen Sie Ihr PDF-Dokument auf Ihrem Gerät aus. Ihre Datei verbleibt ausschließlich in Ihrem Browser.',
+    pdfToImagesStep2Title: 'JPG oder PNG wählen',
+    pdfToImagesStep2Desc: 'Wählen Sie Ihr bevorzugtes Bildformat und die passende Render-Auflösung (DPI).',
+    pdfToImagesStep3Title: 'Browser rendert die PDF-Seiten',
+    pdfToImagesStep3Desc: 'Klicken Sie auf Konvertieren, damit Ihr Browser jede Seite nacheinander im lokalen Gerätespeicher rendert.',
+    pdfToImagesStep4Title: 'Generierte Bilder herunterladen',
+    pdfToImagesStep4Desc: 'Laden Sie einzelne Seitenbilder herunter oder speichern Sie alle Seiten gebündelt in einer ZIP-Datei.',
+    // JPG vs PNG section
+    pdfToImagesCompareTitle: 'JPG vs. PNG: Welches Format sollten Sie wählen?',
+    pdfToImagesCompareSubtitle: 'Verstehen Sie die allgemeinen Unterschiede, um das ideale Format für Ihr Dokument zu wählen.',
+    pdfToImagesJpgTitle: 'JPG (JPEG)',
+    pdfToImagesJpgBadge: 'Fotos & gescannte Dokumente',
+    pdfToImagesJpgDesc: 'JPG eignet sich in der Regel für Fotos, farbintensive Bilder und gescannte Papierdokumente. Es führt meist zu kleineren Dateigrößen durch Komprimierung, was praktisch ist, wenn leichte Kompressionsverluste akzeptabel sind.',
+    pdfToImagesPngTitle: 'PNG',
+    pdfToImagesPngBadge: 'Scharfer Text & Strichgrafiken',
+    pdfToImagesPngDesc: 'PNG ist im Allgemeinen besser für scharfen Text, technische Diagramme und Tabellen. Da PNG ein verlustfreies Format ist, bleiben Kanten ohne Kompressionsartefakte sauber, wenngleich Dateigrößen je nach Inhalt höher sein können.',
   },
 };

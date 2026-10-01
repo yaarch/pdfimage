@@ -23,7 +23,7 @@ export const TOOLS: ToolDefinition[] = [
     faqs: [
       {
         question: 'How does the PDF Image Studio PDF Organizer protect my privacy?',
-        answer: 'Unlike traditional online PDF editors that upload your private documents to remote cloud servers, PDF Image Studio renders and modifies the PDF binary directly in your browser memory using WebAssembly and Canvas. Your document never leaves your machine.',
+        answer: 'Unlike traditional online PDF editors that upload your private documents to remote cloud servers, PDF Image Studio renders and modifies the PDF binary directly in your browser memory using JavaScript and HTML5 Canvas. Your document never leaves your machine.',
       },
       {
         question: 'Can I reorder and rotate multiple pages at once?',
@@ -59,7 +59,11 @@ export const TOOLS: ToolDefinition[] = [
       },
       {
         question: 'Can I rearrange the order of files before merging?',
-        answer: 'Yes! Use the intuitive list controls to move files up and down or drag them into your desired final sequence.',
+        answer: 'Yes! You can easily drag and drop PDF files into your preferred order, or use the move up/down controls before clicking Merge PDF.',
+      },
+      {
+        question: 'Are my PDF documents stored or uploaded during merging?',
+        answer: 'No. PDF Image Studio merges your documents entirely inside your browser memory. Your private files never leave your device.',
       },
     ],
   },
@@ -230,8 +234,36 @@ export const TOOLS: ToolDefinition[] = [
     relatedToolIds: ['images-to-pdf', 'pdf-organizer', 'image-compressor'],
     faqs: [
       {
-        question: 'What image format should I pick?',
-        answer: 'Choose JPG for smaller file sizes with photos/scans, or PNG for crystal-sharp text and graphics.',
+        question: 'Are my PDF files uploaded?',
+        answer: 'Your PDF is processed in your browser and is not uploaded to our servers. All rendering takes place directly on your device using client-side JavaScript, HTML5 Canvas, and Web Workers.',
+      },
+      {
+        question: 'Can I use the tool on mobile?',
+        answer: 'Yes. You can use the tool in any modern mobile browser on iOS and Android devices without installing additional applications.',
+      },
+      {
+        question: 'Does the tool work offline?',
+        answer: 'Yes. Once this page and its conversion engine have loaded in your browser, page rendering runs entirely on your local device without requiring an active internet connection.',
+      },
+      {
+        question: 'What happens to my files after conversion?',
+        answer: 'Your source PDF and generated images exist only in your browser temporary working memory. When you refresh the page, close the browser tab, or choose another file, that session memory is cleared.',
+      },
+      {
+        question: 'What image formats are supported?',
+        answer: 'The tool supports exporting PDF pages to JPG (JPEG) and PNG formats, with configurable resolution scale options.',
+      },
+      {
+        question: 'Can I convert multi-page PDFs?',
+        answer: 'Yes. The tool processes every page in sequence. You can download individual page images directly or download all pages bundled in a single ZIP archive.',
+      },
+      {
+        question: 'What affects conversion speed?',
+        answer: 'Conversion speed depends on your device CPU and available memory, the total page count, the selected render clarity (DPI scale), and the complexity of graphics in the document.',
+      },
+      {
+        question: 'Are there limitations when processing very large PDFs?',
+        answer: 'Because rendering operates entirely in client-side memory, documents with hundreds of heavy pages or ultra-high DPI settings may require substantial device RAM. Using standard resolution helps ensure smooth conversion on lower-memory devices.',
       },
     ],
   },
