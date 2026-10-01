@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense, useMemo } from 'react';
 import { I18nProvider, useTranslation } from './i18n/context';
 import { ThemeProvider } from './hooks/useTheme';
+import { LanguageCode } from './types';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CommandPalette } from './components/common/CommandPalette';
@@ -194,7 +195,14 @@ function MainAppContent() {
       cleanPath === '/sitemap.xml' ||
       cleanPath.startsWith('/sitemap-')
     ) {
-      return <SitemapView onNavigate={navigate} />;
+      let initialTab: 'index' | LanguageCode = 'index';
+      if (cleanPath.includes('sitemap-ar')) initialTab = 'ar';
+      else if (cleanPath.includes('sitemap-es')) initialTab = 'es';
+      else if (cleanPath.includes('sitemap-fr')) initialTab = 'fr';
+      else if (cleanPath.includes('sitemap-de')) initialTab = 'de';
+      else if (cleanPath.includes('sitemap-en')) initialTab = 'en';
+
+      return <SitemapView onNavigate={navigate} initialTab={initialTab} />;
     }
 
     // 2. Interactive Tools Matching

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Globe, FileCode, Download, Copy, Check, ExternalLink, ShieldCheck, Layers, Sparkles } from 'lucide-react';
+import { Globe, FileCode, Download, Copy, Check, ExternalLink, ShieldCheck } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
 import { LanguageCode } from '../../types';
 import { TOOLS } from '../../data/tools';
@@ -7,17 +7,36 @@ import { getLocalizedTool } from '../../i18n/toolTranslations';
 import { formatLocalizedRoute, SUPPORTED_LANGUAGES, BASE_CANONICAL_URL } from '../../i18n/urlUtils';
 import { generateLanguageSitemapXml, generateSitemapIndexXml, SITEMAP_STATIC_ROUTES } from '../../utils/sitemapGenerator';
 
+export type SitemapTab = 'index' | LanguageCode;
+
 interface SitemapViewProps {
   onNavigate: (route: string) => void;
+  initialTab?: SitemapTab;
 }
 
-type SitemapTab = 'index' | LanguageCode;
+export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate, initialTab }) => {
+  const { language: currentAppLanguage } = useTranslation();
 
-export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
-  const { language, t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<SitemapTab>(language || 'index');
+  const resolveInitialTab = (): SitemapTab => {
+    if (initialTab) return initialTab;
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname.toLowerCase();
+      if (path.includes('sitemap-ar')) return 'ar';
+      if (path.includes('sitemap-es')) return 'es';
+      if (path.includes('sitemap-fr')) return 'fr';
+      if (path.includes('sitemap-de')) return 'de';
+      if (path.includes('sitemap-en')) return 'en';
+      if (path === '/sitemap' || path === '/sitemap.xml') return 'index';
+    }
+    return 'index';
+  };
+
+  const [activeTab, setActiveTab] = useState<SitemapTab>(resolveInitialTab);
   const [copied, setCopied] = useState(false);
   const [viewMode, setViewMode] = useState<'visual' | 'xml'>('visual');
+
+  const displayLang: LanguageCode = activeTab === 'index' ? (currentAppLanguage || 'en') : activeTab;
+  const isRtl = displayLang === 'ar';
 
   const tabs: { id: SitemapTab; label: string; file: string }[] = [
     { id: 'index', label: 'Sitemap Index (All)', file: 'sitemap.xml' },
@@ -34,6 +53,10 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
 
   const activeFilename = activeTab === 'index' ? 'sitemap.xml' : `sitemap-${activeTab}.xml`;
   const rawFileUrl = `/${activeFilename}`;
+
+  const urlsInSingleFile = SITEMAP_STATIC_ROUTES.length + TOOLS.length; // 36
+  const totalUrlsAcrossAllLocales = urlsInSingleFile * SUPPORTED_LANGUAGES.length; // 180
+  const displayedUrlCount = activeTab === 'index' ? totalUrlsAcrossAllLocales : urlsInSingleFile;
 
   const handleCopyXml = () => {
     navigator.clipboard.writeText(currentXml);
@@ -53,10 +76,99 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
     URL.revokeObjectURL(url);
   };
 
-  const totalIndexedUrls = (SITEMAP_STATIC_ROUTES.length + TOOLS.length) * SUPPORTED_LANGUAGES.length;
+  // Localized Labels for UI
+  const urlCountCardTitle: Record<LanguageCode, string> = {
+    en: activeTab === 'index' ? 'Total Indexed URLs' : 'URLs in this File',
+    ar: activeTab === 'index' ? 'إجمالي الروابط المفهرسة' : 'روابط هذا الملف الفردي',
+    es: activeTab === 'index' ? 'Total de URLs Indizadas' : 'URLs en este Archivo',
+    fr: activeTab === 'index' ? 'Total des URLs Indexées' : 'URLs dans ce Fichier',
+    de: activeTab === 'index' ? 'Gesamte Indizierte URLs' : 'URLs in dieser Datei',
+  };
+
+  const urlCountCardSubtext: Record<LanguageCode, string> = {
+    en: activeTab === 'index' ? 'Across 5 Locales (36 x 5)' : `36 URLs in ${activeFilename}`,
+    ar: activeTab === 'index' ? 'عبر 5 لغات (36 × 5)' : `36 رابطاً في ${activeFilename}`,
+    es: activeTab === 'index' ? 'En 5 Idiomas (36 x 5)' : `36 URLs en ${activeFilename}`,
+    fr: activeTab === 'index' ? 'Dans 5 Langues (36 x 5)' : `36 URLs dans ${activeFilename}`,
+    de: activeTab === 'index' ? 'In 5 Sprachen (36 x 5)' : `36 URLs in ${activeFilename}`,
+  };
+
+  const corePagesHeading: Record<LanguageCode, string> = {
+    en: `Core Platform Pages (${SITEMAP_STATIC_ROUTES.length} Pages - EN)`,
+    ar: `صفحات المنصة الرئيسية (${SITEMAP_STATIC_ROUTES.length} صفحات - AR)`,
+    es: `Páginas Principales de la Plataforma (${SITEMAP_STATIC_ROUTES.length} Páginas - ES)`,
+    fr: `Pages Principales de la Plateforme (${SITEMAP_STATIC_ROUTES.length} Pages - FR)`,
+    de: `Kern-Plattform-Seiten (${SITEMAP_STATIC_ROUTES.length} Seiten - DE)`,
+  };
+
+  const toolsHeading: Record<LanguageCode, string> = {
+    en: `All Indexed Interactive Tools (${TOOLS.length} Tools - EN)`,
+    ar: `جميع الأدوات التفاعلية المفهرسة (${TOOLS.length} أداة - AR)`,
+    es: `Todas las Herramientas Interactivas Indizadas (${TOOLS.length} Herramientas - ES)`,
+    fr: `Toutes les Outils Interactifs Indexés (${TOOLS.length} Outils - FR)`,
+    de: `Alle Indizierten Interaktiven Tools (${TOOLS.length} Tools - DE)`,
+  };
+
+  const openRawXmlText: Record<LanguageCode, string> = {
+    en: `Open Raw ${activeFilename}`,
+    ar: `فتح ملف ${activeFilename} المباشر`,
+    es: `Abrir ${activeFilename} Directo`,
+    fr: `Ouvrir ${activeFilename} Brut`,
+    de: `Unbearbeitetes ${activeFilename} Öffnen`,
+  };
+
+  const copyXmlText: Record<LanguageCode, string> = {
+    en: 'Copy XML',
+    ar: 'نسخ XML',
+    es: 'Copiar XML',
+    fr: 'Copier le XML',
+    de: 'XML Kopieren',
+  };
+
+  const copiedText: Record<LanguageCode, string> = {
+    en: 'Copied!',
+    ar: 'تم النسخ!',
+    es: '¡Copiado!',
+    fr: 'Copié !',
+    de: 'Kopiert!',
+  };
+
+  const downloadXmlText: Record<LanguageCode, string> = {
+    en: 'Download .xml',
+    ar: 'تحميل .xml',
+    es: 'Descargar .xml',
+    fr: 'Télécharger .xml',
+    de: '.xml Herunterladen',
+  };
+
+  const pageTitleText: Record<LanguageCode, string> = {
+    en: activeTab === 'index' ? 'Multilingual XML Sitemaps Directory' : `XML Sitemap — English (${activeFilename})`,
+    ar: activeTab === 'index' ? 'فهرس خرائط الموقع متعدد اللغات' : `خريطة الموقع XML — اللغة العربية (${activeFilename})`,
+    es: activeTab === 'index' ? 'Directorio de Sitemaps XML Multilingüe' : `Sitemap XML — Español (${activeFilename})`,
+    fr: activeTab === 'index' ? 'Répertoire des Sitemaps XML Multilingues' : `Sitemap XML — Français (${activeFilename})`,
+    de: activeTab === 'index' ? 'Verzeichnis Multilingualer XML-Sitemaps' : `XML-Sitemap — Deutsch (${activeFilename})`,
+  };
+
+  const pageSubtitleText: Record<LanguageCode, string> = {
+    en: activeTab === 'index'
+      ? 'Dedicated XML sitemaps per language with cross-referencing xhtml:link hreflang annotations.'
+      : `Language-specific XML sitemap for English with 36 localized URLs and cross-referencing hreflang tags.`,
+    ar: activeTab === 'index'
+      ? 'خرائط XML مخصصة ومستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية) مع وسوم hreflang المتبادلة.'
+      : `خريطة موقع XML مخصصة للغة العربية تحتوي على 36 رابطاً مفهرساً مع وسوم hreflang المتبادلة.`,
+    es: activeTab === 'index'
+      ? 'Sitemaps XML dedicados por idioma con anotaciones hreflang cruzadas.'
+      : `Sitemap XML específico para Español con 36 URLs localizadas y etiquetas hreflang cruzadas.`,
+    fr: activeTab === 'index'
+      ? 'Sitemaps XML dédiés par langue avec annotations hreflang croisées.'
+      : `Sitemap XML spécifique pour le Français contenant 36 URLs localisées et balises hreflang croisées.`,
+    de: activeTab === 'index'
+      ? 'Spezifische XML-Sitemaps pro Sprache mit gekreuzten hreflang-Annotationen.'
+      : `Sprachenspezifische XML-Sitemap für Deutsch mit 36 lokalisierte URLs und gekreuzten hreflang-Tags.`,
+  };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 space-y-8 animate-fade-in">
+    <div dir={isRtl ? 'rtl' : 'ltr'} className="max-w-6xl mx-auto px-4 py-8 space-y-8 animate-fade-in">
       {/* Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
@@ -69,12 +181,10 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
             </span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            {language === 'ar' ? 'فهرس خرائط الموقع متعدد اللغات (Multilingual Sitemaps)' : 'Multilingual XML Sitemaps Directory'}
+            {pageTitleText[displayLang]}
           </h1>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-2xl">
-            {language === 'ar'
-              ? 'خرائط XML مخصصة ومستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية) مع وسوم hreflang المتبادلة لفهرسة منظمة في محركات البحث.'
-              : 'Dedicated XML sitemaps per language with cross-referencing xhtml:link hreflang annotations for structured multi-regional search engine indexing.'}
+            {pageSubtitleText[displayLang]}
           </p>
         </div>
 
@@ -85,14 +195,14 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
             className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
           >
             {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-            <span>{copied ? (language === 'ar' ? 'تم النسخ' : 'Copied') : (language === 'ar' ? 'نسخ XML' : 'Copy XML')}</span>
+            <span>{copied ? copiedText[displayLang] : copyXmlText[displayLang]}</span>
           </button>
           <button
             onClick={handleDownloadXml}
             className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold transition flex items-center gap-1.5 shadow-xs"
           >
             <Download className="w-4 h-4 text-indigo-500" />
-            <span>{language === 'ar' ? 'تحميل .xml' : 'Download .xml'}</span>
+            <span>{downloadXmlText[displayLang]}</span>
           </button>
           <a
             href={rawFileUrl}
@@ -100,18 +210,18 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
             rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-xs flex items-center gap-1.5"
           >
-            <span>{language === 'ar' ? 'فتح الـ XML المباشر' : 'Open Raw XML'}</span>
+            <span>{openRawXmlText[displayLang]}</span>
             <ExternalLink className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>
 
-      {/* SEO Metric Badges */}
+      {/* Dynamic SEO Metric Badges */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Total Indexed URLs</div>
-          <div className="text-2xl font-black text-indigo-600 dark:text-indigo-400 mt-0.5">{totalIndexedUrls}</div>
-          <div className="text-[11px] text-slate-400 mt-1">Across 5 Locales</div>
+          <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">{urlCountCardTitle[displayLang]}</div>
+          <div className="text-2xl font-black text-indigo-600 dark:text-indigo-400 mt-0.5">{displayedUrlCount}</div>
+          <div className="text-[11px] text-slate-400 mt-1">{urlCountCardSubtext[displayLang]}</div>
         </div>
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Tools per Locale</div>
@@ -119,9 +229,9 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
           <div className="text-[11px] text-slate-400 mt-1">100% Client-side</div>
         </div>
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Sitemap Files</div>
-          <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5">5 + 1 Index</div>
-          <div className="text-[11px] text-slate-400 mt-1">Sitemap Index standard</div>
+          <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Current View</div>
+          <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 mt-0.5 font-mono text-lg">{activeFilename}</div>
+          <div className="text-[11px] text-slate-400 mt-1">{activeTab === 'index' ? 'Sitemap Index' : `Language: ${activeTab.toUpperCase()}`}</div>
         </div>
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Hreflang Alternates</div>
@@ -161,7 +271,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
               }`}
             >
-              {language === 'ar' ? 'العرض المرئي' : 'Visual Table'}
+              {displayLang === 'ar' ? 'العرض المرئي' : 'Visual Table'}
             </button>
             <button
               onClick={() => setViewMode('xml')}
@@ -191,11 +301,11 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
         ) : activeTab === 'index' ? (
           <div className="space-y-4">
             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">
-              {language === 'ar' ? 'ملفات خرائط المواقع الفرعية المفهرسة' : 'Indexed Language Sitemaps in Root Index'}
+              {displayLang === 'ar' ? 'ملفات خرائط المواقع الفرعية المفهرسة (5 لغات)' : 'Indexed Language Sitemaps in Root Index'}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {SUPPORTED_LANGUAGES.map((langCode) => {
-                const isCurrent = langCode === language;
+                const isCurrent = langCode === displayLang;
                 const langLabels: Record<LanguageCode, string> = {
                   en: 'English (US/UK/Global)',
                   ar: 'العربية (MENA/Arabic)',
@@ -223,7 +333,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
                         {langLabels[langCode]}
                       </div>
                       <div className="text-xs text-slate-500 mt-1">
-                        {SITEMAP_STATIC_ROUTES.length + TOOLS.length} URLs with 5 hreflang tags each
+                        {SITEMAP_STATIC_ROUTES.length + TOOLS.length} URLs with 6 hreflang tags each
                       </div>
                     </div>
                     <div className="flex items-center gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-800">
@@ -231,7 +341,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
                         onClick={() => setActiveTab(langCode)}
                         className="px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100"
                       >
-                        {language === 'ar' ? 'عرض الروابط' : 'Inspect URLs'}
+                        {displayLang === 'ar' ? 'عرض الروابط' : 'Inspect URLs'}
                       </button>
                       <a
                         href={`/sitemap-${langCode}.xml`}
@@ -252,12 +362,11 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
           <div className="space-y-6">
             <div>
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-3">
-                {language === 'ar' ? `روابط الصفحات الرئيسية للغة (${activeTab.toUpperCase()})` : `Core Platform Pages (${activeTab.toUpperCase()})`}
+                {corePagesHeading[displayLang]}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                 {SITEMAP_STATIC_ROUTES.map((route) => {
                   const localizedPath = formatLocalizedRoute(route.path, activeTab, activeTab !== 'en');
-                  const fullUrl = `${BASE_CANONICAL_URL}${localizedPath}`;
                   return (
                     <div
                       key={route.path}
@@ -266,7 +375,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
                     >
                       <div className="truncate">
                         <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                          {route.path === '/' ? 'Home Page' : route.path.replace('/', '')}
+                          {route.path === '/' ? (displayLang === 'ar' ? 'الصفحة الرئيسية' : 'Home Page') : route.path.replace('/', '')}
                         </div>
                         <div className="text-[11px] text-slate-500 font-mono truncate">{localizedPath}</div>
                       </div>
@@ -281,11 +390,11 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
 
             <div>
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider mb-3">
-                {language === 'ar' ? `روابط جميع الأدوات المفهرسة (${TOOLS.length} أداة)` : `All Indexed Interactive Tools (${TOOLS.length} Tools)`}
+                {toolsHeading[displayLang]}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {TOOLS.map((tool) => {
-                  const loc = getLocalizedTool(tool, activeTab);
+                  const loc = getLocalizedTool(tool, displayLang);
                   const localizedPath = formatLocalizedRoute(tool.route, activeTab, activeTab !== 'en');
                   return (
                     <div
@@ -321,13 +430,13 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate }) => {
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-5 h-5 text-emerald-500" />
           <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
-            {language === 'ar'
+            {displayLang === 'ar'
               ? 'هيكلية وتفاصيل خرائط الموقع متعددة اللغات (Multilingual XML Sitemaps)'
               : 'Multilingual XML Sitemap Architecture & Specification'}
           </h3>
         </div>
         <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-          {language === 'ar'
+          {displayLang === 'ar'
             ? 'يعتمد الموقع على ملف فهرس خرائط المواقع (Sitemap Index) يرتبط بخرائط مستقلة لكل لغة (العربية، الإنجليزية، الإسبانية، الفرنسية، الألمانية). ويتضمن كل رابط مفهرس إشارات xhtml:link hreflang متبادلة مع خيار x-default، وذلك بالتوافق الكامل مع معايير بروتوكول خرائط المواقع Sitemap Protocol 0.9 المعتمد لدى Google وBing.'
             : 'This platform uses a sitemap index file pointing to separate language sitemaps (English, Arabic, Spanish, French, German). Each indexed URL includes cross-referencing xhtml:link hreflang annotations and an x-default fallback, fully following the standard Google and Bing compatible Sitemap Protocol 0.9 specification.'}
         </p>
