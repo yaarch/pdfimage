@@ -1,0 +1,666 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "PDF Image Studio",
+    "documentationUrl": "https://pdfimage.pages.dev/about",
+    "logoUrl": "https://pdfimage.pages.dev/icon.svg"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-organizer",
+      "displayName": "PDF Organizer",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-organizer",
+      "description": "Preview all pages visually. Drag to reorder, delete, rotate, duplicate, extract, and add page numbers directly in your browser.",
+      "tags": [
+        "organize pdf",
+        "reorder pdf pages",
+        "delete pdf pages",
+        "rotate pdf pages",
+        "extract pdf pages",
+        "pdf visual editor"
+      ],
+      "capabilities": [
+        "pdf_organizer",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I reorder pages in a PDF?",
+        "Can I delete or rotate PDF pages in my browser?",
+        "Rearrange PDF pages visually online"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:merge-pdf",
+      "displayName": "Merge PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/merge-pdf",
+      "description": "Merge two or more PDF files into a single, unified document. Drag to arrange file order before combining.",
+      "tags": [
+        "merge pdf",
+        "combine pdfs",
+        "join pdf files",
+        "merge documents online",
+        "free pdf combiner"
+      ],
+      "capabilities": [
+        "merge_pdf",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I combine multiple PDF files into one?",
+        "Merge PDF files online privately without uploading",
+        "Join PDF documents into a single file"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:split-pdf",
+      "displayName": "Split PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/split-pdf",
+      "description": "Split a large PDF by page ranges (e.g. 1-5, 8, 11-14) or extract every single page into individual documents.",
+      "tags": [
+        "split pdf",
+        "extract pdf pages",
+        "separate pdf pages",
+        "cut pdf document"
+      ],
+      "capabilities": [
+        "split_pdf",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How can I extract specific pages from a PDF document?",
+        "Split PDF into individual pages or ranges",
+        "Extract PDF chapter pages online"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:compress-pdf",
+      "displayName": "Compress PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/compress-pdf",
+      "description": "Compress PDF streams and optimize document objects with selectable compression levels. See instant byte savings before downloading.",
+      "tags": [
+        "compress pdf",
+        "reduce pdf size",
+        "shrink pdf",
+        "pdf optimizer",
+        "online pdf compressor"
+      ],
+      "capabilities": [
+        "compress_pdf",
+        "compress_tool"
+      ],
+      "representativeQueries": [
+        "How do I reduce PDF file size in browser?",
+        "Compress PDF documents without losing quality",
+        "Shrink large PDF files for email attachments"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-rotate",
+      "displayName": "Rotate PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/rotate-pdf",
+      "description": "Permanently orient upside-down or sideways pages. Rotate all pages at once or target odd/even pages.",
+      "tags": [
+        "rotate pdf",
+        "fix upside down pdf",
+        "turn pdf pages",
+        "rotate document pages"
+      ],
+      "capabilities": [
+        "pdf_rotate",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I use Rotate PDF?",
+        "Free online Rotate PDF in browser"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-watermark",
+      "displayName": "Add Watermark",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-watermark",
+      "description": "Protect confidential documents by applying custom text watermarks with adjustable angle, opacity, color, and font size.",
+      "tags": [
+        "watermark pdf",
+        "add text to pdf",
+        "protect pdf",
+        "stamp confidential pdf"
+      ],
+      "capabilities": [
+        "pdf_watermark",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I add a watermark to my PDF?",
+        "Stamp text or confidential mark on PDF pages",
+        "Protect PDF documents with custom watermark"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-page-numbers",
+      "displayName": "Page Numbers",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-page-numbers",
+      "description": "Add standard page numbers to your document. Choose position (bottom center, bottom right, top right) and formatting.",
+      "tags": [
+        "add page numbers to pdf",
+        "number pdf pages",
+        "pdf pagination",
+        "stamp page numbers"
+      ],
+      "capabilities": [
+        "pdf_page_numbers",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I add page numbers to a PDF file?",
+        "Number PDF document pages in header or footer",
+        "Format pagination on multi-page PDF"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:images-to-pdf",
+      "displayName": "Images to PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/images-to-pdf",
+      "description": "Turn JPG, PNG, and WebP images into a single professional PDF document with automatic page orientation and margins.",
+      "tags": [
+        "jpg to pdf",
+        "png to pdf",
+        "images to pdf",
+        "convert photos to pdf",
+        "combine photos into pdf"
+      ],
+      "capabilities": [
+        "images_to_pdf",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I convert multiple images into a PDF?",
+        "Convert JPG and PNG photos into a single PDF document",
+        "Combine photos into a PDF album"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-to-images",
+      "displayName": "PDF to Images",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-to-images",
+      "description": "Render every page of your PDF into high-definition JPG or PNG files. Download single pages or the entire batch as a ZIP.",
+      "tags": [
+        "pdf to jpg",
+        "pdf to png",
+        "convert pdf to image",
+        "extract images from pdf"
+      ],
+      "capabilities": [
+        "pdf_to_images",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I extract images from PDF pages?",
+        "Convert PDF pages into high resolution JPG or PNG",
+        "Save PDF document as image files"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-metadata",
+      "displayName": "PDF Metadata",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-metadata",
+      "description": "Inspect document details (title, author, subject, keywords, creation date) and edit them to maintain professional standards or protect privacy.",
+      "tags": [
+        "edit pdf metadata",
+        "view pdf properties",
+        "change pdf title",
+        "remove pdf author"
+      ],
+      "capabilities": [
+        "pdf_metadata",
+        "pdf_tool"
+      ],
+      "representativeQueries": [
+        "How do I view and edit PDF document metadata?",
+        "Change PDF title author and keywords",
+        "Inspect PDF file properties online"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-flatten",
+      "displayName": "Flatten & Lock PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-flatten",
+      "description": "Flatten interactive form fields, checkboxes, and text inputs into read-only static vector graphics to prevent post-signature editing.",
+      "tags": [
+        "flatten pdf",
+        "lock pdf form",
+        "make pdf read only",
+        "convert pdf form to static",
+        "pdf annotation flattener"
+      ],
+      "capabilities": [
+        "pdf_flatten",
+        "security_tool"
+      ],
+      "representativeQueries": [
+        "How do I flatten interactive form fields in a PDF?",
+        "Lock fillable PDF forms into static text",
+        "Make PDF form fields non-editable"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-redact-sanitize",
+      "displayName": "Redact & Sanitize PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-redact-sanitize",
+      "description": "Permanently blackout confidential information, Social Security numbers, or signatures, and strip hidden document metadata before sharing.",
+      "tags": [
+        "redact pdf",
+        "blackout text pdf",
+        "pdf sanitizer",
+        "remove sensitive info pdf"
+      ],
+      "capabilities": [
+        "pdf_redact_sanitize",
+        "security_tool"
+      ],
+      "representativeQueries": [
+        "How do I redact sensitive text from a PDF document?",
+        "Black out confidential information in PDF files",
+        "Sanitize and scrub hidden data from PDF"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:text-to-pdf",
+      "displayName": "Text & Notes to PDF",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/text-to-pdf",
+      "description": "Type or paste notes and convert them into beautifully formatted PDF documents with custom typography, page numbering, and margins.",
+      "tags": [
+        "text to pdf",
+        "convert txt to pdf",
+        "markdown to pdf",
+        "create pdf from text"
+      ],
+      "capabilities": [
+        "text_to_pdf",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I convert text notes into a clean PDF document?",
+        "Create PDF from plain text or typed notes",
+        "Format and download text as PDF"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-color-palette",
+      "displayName": "Color Palette Extractor",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-color-palette",
+      "description": "Upload any photo or graphic to automatically generate a dominant color palette with HEX, RGB, Tailwind matches, and CSS code.",
+      "tags": [
+        "image color palette",
+        "extract color from photo",
+        "hex code generator from image",
+        "css color palette maker"
+      ],
+      "capabilities": [
+        "image_color_palette",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I extract dominant color palettes and hex codes from images?",
+        "Generate color palette from photograph",
+        "Extract HEX and RGB colors from photos"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-compressor",
+      "displayName": "Compress Image",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-compressor",
+      "description": "Reduce image file sizes by up to 80% without visible loss in quality. Adjust quality sliders and view real-time savings.",
+      "tags": [
+        "compress image",
+        "reduce image size",
+        "compress jpg",
+        "compress png",
+        "compress webp",
+        "photo compressor"
+      ],
+      "capabilities": [
+        "image_compressor",
+        "compress_tool"
+      ],
+      "representativeQueries": [
+        "How do I compress images without losing visual quality?",
+        "Reduce JPG, PNG, and WebP file sizes",
+        "Optimize photos for web performance"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-resizer",
+      "displayName": "Resize Image",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-resizer",
+      "description": "Change image dimensions with aspect ratio lock and high-quality resampling. Perfect for social media, email, and web optimization.",
+      "tags": [
+        "resize image",
+        "scale image",
+        "change picture dimensions",
+        "resize photo online"
+      ],
+      "capabilities": [
+        "image_resizer",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I resize images by pixel dimensions or percentage?",
+        "Scale image width and height online",
+        "Resize photos for social media requirements"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-converter",
+      "displayName": "Convert Image",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-converter",
+      "description": "Easily convert images between modern web formats (JPG to PNG, PNG to JPG, JPG to WebP, WebP to PNG). Fast and lossless options available.",
+      "tags": [
+        "jpg to png",
+        "png to jpg",
+        "convert to webp",
+        "image format converter",
+        "svg to png"
+      ],
+      "capabilities": [
+        "image_converter",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I convert images between JPG, PNG, WebP, and AVIF?",
+        "Convert photo format in browser",
+        "Fast client-side image format transformation"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-crop",
+      "displayName": "Crop Image",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-crop",
+      "description": "Crop images using standard aspect ratios (1:1 Square, 4:3 Standard, 16:9 Widescreen) or freeform drag handles.",
+      "tags": [
+        "crop image",
+        "cut photo",
+        "crop picture online",
+        "square photo crop"
+      ],
+      "capabilities": [
+        "image_crop",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I crop pictures to standard aspect ratios?",
+        "Crop image square 16:9 or custom dimensions",
+        "Interactive photo cropper online"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-rotate-flip",
+      "displayName": "Rotate & Flip Image",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-rotate-flip",
+      "description": "Rotate images clockwise or counter-clockwise, and flip horizontally or vertically with instant high-resolution rendering.",
+      "tags": [
+        "rotate image",
+        "flip photo",
+        "mirror image online",
+        "turn picture around"
+      ],
+      "capabilities": [
+        "image_rotate_flip",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I rotate and flip images horizontally or vertically?",
+        "Mirror photo and rotate 90 degrees",
+        "Adjust image orientation in browser"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-strip-exif",
+      "displayName": "Remove Metadata",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-strip-exif",
+      "description": "Strip hidden EXIF data, GPS coordinates, camera serial numbers, and exposure tags from your photos before sharing them online.",
+      "tags": [
+        "remove exif",
+        "strip photo metadata",
+        "remove gps from photo",
+        "privacy image cleaner"
+      ],
+      "capabilities": [
+        "image_strip_exif",
+        "security_tool"
+      ],
+      "representativeQueries": [
+        "How do I remove GPS and camera metadata from photos?",
+        "Strip EXIF tags before sharing photos online",
+        "Clean privacy data from image files"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-filter",
+      "displayName": "Photo Filters & Color",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-filter",
+      "description": "Fine-tune image brightness, contrast, color saturation, sepia, grayscale, and blur with live real-time canvas rendering.",
+      "tags": [
+        "photo filter",
+        "brightness contrast editor",
+        "image color adjustment",
+        "sepia filter",
+        "grayscale photo"
+      ],
+      "capabilities": [
+        "image_filter",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I adjust brightness, contrast, and color filters on photos?",
+        "Apply grayscale, sepia, and blur to images online",
+        "Enhance photo tones in browser"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:batch-processor",
+      "displayName": "Batch Processing Hub",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/batch-processor",
+      "description": "Bulk compress, convert, or resize images and documents simultaneously. Download individual results or a single compiled ZIP archive.",
+      "tags": [
+        "batch file processing",
+        "bulk image converter",
+        "bulk compress images",
+        "batch file optimizer"
+      ],
+      "capabilities": [
+        "batch_processor",
+        "organize_tool"
+      ],
+      "representativeQueries": [
+        "How do I compress or convert multiple files in batch?",
+        "Batch process PDFs and images concurrently",
+        "Bulk convert and download files in a ZIP archive"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-extract-text",
+      "displayName": "Extract PDF Text",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-extract-text",
+      "description": "Extract all raw or structured text from your PDF documents with word counts, page filters, copy to clipboard, and instant TXT/JSON export.",
+      "tags": [
+        "extract text from pdf",
+        "pdf text extractor",
+        "copy pdf text",
+        "pdf to text",
+        "pdf to txt"
+      ],
+      "capabilities": [
+        "pdf_extract_text",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I use Extract PDF Text?",
+        "Free online Extract PDF Text in browser"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:pdf-sign",
+      "displayName": "Sign PDF Document",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/pdf-sign",
+      "description": "Add your electronic signature to any PDF contract or document. Draw with ink, type in calligraphy, or upload signature graphics with live placement.",
+      "tags": [
+        "sign pdf",
+        "sign document online",
+        "electronic signature pdf",
+        "draw signature on pdf"
+      ],
+      "capabilities": [
+        "pdf_sign",
+        "security_tool"
+      ],
+      "representativeQueries": [
+        "How do I use Sign PDF Document?",
+        "Free online Sign PDF Document in browser"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-watermark",
+      "displayName": "Image Watermark & Stamp",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-watermark",
+      "description": "Protect your photos and graphics by stamping custom text watermarks or company logos with full opacity, rotation, and tile controls.",
+      "tags": [
+        "watermark image",
+        "add logo to photo",
+        "photo copyright stamp",
+        "protect images online"
+      ],
+      "capabilities": [
+        "image_watermark",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I add a text watermark to my pictures?",
+        "Protect photos with copyright watermark overlay",
+        "Stamp brand text over images"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-base64",
+      "displayName": "Image to Base64 & Data URI",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-base64",
+      "description": "Encode images into Data URI strings, CSS background-image rules, HTML tags, and Markdown. Or paste raw Base64 strings to decode back into images.",
+      "tags": [
+        "image to base64",
+        "base64 to image",
+        "data uri generator",
+        "css background base64"
+      ],
+      "capabilities": [
+        "image_base64",
+        "convert_tool"
+      ],
+      "representativeQueries": [
+        "How do I convert images to Base64 data URIs?",
+        "Encode image file as base64 string for CSS and HTML",
+        "Generate data:image base64 code"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pdfimage.pages.dev:tool:image-border-round",
+      "displayName": "Image Border & Rounded Avatar",
+      "type": "text/html",
+      "url": "https://pdfimage.pages.dev/image-border-round",
+      "description": "Create circular profile avatars, stylish photo borders, rounded corners, and padded frames with customizable colors and backgrounds.",
+      "tags": [
+        "round image corners",
+        "circle avatar maker",
+        "add border to photo",
+        "photo frame generator"
+      ],
+      "capabilities": [
+        "image_border_round",
+        "image_tool"
+      ],
+      "representativeQueries": [
+        "How do I add rounded corners and decorative borders to pictures?",
+        "Round image borders with custom radius and shadow",
+        "Frame photos with stylish borders"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-04T00:00:00Z"
+    }
+  ]
+}

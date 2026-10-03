@@ -1,5 +1,5 @@
 import { LanguageCode } from '../types';
-import { getArticleBySlug } from './blogArticles';
+import { getBlogMetadataBySlug } from './blogMetadata';
 
 export interface SeoPageMetadata {
   route: string;
@@ -295,7 +295,7 @@ export function getStaticSeo(purePath: string, lang: LanguageCode): { title: str
   // Dynamic Knowledge Base Article Resolution
   if (clean.startsWith('/blog/')) {
     const slug = clean.replace('/blog/', '').replace(/\/+$/, '');
-    const art = getArticleBySlug(slug);
+    const art = getBlogMetadataBySlug(slug);
     if (art) {
       return {
         title: `${art.title} — PDF Image Studio`,

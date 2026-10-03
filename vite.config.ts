@@ -59,6 +59,7 @@ export default defineConfig(() => {
       },
     },
     build: {
+      sourcemap: true,
       rollupOptions: {
         output: {
           manualChunks(id) {
@@ -67,6 +68,9 @@ export default defineConfig(() => {
             }
             if (id.includes('node_modules/pdf-lib') || id.includes('node_modules/pdfjs-dist')) {
               return 'pdf-core';
+            }
+            if (id.includes('node_modules/jszip')) {
+              return 'jszip';
             }
           },
         },

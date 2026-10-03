@@ -12,7 +12,7 @@ import {
 import { getRecommendedToolsForFile } from '../../data/tools';
 import { ToolDefinition } from '../../types';
 import { DynamicIcon } from './DynamicIcon';
-import { formatBytes } from '../../lib/zipUtils';
+import { formatBytes } from '../../lib/fileUtils';
 import { useTranslation } from '../../i18n/context';
 
 interface DropZoneProps {

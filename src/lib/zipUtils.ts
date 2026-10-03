@@ -1,8 +1,11 @@
-import JSZip from 'jszip';
+import { triggerDownload, formatBytes } from './fileUtils';
+export { triggerDownload, formatBytes };
 
 export async function createZipArchive(
   files: { name: string; blob: Blob }[]
 ): Promise<Blob> {
+  const JSZipModule = await import('jszip');
+  const JSZip = (JSZipModule && 'default' in JSZipModule ? JSZipModule.default : JSZipModule) as typeof import('jszip');
   const zip = new JSZip();
 
   for (const item of files) {
@@ -14,28 +17,4 @@ export async function createZipArchive(
     compression: 'DEFLATE',
     compressionOptions: { level: 6 },
   });
-}
-
-export function triggerDownload(blob: Blob, filename: string) {
-  if (!blob || blob.size === 0) {
-    console.error('Download aborted: generated blob is empty or null');
-    return;
-  }
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 10000);
-}
-
-export function formatBytes(bytes: number, decimals = 1): string {
-  if (bytes === 0) return '0 B';
-  const k = 1024;
-  const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
