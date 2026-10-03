@@ -5,13 +5,13 @@ import { LanguageCode } from './types';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { CommandPalette } from './components/common/CommandPalette';
-import { ToolLayout } from './components/common/ToolLayout';
 import { HomePage } from './components/pages/HomePage';
 import { SEOHead } from './components/common/SEOHead';
 import { extractLanguageAndPath, formatLocalizedRoute, SUPPORTED_LANGUAGES } from './i18n/urlUtils';
 import { getLocalizedTool } from './i18n/toolTranslations';
 
-// Lazy loaded secondary pages
+// Lazy loaded layout & secondary pages
+const ToolLayout = lazy(() => import('./components/common/ToolLayout').then(m => ({ default: m.ToolLayout })));
 const AllToolsCatalog = lazy(() => import('./components/pages/AllToolsCatalog').then(m => ({ default: m.AllToolsCatalog })));
 const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
 const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({ default: m.AboutPage })));
