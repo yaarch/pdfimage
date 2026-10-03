@@ -4,13 +4,12 @@ import { ThemeProvider } from './hooks/useTheme';
 import { LanguageCode } from './types';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
-import { CommandPalette } from './components/common/CommandPalette';
-import { HomePage } from './components/pages/HomePage';
-import { SEOHead } from './components/common/SEOHead';
 import { extractLanguageAndPath, formatLocalizedRoute, SUPPORTED_LANGUAGES } from './i18n/urlUtils';
-import { getLocalizedTool } from './i18n/toolTranslations';
+import { SEOHead } from './components/common/SEOHead';
 
-// Lazy loaded layout & secondary pages
+// Lazy loaded layout & pages
+const HomePage = lazy(() => import('./components/pages/HomePage').then(m => ({ default: m.HomePage })));
+const CommandPalette = lazy(() => import('./components/common/CommandPalette').then(m => ({ default: m.CommandPalette })));
 const ToolLayout = lazy(() => import('./components/common/ToolLayout').then(m => ({ default: m.ToolLayout })));
 const AllToolsCatalog = lazy(() => import('./components/pages/AllToolsCatalog').then(m => ({ default: m.AllToolsCatalog })));
 const PrivacyPage = lazy(() => import('./components/pages/PrivacyPage').then(m => ({ default: m.PrivacyPage })));
@@ -330,12 +329,16 @@ function MainAppContent() {
       </main>
 
       {/* Global Command Palette */}
-      <CommandPalette
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
-        onNavigate={navigate}
-        onSelectTool={navigate}
-      />
+      {isCommandPaletteOpen && (
+        <Suspense fallback={null}>
+          <CommandPalette
+            isOpen={isCommandPaletteOpen}
+            onClose={() => setIsCommandPaletteOpen(false)}
+            onNavigate={navigate}
+            onSelectTool={navigate}
+          />
+        </Suspense>
+      )}
 
       {/* Trust & Footer */}
       <Footer onNavigate={navigate} />

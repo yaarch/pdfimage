@@ -60,6 +60,8 @@ export default defineConfig(() => {
       },
     },
     build: {
+      target: 'es2022',
+      cssCodeSplit: true,
       sourcemap: true,
       rollupOptions: {
         output: {
