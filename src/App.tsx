@@ -7,8 +7,9 @@ import { Footer } from './components/layout/Footer';
 import { extractLanguageAndPath, formatLocalizedRoute, SUPPORTED_LANGUAGES } from './i18n/urlUtils';
 import { SEOHead } from './components/common/SEOHead';
 
-// Lazy loaded layout & pages
-const HomePage = lazy(() => import('./components/pages/HomePage').then(m => ({ default: m.HomePage })));
+import { HomePage } from './components/pages/HomePage';
+
+// Lazy loaded layout & secondary pages
 const CommandPalette = lazy(() => import('./components/common/CommandPalette').then(m => ({ default: m.CommandPalette })));
 const ToolLayout = lazy(() => import('./components/common/ToolLayout').then(m => ({ default: m.ToolLayout })));
 const AllToolsCatalog = lazy(() => import('./components/pages/AllToolsCatalog').then(m => ({ default: m.AllToolsCatalog })));
