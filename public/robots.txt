@@ -15,8 +15,8 @@ Sitemap: https://pdfimage.pages.dev/sitemap-fr.xml
 Sitemap: https://pdfimage.pages.dev/sitemap-de.xml
 
 # Agentic Resource Discovery (ARD) & AI Catalog
-Agentmap: https://pdfimage.pages.dev/.well-known/ai-catalog.json
-Agentmap: https://pdfimage.pages.dev/.well-known/ard.json
+# Agentmap: https://pdfimage.pages.dev/.well-known/ai-catalog.json
+# Agentmap: https://pdfimage.pages.dev/.well-known/ard.json
 
 # LLMs Documentation
 # https://pdfimage.pages.dev/llms.txt
