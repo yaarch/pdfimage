@@ -214,7 +214,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder={isAr ? 'مثال: أحمد' : 'e.g. Alex'}
-                  className="w-full px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-400 focus:bg-white dark:focus:bg-slate-800 transition-colors"
                 />
               </div>
 
@@ -225,12 +225,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <select
                   value={formData.reason}
                   onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                  className="w-full px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-400 transition-colors cursor-pointer"
                 >
-                  <option value="support">{isAr ? 'الدعم الفني واستكشاف الأخطاء' : 'Technical Support'}</option>
-                  <option value="bug">{isAr ? 'الإبلاغ عن مشكلة في أداة' : 'Report a Tool Bug'}</option>
-                  <option value="suggestion">{isAr ? 'اقتراح ميزة أو أداة جديدة' : 'Feature Request / Suggestion'}</option>
-                  <option value="general">{isAr ? 'ملاحظات عامة واستفسارات' : 'General Feedback'}</option>
+                  <option value="support" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">{isAr ? 'الدعم الفني واستكشاف الأخطاء' : 'Technical Support'}</option>
+                  <option value="bug" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">{isAr ? 'الإبلاغ عن مشكلة في أداة' : 'Report a Tool Bug'}</option>
+                  <option value="suggestion" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">{isAr ? 'اقتراح ميزة أو أداة جديدة' : 'Feature Request / Suggestion'}</option>
+                  <option value="general" className="bg-white dark:bg-slate-800 text-slate-900 dark:text-white">{isAr ? 'ملاحظات عامة واستفسارات' : 'General Feedback'}</option>
                 </select>
               </div>
             </div>
@@ -244,7 +244,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 value={formData.toolName}
                 onChange={(e) => setFormData({ ...formData, toolName: e.target.value })}
                 placeholder={isAr ? 'مثال: دمج PDF، ضاغط الصور، أداة الاستخراج...' : 'e.g. PDF Merge, Image Compressor, Text to PDF...'}
-                className="w-full px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-400 focus:bg-white dark:focus:bg-slate-800 transition-colors"
               />
             </div>
 
@@ -260,7 +260,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 placeholder={isAr 
                   ? 'اكتب رسالتك، واذكر بيئة المتصفح أو تفاصيل الخطأ إن وجدت...' 
                   : 'Describe your request, issue encountered, or suggested enhancement...'}
-                className="w-full px-3.5 py-2 text-xs bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-y"
+                className="w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-400 focus:bg-white dark:focus:bg-slate-800 transition-colors resize-y"
               />
             </div>
 
@@ -289,7 +289,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               <button
                 type="button"
                 onClick={handleCopyDraft}
-                className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850 text-xs font-medium transition flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium transition flex items-center justify-center gap-1.5"
               >
                 {copiedDraft ? (
                   <>
