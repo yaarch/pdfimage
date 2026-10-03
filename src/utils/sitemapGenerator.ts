@@ -1,4 +1,5 @@
 import { TOOLS } from '../data/tools';
+import { BLOG_ARTICLES } from '../data/blogArticles';
 import { LanguageCode } from '../types';
 import { BASE_CANONICAL_URL, formatLocalizedRoute, SUPPORTED_LANGUAGES } from '../i18n/urlUtils';
 
@@ -28,7 +29,12 @@ export function getAllSitemapEntries(): SitemapUrlEntry[] {
     changefreq: 'weekly',
     priority: t.isFlagship ? 0.95 : t.popular ? 0.9 : 0.8,
   }));
-  const combined = [...SITEMAP_STATIC_ROUTES, ...toolEntries];
+  const articleEntries: SitemapUrlEntry[] = BLOG_ARTICLES.map((a) => ({
+    path: `/blog/${a.slug}`,
+    changefreq: 'monthly',
+    priority: 0.7,
+  }));
+  const combined = [...SITEMAP_STATIC_ROUTES, ...toolEntries, ...articleEntries];
   const uniquePaths = new Set<string>();
   return combined.filter((entry) => {
     if (uniquePaths.has(entry.path)) {

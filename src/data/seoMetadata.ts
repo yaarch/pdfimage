@@ -1,4 +1,5 @@
 import { LanguageCode } from '../types';
+import { getArticleBySlug } from './blogArticles';
 
 export interface SeoPageMetadata {
   route: string;
@@ -289,6 +290,19 @@ export function getStaticSeo(purePath: string, lang: LanguageCode): { title: str
   }
   if (pageEntry && pageEntry.en) {
     return pageEntry.en;
+  }
+
+  // Dynamic Knowledge Base Article Resolution
+  if (clean.startsWith('/blog/')) {
+    const slug = clean.replace('/blog/', '').replace(/\/+$/, '');
+    const art = getArticleBySlug(slug);
+    if (art) {
+      return {
+        title: `${art.title} — PDF Image Studio`,
+        description: art.excerpt,
+        keywords: [art.category.toLowerCase(), 'pdf image studio', 'technical guide', 'browser workflow'],
+      };
+    }
   }
 
   return {

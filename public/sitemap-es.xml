@@ -445,4 +445,124 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/image-border-round" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-border-round" />
   </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/when-merging-pdfs-goes-wrong</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/when-merging-pdfs-goes-wrong" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/when-merging-pdfs-goes-wrong" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/when-merging-pdfs-goes-wrong" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/when-merging-pdfs-goes-wrong" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/when-merging-pdfs-goes-wrong" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/when-merging-pdfs-goes-wrong" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/why-is-my-pdf-still-huge</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/why-is-my-pdf-still-huge" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/why-is-my-pdf-still-huge" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/why-is-my-pdf-still-huge" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/why-is-my-pdf-still-huge" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/why-is-my-pdf-still-huge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/why-is-my-pdf-still-huge" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/jpg-png-or-webp</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/jpg-png-or-webp" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/jpg-png-or-webp" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/jpg-png-or-webp" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/jpg-png-or-webp" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/jpg-png-or-webp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/jpg-png-or-webp" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/photo-metadata-before-sharing</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/photo-metadata-before-sharing" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/photo-metadata-before-sharing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/photo-metadata-before-sharing" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/photo-metadata-before-sharing" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/photo-metadata-before-sharing" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/photo-metadata-before-sharing" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/why-image-compression-looks-worse</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/why-image-compression-looks-worse" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/why-image-compression-looks-worse" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/why-image-compression-looks-worse" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/why-image-compression-looks-worse" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/why-image-compression-looks-worse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/why-image-compression-looks-worse" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/what-happens-when-you-edit-a-pdf-in-browser</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/what-happens-when-you-edit-a-pdf-in-browser" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/build-a-clean-pdf-from-scanned-images</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/build-a-clean-pdf-from-scanned-images" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/build-a-clean-pdf-from-scanned-images" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/build-a-clean-pdf-from-scanned-images" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/build-a-clean-pdf-from-scanned-images" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/build-a-clean-pdf-from-scanned-images" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/build-a-clean-pdf-from-scanned-images" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/choosing-image-dimensions</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/choosing-image-dimensions" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/choosing-image-dimensions" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/choosing-image-dimensions" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/choosing-image-dimensions" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/choosing-image-dimensions" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/choosing-image-dimensions" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/when-to-split-a-pdf</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/when-to-split-a-pdf" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/when-to-split-a-pdf" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/when-to-split-a-pdf" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/when-to-split-a-pdf" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/when-to-split-a-pdf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/when-to-split-a-pdf" />
+  </url>
+  <url>
+    <loc>https://pdfimage.pages.dev/es/blog/what-makes-a-pdf-difficult-to-process</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog/what-makes-a-pdf-difficult-to-process" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/blog/what-makes-a-pdf-difficult-to-process" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/blog/what-makes-a-pdf-difficult-to-process" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/blog/what-makes-a-pdf-difficult-to-process" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/blog/what-makes-a-pdf-difficult-to-process" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/blog/what-makes-a-pdf-difficult-to-process" />
+  </url>
 </urlset>

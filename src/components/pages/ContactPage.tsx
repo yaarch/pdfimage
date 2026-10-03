@@ -4,12 +4,7 @@ import {
   ShieldAlert, 
   Copy, 
   Check, 
-  ExternalLink, 
-  Send, 
-  HelpCircle,
-  Bug,
-  Lightbulb,
-  MessageSquare
+  ExternalLink 
 } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
 
@@ -19,7 +14,7 @@ interface ContactPageProps {
 
 const SUPPORT_EMAIL = 'pdfimagestudio@gmail.com';
 
-export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
+export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate: _onNavigate }) => {
   const { language } = useTranslation();
   const isAr = language === 'ar';
 
@@ -61,7 +56,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     'Sent via PDF Image Studio Contact Assistant'
   ].filter(line => line !== '').join('\n');
 
-  const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
   const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(SUPPORT_EMAIL)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
   const handleCopyEmail = () => {
@@ -81,9 +75,9 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     setTimeout(() => setCopiedDraft(false), 2500);
   };
 
-  const handleLaunchEmailClient = (e: React.FormEvent) => {
+  const handleLaunchGmail = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = mailtoUrl;
+    window.open(gmailWebUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -124,48 +118,37 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             </h3>
             
             <div className="space-y-4">
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <Mail className="w-4.5 h-4.5 text-indigo-500 shrink-0 mt-1" />
                   <div className="min-w-0 flex-1">
-                    <span className="block text-xs font-bold text-slate-400 uppercase">
+                    <span className="block text-xs font-bold text-slate-400 uppercase mb-1">
                       {isAr ? 'البريد الإلكتروني للدعم' : 'Support Email'}
                     </span>
-                    <a 
-                      href={`mailto:${SUPPORT_EMAIL}`} 
-                      className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:underline break-all"
-                    >
+                    <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white break-all font-mono select-all">
                       {SUPPORT_EMAIL}
-                    </a>
+                    </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 pt-1">
+                <div className="pt-1">
                   <button
                     onClick={handleCopyEmail}
                     type="button"
-                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition"
+                    className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition border border-slate-200/80 dark:border-slate-700/80 cursor-pointer"
                   >
                     {copiedEmail ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-500" />
-                        <span>{isAr ? 'تم النسخ!' : 'Copied!'}</span>
+                        <span>{isAr ? 'تم نسخ البريد!' : 'Email Copied!'}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{isAr ? 'نسخ البريد' : 'Copy Email'}</span>
+                        <span>{isAr ? 'نسخ عنوان البريد' : 'Copy Email'}</span>
                       </>
                     )}
                   </button>
-
-                  <a
-                    href={`mailto:${SUPPORT_EMAIL}`}
-                    className="inline-flex items-center justify-center p-1.5 text-xs font-semibold rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/40 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 transition"
-                    title={isAr ? 'فتح في تطبيق البريد' : 'Open in email client'}
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
                 </div>
               </div>
 
@@ -187,20 +170,20 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        {/* Right column: Interactive Mailto Contact Composer */}
+        {/* Right column: Interactive Contact Assistant */}
         <div className="md:col-span-2">
           <form 
-            onSubmit={handleLaunchEmailClient} 
+            onSubmit={handleLaunchGmail} 
             className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs space-y-5"
           >
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                {isAr ? 'إعداد رسالة الدعم المباشرة' : 'Direct Email Contact Assistant'}
+                {isAr ? 'مساعد رسائل الدعم' : 'Contact Assistant'}
               </h2>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                 {isAr 
-                  ? 'املأ النموذج أدناه لإنشاء مسودة منسقة تلقائياً تُرسل مباشرة عبر بريدك الإلكتروني.'
-                  : 'Prepare your inquiry below to launch your email client with pre-filled subject and details.'}
+                  ? 'املأ الحقول أدناه لفتح الرسالة مباشرة في Gmail ويب أو نسخ المسودة المنسقة وعنوان الدعم.'
+                  : 'Fill out the fields below to open directly in Gmail Web, copy your formatted draft, or copy our support email.'}
               </p>
             </div>
 
@@ -264,52 +247,65 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               />
             </div>
 
-            {/* Action Buttons */}
-            <div className="space-y-3 pt-2">
-              <div className="flex flex-col sm:flex-row gap-2.5">
+            {/* Three Permitted Action Options: 1. Open in Gmail (Web), 2. Copy Formatted Draft, 3. Copy Email */}
+            <div className="space-y-2.5 pt-2">
+              {/* Option 1: Open in Gmail (Web) */}
+              <a
+                href={gmailWebUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold transition flex items-center justify-center gap-2 shadow-md shadow-indigo-600/10 cursor-pointer"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>{isAr ? 'فتح في Gmail ويب' : 'Open in Gmail (Web)'}</span>
+              </a>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {/* Option 2: Copy Formatted Draft */}
                 <button
-                  type="submit"
-                  className="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-md shadow-indigo-600/10"
+                  type="button"
+                  onClick={handleCopyDraft}
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>{isAr ? 'فتح في تطبيق البريد (Mailto)' : 'Open in Email Client (Mailto)'}</span>
+                  {copiedDraft ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-500" />
+                      <span>{isAr ? 'تم نسخ المسودة!' : 'Draft Copied!'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3.5 h-3.5 text-slate-400" />
+                      <span>{isAr ? 'نسخ المسودة المنسقة' : 'Copy Formatted Draft'}</span>
+                    </>
+                  )}
                 </button>
 
-                <a
-                  href={gmailWebUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-semibold transition flex items-center justify-center gap-2 border border-slate-200/80 dark:border-slate-700/80"
+                {/* Option 3: Copy Email */}
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <ExternalLink className="w-4 h-4 text-slate-500" />
-                  <span>{isAr ? 'فتح في Gmail ويب' : 'Open in Gmail (Web)'}</span>
-                </a>
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-3.5 h-3.5 text-emerald-500" />
+                      <span>{isAr ? 'تم نسخ البريد!' : 'Email Copied!'}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="w-3.5 h-3.5 text-slate-400" />
+                      <span>{isAr ? 'نسخ عنوان البريد' : 'Copy Email'}</span>
+                    </>
+                  )}
+                </button>
               </div>
-
-              <button
-                type="button"
-                onClick={handleCopyDraft}
-                className="w-full py-2 px-3 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium transition flex items-center justify-center gap-1.5"
-              >
-                {copiedDraft ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-500" />
-                    <span>{isAr ? 'تم نسخ مسودة الرسالة الكاملة إلى الحافظة!' : 'Full draft copied to clipboard!'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-slate-400" />
-                    <span>{isAr ? 'نسخ المسودة كاملة (للصقها في أي بريد ويب آخر)' : 'Copy Formatted Draft (To paste into any webmail)'}</span>
-                  </>
-                )}
-              </button>
             </div>
 
-            {/* Privacy Architecture Notice */}
+            {/* Direct Communication Notice */}
             <p className="text-[11px] text-slate-400 dark:text-slate-500 leading-normal pt-2 border-t border-slate-100 dark:border-slate-800">
               {isAr
-                ? 'ملاحظة الشفافية: لأن أدوات PDF Image Studio تعمل محلياً داخل متصفحك دون قواعد بيانات أو خوادم وسيطة، يتم إرسال الاستفسارات مباشرة عبر البريد الإلكتروني المعتمد لضمان الأمان والوصول المؤكد.'
-                : 'Direct Communication Architecture: Because PDF Image Studio functions entirely in-browser without server databases or form intermediaries, all messages are delivered directly via standard email to ensure confidentiality and reliable delivery.'}
+                ? 'التواصل المباشر: لا يستخدم PDF Image Studio نموذج اتصال من جانب الخادم. بدلاً من ذلك، يقوم مساعد التواصل بإعداد رسالة لمزود البريد الإلكتروني الخاص بك، حيث يمكنك مراجعتها وإرسالها عبر خدمة بريدك الخاصة.'
+                : 'Direct Communication: PDF Image Studio does not use a server-side contact form. Instead, the Contact Assistant prepares a message for your email provider. You can review the message and send it through your own email service.'}
             </p>
           </form>
         </div>

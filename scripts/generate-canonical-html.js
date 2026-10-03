@@ -47,8 +47,49 @@ const ROUTES_SEO = {
     description: 'Free online image editing tools to compress, resize, crop, convert, and filter photos securely in your browser.',
   },
   '/blog': {
-    title: 'Guides & Tutorials — PDF Image Studio Knowledge Base',
-    description: 'Read expert guides and tutorials on how to manage, compress, and edit PDF documents and images securely in your web browser.',
+    title: 'Guides & Insights — PDF Image Studio Knowledge Base',
+    description: 'Explore practical technical guides and tutorials on PDF manipulation, image optimization, file metadata, and browser processing.',
+  },
+  // Knowledge Base Editorial Articles
+  '/blog/when-merging-pdfs-goes-wrong': {
+    title: 'When Merging PDFs Goes Wrong: Page Order, Blank Pages, and Other Problems — PDF Image Studio',
+    description: 'Combining PDF documents can reveal problems such as unexpected blank pages, mixed page sizes, or confusing page order. Learn what to check before and after merging documents.',
+  },
+  '/blog/why-is-my-pdf-still-huge': {
+    title: 'Why Is My PDF Still Huge After Compression? — PDF Image Studio',
+    description: 'Compressing a PDF does not always produce a dramatic reduction in file size. Learn why scans, embedded images, fonts, and already-compressed content can limit the result.',
+  },
+  '/blog/jpg-png-or-webp': {
+    title: 'JPG, PNG, or WebP? Start With the Image, Not the File Extension — PDF Image Studio',
+    description: 'Choosing between JPG, PNG, and WebP should not be a guessing game. Learn how analyzing the visual characteristics of your image helps you pick the right format.',
+  },
+  '/blog/photo-metadata-before-sharing': {
+    title: 'Before You Share a Photo, Check What the File Is Saying About You — PDF Image Studio',
+    description: 'Digital cameras and smartphones can store technical metadata inside image files. Learn what information may be present, when it matters, and how to prepare images before sharing them.',
+  },
+  '/blog/why-image-compression-looks-worse': {
+    title: 'Why Image Compression Sometimes Makes Photos Look Worse — PDF Image Studio',
+    description: 'Aggressive image compression can ruin photos with color banding, halos, and blocky textures. Learn how lossy compression algorithms work and how to achieve smaller file sizes while preserving visual clarity.',
+  },
+  '/blog/what-happens-when-you-edit-a-pdf-in-browser': {
+    title: 'What Actually Happens When You Edit a PDF in Your Browser? — PDF Image Studio',
+    description: 'Some browser-based file tools can process supported documents locally using browser APIs and client-side libraries. This article explains how files can move from selection to processing and back to a downloadable result.',
+  },
+  '/blog/build-a-clean-pdf-from-scanned-images': {
+    title: 'How to Build a Clean PDF From Scanned Images — PDF Image Studio',
+    description: 'Turning scanned or photographed pages into a useful PDF involves more than combining images. Learn how to organize, size, orient, and review scanned pages before creating the final document.',
+  },
+  '/blog/choosing-image-dimensions': {
+    title: 'Choosing Image Dimensions Before You Resize a Photo — PDF Image Studio',
+    description: 'Resizing photos without planning pixel dimensions and aspect ratios can distort proportions and create blurry graphics. Master the fundamentals of digital image sizing.',
+  },
+  '/blog/when-to-split-a-pdf': {
+    title: 'When Should You Split a PDF Instead of Extracting Pages? — PDF Image Studio',
+    description: 'Splitting and extracting sound like identical actions, but choosing the right workflow protects document structure, interactive elements, and file organization. Here is how to decide.',
+  },
+  '/blog/what-makes-a-pdf-difficult-to-process': {
+    title: 'What Makes a PDF Difficult to Process? — PDF Image Studio',
+    description: 'PDF files can behave very differently depending on how they were created and what they contain. Learn why scanned pages, embedded fonts, large images, unusual structures, and damaged files can make processing more difficult.',
   },
   // PDF Tools
   '/pdf-organizer': {

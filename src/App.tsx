@@ -189,8 +189,9 @@ function MainAppContent() {
       return <TermsPage onNavigate={navigate} />;
     }
 
-    if (cleanPath === '/blog') {
-      return <BlogPage onNavigate={navigate} />;
+    if (cleanPath === '/blog' || cleanPath.startsWith('/blog/')) {
+      const slug = cleanPath.startsWith('/blog/') ? cleanPath.replace('/blog/', '').replace(/\/+$/, '') : undefined;
+      return <BlogPage onNavigate={navigate} initialSlug={slug} />;
     }
 
     if (cleanPath === '/contact') {

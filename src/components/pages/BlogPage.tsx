@@ -1,381 +1,447 @@
-import React, { useState } from 'react';
-import { ArrowRight, BookOpen, Clock, Tag, ChevronRight, FileText, Image } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { 
+  ArrowRight, 
+  BookOpen, 
+  Clock, 
+  ChevronRight, 
+  FileText, 
+  Calendar, 
+  Info, 
+  Lightbulb, 
+  AlertTriangle, 
+  Search, 
+  Wrench,
+  Check,
+  Share2
+} from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
-
-interface BlogArticle {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: 'PDF Guides' | 'Security & Privacy' | 'Image Optimization' | 'Technical Insights';
-  readTime: string;
-  content: string;
-  targetToolRoute?: string;
-}
-
-const ARTICLES: BlogArticle[] = [
-  {
-    id: 'how-to-merge-pdf-files',
-    title: 'How to Merge PDF Files Safely and Rearrange Page Order',
-    excerpt: 'Combining separate PDF files into a single document is one of the most common administrative tasks. Learn how to securely upload multiple documents, reorganize file sequences, and merge them on your own terms.',
-    category: 'PDF Guides',
-    readTime: '4 min read',
-    targetToolRoute: '/merge-pdf',
-    content: `### Introduction
-Merging PDF documents often involves compiling distinct sections—like reports, billing statements, or resumes—into a clean, unified presentation. While conventional online utilities require uploading these private files to cloud queues, you can complete the process inside your local workspace.
-
-### Step-by-Step Instructions
-1. **Prepare Your Files**: Collect the separate PDF documents you wish to combine on your computer or phone.
-2. **Add Your Documents**: Drag and drop the selected files into the PDF Merge tool workspace. The tool parses each document's internal structures locally.
-3. **Arrange Page & Document Order**: Use the drag-and-drop handles on the visual file cards to position each document exactly where you want it. This ensures pages flow seamlessly from first to last.
-4. **Compile and Download**: Click the "Merge PDF" button. The client-side compiler merges the underlying objects, cross-reference tables, and typography streams into a new unified PDF stream in browser memory for instant download.
-
-### Best Practices for File Organization
-* **Check Page Orientation**: Verify if any files have horizontal (landscape) pages mixed with vertical (portrait) pages. A standard client-side merger will preserve these layouts automatically.
-* **Keep Original Backups**: Always retain your individual source files. Once compiled, splitting pages again requires parsing the merged file.`,
-  },
-  {
-    id: 'how-to-split-a-pdf',
-    title: 'How to Split a PDF Into Separate Documents and Page Ranges',
-    excerpt: 'Extracting key sections or individual pages from a bloated PDF is vital for clean document sharing. Learn how to configure custom split-ranges or extract every single page cleanly.',
-    category: 'PDF Guides',
-    readTime: '3 min read',
-    targetToolRoute: '/split-pdf',
-    content: `### Introduction
-Large PDF manuals, tax submissions, or design bundles often contain pages that do not apply to all recipients. Splitting the document into smaller, target-specific files ensures clarity and keeps file sizes manageable.
-
-### Step-by-Step Instructions
-1. **Choose Your PDF**: Open the Split PDF utility and select the document you need to divide.
-2. **Review the Layout**: The client-side parser reads the file structure to detect total pages and internal structural bookmarks.
-3. **Configure Your Split Profile**:
-   * *Custom Ranges*: Input specific page ranges (e.g., "1-3, 5, 8-12") to carve out specific chapters.
-   * *Split-Every-Page*: Choose this to extract every single page into its own individual single-page PDF.
-4. **Process and Download**: Click "Split PDF". The browser isolates the target page dictionaries and bundles the resulting files as a ZIP archive for convenient extraction.
-
-### Tips for Large Document Splitting
-* **Verify Page Numbers**: Standard PDF pages are indexed from 1. Double-check your page references inside a viewer before entering split ranges.
-* **Preserve Interactive Forms**: Note that splitting complex forms can flatten interactive fields. Make sure to audit the outputs.`,
-  },
-  {
-    id: 'how-to-compress-a-pdf-without-losing-too-much-quality',
-    title: 'How to Compress a PDF File Size Without Blurring Text Clarity',
-    excerpt: 'Reduce bloated file sizes for email attachments while keeping typography crisp. Learn how vector compression, stream flattening, and metadata pruning work.',
-    category: 'PDF Guides',
-    readTime: '4 min read',
-    targetToolRoute: '/compress-pdf',
-    content: `### Introduction
-Email services typically cap attachments at 20MB or 25MB. Simply lower-resolution conversion of PDF pages into fuzzy images is a poor way to save space. Modern compression should target structural redundancies without compromising typographic readability.
-
-### How Compression Works Without Blurry Text
-* **Vector Path Pruning**: Removing duplicate stroke records and drawing streams.
-* **Font Table Deduplication**: Parsing and sub-setting embedded TrueType and OpenType font descriptions so only the characters actually used are saved.
-* **Metadata Scraping**: Pruning redundant thumbnails, XML tags, and editing histories.
-
-### Step-by-Step Instructions
-1. **Select the Source PDF**: Load your file into the Compress PDF tool.
-2. **Choose Compression Strength**:
-   * *Recommended/Medium*: Balanced parameters preserving clear scanned text and image resolution while achieving significant file-size savings.
-   * *Extreme Compression*: Maximizes space savings for simple text documents.
-3. **Process and Save**: Let the browser parse, compress, and repack the PDF streams, then download the resulting compact file immediately.`,
-  },
-  {
-    id: 'how-to-convert-jpg-images-to-pdf',
-    title: 'How to Convert Multiple JPG/PNG Images Into a Clean PDF',
-    excerpt: 'Convert photo snapshots, physical document scans, or design layouts into a unified, professional PDF document for portfolio sharing or official submission.',
-    category: 'Image Optimization',
-    readTime: '3 min read',
-    targetToolRoute: '/images-to-pdf',
-    content: `### Introduction
-Submitting job applications, expense receipts, or design assets often requires a single PDF rather than dozens of loose JPG or PNG images. Converting and organizing images into a PDF layout ensures consistent margins, proper rotation, and easy viewing.
-
-### Step-by-Step Instructions
-1. **Collect Your Images**: Group all photos or drawings on your computer or smartphone workspace.
-2. **Add to Workspace**: Drag them into the Images to PDF tool.
-3. **Configure the Page Layout**:
-   * *Page Margins*: Choose zero margins for full-bleed graphics, or small margins to create a clean border.
-   * *Page Orientation*: Select portrait or landscape alignment, or let the converter determine it automatically based on each image's aspect ratio.
-4. **Compile PDF**: Click "Create PDF" to bundle the images as compressed objects inside a standard PDF structure, ready for instant local saving.`,
-  },
-  {
-    id: 'how-to-convert-pdf-pages-to-images',
-    title: 'How to Convert PDF Document Pages to High-Resolution Images',
-    excerpt: 'Extract crisp JPG or PNG images from your PDF files directly. Perfect for sharing presentation slides or specific report graphics on social media and slides.',
-    category: 'PDF Guides',
-    readTime: '3 min read',
-    targetToolRoute: '/pdf-to-images',
-    content: `### Introduction
-Sometimes you need to present slide layouts or document previews on platforms that do not support inline PDF reading, such as social feeds or presentation slides. Converting each page of a PDF document into a standalone image is the standard solution.
-
-### Step-by-Step Instructions
-1. **Load Your PDF**: Import the target document into the PDF to Images converter.
-2. **Select Target Format & Scale**:
-   * *PNG Format*: Best for documents containing high-contrast text, formulas, or diagrams.
-   * *JPG Format*: Best for continuous-tone photography and large scanned catalogs.
-   * *DPI Selection*: Pick 150 DPI for web previews, or 200–300 DPI for high-quality presentations.
-3. **Convert locally**: Let the browser parse and draw the vector canvas of each page, converting it to the selected format.
-4. **Download**: Save individual pages as needed, or export the entire set bundled inside a single ZIP file.`,
-  },
-  {
-    id: 'how-to-resize-images-for-web-use',
-    title: 'How to Resize Images for Fast Web Performance and Load Times',
-    excerpt: 'Learn how to downscale image pixel dimensions and aspect ratios to match web standards, significantly boosting page load speed and user retention.',
-    category: 'Image Optimization',
-    readTime: '4 min read',
-    targetToolRoute: '/image-resizer',
-    content: `### Introduction
-Modern cameras capture photos with huge resolutions (often 4000px wide or more). Uploading these unresized files to a website slows down performance, hurts search engine rankings, and wastes user bandwidth. Downscaling pixel widths is the easiest way to boost web page speeds.
-
-### Understanding Aspect Ratios & Web Standards
-* **E-Commerce Catalogs**: Typically use square 1:1 layouts (e.g., 800x800 or 1200x1200px).
-* **Hero Banners**: Typically use widescreen 16:9 formats (e.g., 1920x1080px).
-* **Blog Post Imagery**: Standard dimensions of 1200px width are widely recommended.
-
-### Step-by-Step Instructions
-1. **Import the Photo**: Load your image into the Resize Image tool workspace.
-2. **Select Resizing Profile**:
-   * *By Pixels*: Set the target width (e.g., 1200px) and keep "Maintain Aspect Ratio" checked to avoid distortion.
-   * *By Percentage*: Scale down by 25%, 50%, or 75% for quick, proportional resizing.
-3. **Optimize and Download**: Click "Resize Image" and download the optimized output.`,
-  },
-  {
-    id: 'webp-vs-jpg-png-comparison',
-    title: 'JPG vs PNG vs WebP: Which Image Format Should You Choose?',
-    excerpt: 'Choosing the right format can improve web page load speed by up to 3x. Learn when to convert to WebP, when JPEG is still superior, and when PNG alpha transparency is indispensable.',
-    category: 'Image Optimization',
-    readTime: '5 min read',
-    targetToolRoute: '/image-converter',
-    content: `### Introduction
-Web design, file management, and document preparation require careful choice of image file formats. Using the wrong format can result in either bloated file sizes or low-quality, pixelated text.
-
-### JPG (JPEG)
-* **Best Used For**: Continuous-tone photography, scanned color documents, natural landscapes.
-* **Characteristics**: Lossy compression. Excellent at maintaining colors with small file sizes.
-* **Limitations**: Does not support transparent background layers; compresses sharp text with blurry artifacts.
-
-### PNG
-* **Best Used For**: Screenshots, user interface designs, logo designs, sharp vector-like text, transparent assets.
-* **Characteristics**: Lossless compression. Preserves pixel-perfect transparency layers (Alpha channel).
-* **Limitations**: Much larger file sizes compared to JPG for rich photos.
-
-### WebP
-* **Best Used For**: Modern web assets, blogs, product catalogs, online listings.
-* **Characteristics**: Developed by Google, WebP supports both lossy and lossless modes, alpha transparency, and animation. Offers 25% to 35% smaller file sizes compared to JPG or PNG at identical quality levels.
-* **Limitations**: Minimal compatibility issues with older, legacy software systems.`,
-  },
-  {
-    id: 'how-to-remove-metadata-from-images',
-    title: 'How to Strip GPS, Location, and EXIF Metadata From Photos',
-    excerpt: 'Every smartphone photo contains hidden metadata (EXIF) detailing your location, date, time, and camera model. Learn how to strip this sensitive data before sharing.',
-    category: 'Security & Privacy',
-    readTime: '3 min read',
-    targetToolRoute: '/image-strip-exif',
-    content: `### Introduction
-When you capture a picture with a modern smartphone, the device automatically inserts an Exchangeable Image File Format (EXIF) tag into the file. This hidden metadata can contain exact GPS coordinates of your home, the timestamp, and specific device parameters. Stripping this data before publishing is a smart privacy precaution.
-
-### Step-by-Step Instructions
-1. **Choose Your Photos**: Select the images from which you want to remove metadata.
-2. **Load into Workspace**: Drag and drop the images into our metadata-removal tool.
-3. **Clean EXIF Data**: The tool parses the file structures locally, strips the EXIF markers, and copies the raw pixel matrix into a clean image container.
-4. **Save Clean Photos**: Download the newly generated photos, which are now free of camera details, timestamps, and GPS coordinates.`,
-  },
-  {
-    id: 'how-to-reduce-image-file-size',
-    title: 'How to Safely Compress and Reduce Image File Size',
-    excerpt: 'Struggling with slow upload limits on online applications? Learn how lossy and lossless photo compression algorithms shrink file footprints with minimal visual impact.',
-    category: 'Image Optimization',
-    readTime: '4 min read',
-    targetToolRoute: '/image-compressor',
-    content: `### Introduction
-Many government websites, visa portals, and academic applications restrict photo file submissions to small limits like 500KB or 1MB. If your captured image exceeds these sizes, you must optimize it to meet the requirements without making the photo blurry.
-
-### Understanding Compression Methods
-* **Lossless Compression**: Re-encodes file data patterns to save space. Best for retaining perfect quality.
-* **Lossy Compression**: Prunes minor color variations that are barely noticeable to the human eye. This method achieves maximum space savings, making it ideal for large photographic images.
-
-### Step-by-Step Instructions
-1. **Import Your Photo**: Load your image file (JPG, PNG, or WebP) into the compressor.
-2. **Select Compression Profile**: Set your target quality percentage. A setting between 75% and 85% is typically a great sweet spot.
-3. **Verify and Save**: Review the estimated output size and download your optimized image.`,
-  },
-  {
-    id: 'how-browser-based-file-processing-works',
-    title: 'Under the Hood: How Browser-Based File Processing Works',
-    excerpt: 'Curious how complex PDF merges or photo crops run directly inside your browser window without uploading files to our servers? Explore the modern browser technologies behind PDF Image Studio.',
-    category: 'Technical Insights',
-    readTime: '5 min read',
-    targetToolRoute: '/privacy',
-    content: `### Introduction
-For years, file conversion meant uploading private data to cloud services. Today, modern web standards allow browsers to compile files directly within their sandboxed javascript workspace.
-
-### Key Browser Technologies We Use
-* **HTML5 Canvas API**: Used to draw, scale, crop, and convert images locally.
-* **ArrayBuffers & Typed Arrays**: Standard JavaScript structures that handle raw binary streams of PDF documents within browser memory.
-* **WebAssembly (Wasm)**: Compiles high-performance document libraries into lightweight instructions that run locally with near-native hardware speed.
-* **Service Workers**: Enable PWA features, saving tools to local storage for offline use.
-
-### The Benefits
-This design gives you instant processing speeds, lets you work offline, saves data transfer costs, and ensures your private documents remain strictly within your local browser workspace.`,
-  },
-];
+import { BLOG_ARTICLES, getArticleBySlug, getRelatedArticles, BlogArticle } from '../../data/blogArticles';
 
 interface BlogPageProps {
   onNavigate: (route: string) => void;
+  initialSlug?: string;
 }
 
-export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
+export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate, initialSlug }) => {
   const { language } = useTranslation();
-  const [selectedArticle, setSelectedArticle] = useState<BlogArticle | null>(null);
-
   const isAr = language === 'ar';
 
-  if (selectedArticle) {
-    return (
-      <div dir={isAr ? 'rtl' : 'ltr'} className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
-        <button
-          onClick={() => setSelectedArticle(null)}
-          className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline mb-6 inline-flex items-center gap-1.5"
-        >
-          {isAr ? '← العودة لجميع المقالات والأدلة' : '← Back to all articles'}
-        </button>
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(initialSlug || null);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [copiedLink, setCopiedLink] = useState(false);
 
-        <div className="flex items-center gap-3 text-xs text-slate-500 mb-3">
-          <span className="font-bold text-indigo-600 dark:text-indigo-400">
-            {selectedArticle.category}
+  // Sync initialSlug when prop updates
+  useEffect(() => {
+    if (initialSlug) {
+      setSelectedSlug(initialSlug);
+    }
+  }, [initialSlug]);
+
+  const activeArticle = useMemo(() => {
+    if (!selectedSlug) return null;
+    return getArticleBySlug(selectedSlug) || null;
+  }, [selectedSlug]);
+
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    BLOG_ARTICLES.forEach((a) => set.add(a.category));
+    return ['All', ...Array.from(set)];
+  }, []);
+
+  const filteredArticles = useMemo(() => {
+    return BLOG_ARTICLES.filter((art) => {
+      const matchesCategory = selectedCategory === 'All' || art.category === selectedCategory;
+      const matchesSearch = 
+        searchQuery.trim() === '' || 
+        art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        art.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
+
+  const handleSelectArticle = (slug: string) => {
+    setSelectedSlug(slug);
+    onNavigate(`/blog/${slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToIndex = () => {
+    setSelectedSlug(null);
+    onNavigate('/blog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleShareLink = () => {
+    if (navigator?.clipboard?.writeText) {
+      navigator.clipboard.writeText(window.location.href).catch(() => {});
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    }
+  };
+
+  // ==========================================
+  // ARTICLE VIEW
+  // ==========================================
+  if (activeArticle) {
+    const related = getRelatedArticles(activeArticle.slug);
+
+    return (
+      <div dir={isAr ? 'rtl' : 'ltr'} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fade-in text-slate-700 dark:text-slate-300">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-6 flex-wrap">
+          <button 
+            onClick={handleBackToIndex} 
+            className="hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition cursor-pointer"
+          >
+            {isAr ? 'قاعدة المعرفة' : 'Knowledge Base'}
+          </button>
+          <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
+          <span className="font-semibold text-slate-700 dark:text-slate-300">
+            {activeArticle.category}
           </span>
-          <span>&bull;</span>
-          <span>{selectedArticle.readTime}</span>
+          <ChevronRight className="w-3.5 h-3.5 rtl:rotate-180" />
+          <span className="text-slate-400 dark:text-slate-500 truncate max-w-[200px] sm:max-w-md">
+            {activeArticle.title}
+          </span>
+        </nav>
+
+        {/* Article Meta Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800 text-xs">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="px-2.5 py-1 rounded-full font-bold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+              {activeArticle.category}
+            </span>
+            <span className="flex items-center gap-1.5 text-slate-500">
+              <Clock className="w-3.5 h-3.5" />
+              <span>{activeArticle.readTime}</span>
+            </span>
+            <span className="flex items-center gap-1.5 text-slate-500">
+              <Calendar className="w-3.5 h-3.5" />
+              <span>{activeArticle.lastUpdated}</span>
+            </span>
+          </div>
+
+          <button
+            onClick={handleShareLink}
+            type="button"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition text-xs cursor-pointer"
+            title="Share article URL"
+          >
+            {copiedLink ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-500" />
+                <span className="text-emerald-600 dark:text-emerald-400">{isAr ? 'تم نسخ الرابط!' : 'Link Copied!'}</span>
+              </>
+            ) : (
+              <>
+                <Share2 className="w-3.5 h-3.5 text-slate-400" />
+                <span>{isAr ? 'مشاركة' : 'Share'}</span>
+              </>
+            )}
+          </button>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6">
-          {selectedArticle.title}
-        </h1>
+        {/* Article Header */}
+        <header className="py-6 space-y-4">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+            {activeArticle.title}
+          </h1>
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 font-normal leading-relaxed">
+            {activeArticle.introduction}
+          </p>
+        </header>
 
-        <div className="prose dark:prose-invert text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed space-y-6 whitespace-pre-line">
-          {selectedArticle.content.split('\n\n').map((paragraph, index) => {
-            if (paragraph.startsWith('### ')) {
-              return (
-                <h3 key={index} className="text-lg font-bold text-slate-900 dark:text-white mt-6 mb-2">
-                  {paragraph.replace('### ', '')}
-                </h3>
-              );
-            }
-            if (paragraph.startsWith('* ')) {
-              return (
-                <ul key={index} className="list-disc pl-5 rtl:pl-0 rtl:pr-5 space-y-2 text-xs sm:text-sm">
-                  {paragraph.split('\n').map((li, liIdx) => (
-                    <li key={liIdx}>{li.replace('* ', '')}</li>
+        {/* Structured Editorial Sections */}
+        <article className="space-y-8 text-sm sm:text-base leading-relaxed">
+          {activeArticle.sections.map((section, sIdx) => (
+            <section key={sIdx} className="space-y-4">
+              {section.heading && (
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight pt-2 border-t border-slate-100 dark:border-slate-850">
+                  {section.heading}
+                </h2>
+              )}
+
+              {section.paragraphs.map((p, pIdx) => (
+                <p key={pIdx} className="text-slate-700 dark:text-slate-300">
+                  {p}
+                </p>
+              ))}
+
+              {/* Lists */}
+              {section.list && (
+                <ul className="list-disc pl-5 rtl:pl-0 rtl:pr-5 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                  {section.list.map((item, lIdx) => (
+                    <li key={lIdx}>{item}</li>
                   ))}
                 </ul>
-              );
-            }
-            if (paragraph.startsWith('1. ')) {
-              return (
-                <ol key={index} className="list-decimal pl-5 rtl:pl-0 rtl:pr-5 space-y-2 text-xs sm:text-sm">
-                  {paragraph.split('\n').map((li, liIdx) => (
-                    <li key={liIdx}>{li.replace(/^\d+\.\s*/, '')}</li>
-                  ))}
-                </ol>
-              );
-            }
-            return (
-              <p key={index} className="text-xs sm:text-sm leading-relaxed text-slate-650 dark:text-slate-350">
-                {paragraph}
-              </p>
-            );
-          })}
-        </div>
-
-        {selectedArticle.targetToolRoute && (
-          <div className="mt-8 p-6 rounded-2xl bg-indigo-50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              {selectedArticle.category === 'PDF Guides' ? (
-                <FileText className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
-              ) : (
-                <Image className="w-8 h-8 text-sky-600 dark:text-sky-400" />
               )}
-              <div>
-                <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                  {isAr ? 'هل تريد تجربة هذه الأداة الآن؟' : 'Ready to use this tool?'}
-                </h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  {isAr ? 'جرب المعالجة السريعة والآمنة مباشرة في متصفحك.' : 'Process your files securely right inside your browser window.'}
-                </p>
-              </div>
+
+              {/* Tables */}
+              {section.table && (
+                <div className="overflow-x-auto my-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xs">
+                  <table className="w-full text-left rtl:text-right text-xs sm:text-sm border-collapse">
+                    <thead>
+                      <tr className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700">
+                        {section.table.headers.map((h, hIdx) => (
+                          <th key={hIdx} className="py-3 px-4 font-bold">
+                            {h}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800 bg-white dark:bg-slate-900">
+                      {section.table.rows.map((row, rIdx) => (
+                        <tr key={rIdx} className="hover:bg-slate-50 dark:hover:bg-slate-850/50 transition-colors">
+                          {row.map((cell, cIdx) => (
+                            <td key={cIdx} className="py-3 px-4 text-slate-700 dark:text-slate-300 align-top">
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {/* Callouts */}
+              {section.callout && (
+                <div className={`p-4 sm:p-5 rounded-2xl border flex items-start gap-3 my-4 ${
+                  section.callout.type === 'tip'
+                    ? 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300'
+                    : section.callout.type === 'warning'
+                    ? 'bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-300'
+                    : 'bg-indigo-50 dark:bg-indigo-950/20 border-indigo-200 dark:border-indigo-800 text-indigo-900 dark:text-indigo-300'
+                }`}>
+                  {section.callout.type === 'tip' && <Lightbulb className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />}
+                  {section.callout.type === 'warning' && <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />}
+                  {section.callout.type === 'info' && <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />}
+                  <p className="text-xs sm:text-sm leading-relaxed">
+                    {section.callout.text}
+                  </p>
+                </div>
+              )}
+            </section>
+          ))}
+        </article>
+
+        {/* Genuine FAQ Section */}
+        {activeArticle.faqs && activeArticle.faqs.length > 0 && (
+          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              {isAr ? 'الأسئلة الشائعة حول هذا الموضوع' : 'Frequently Asked Questions'}
+            </h2>
+            <div className="space-y-3">
+              {activeArticle.faqs.map((faq, fIdx) => (
+                <div key={fIdx} className="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-1.5">
+                  <h3 className="font-bold text-slate-900 dark:text-white text-sm sm:text-base">
+                    {faq.question}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              ))}
             </div>
-            <button
-              onClick={() => onNavigate(selectedArticle.targetToolRoute!)}
-              className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-sm"
-            >
-              {isAr ? 'افتح الأداة الآن' : 'Launch Interactive Tool'}
-            </button>
           </div>
         )}
 
-        <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center">
+        {/* Contextual PDF Image Studio Tool Links */}
+        {activeArticle.relatedToolRoutes && activeArticle.relatedToolRoutes.length > 0 && (
+          <div className="mt-10 p-6 rounded-3xl bg-linear-to-br from-indigo-50/80 via-white to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/30 border border-indigo-100 dark:border-indigo-950/60 space-y-4">
+            <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider">
+              <Wrench className="w-4 h-4" />
+              <span>{isAr ? 'أدوات مساعدة ذات صلة' : 'Related Browser Utilities'}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {activeArticle.relatedToolRoutes.map((tool, tIdx) => (
+                <div 
+                  key={tIdx} 
+                  className="p-4 rounded-2xl bg-white dark:bg-slate-850 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between space-y-3 hover:border-indigo-400 transition shadow-2xs"
+                >
+                  <div>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">
+                      {tool.name}
+                    </h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                      {tool.description}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => onNavigate(tool.route)}
+                    className="self-start inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold transition cursor-pointer"
+                  >
+                    <span>{isAr ? 'فتح الأداة' : `Open ${tool.name}`}</span>
+                    <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Related Articles Section */}
+        {related.length > 0 && (
+          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 space-y-5">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              {isAr ? 'مقالات وأدلة ذات صلة' : 'Related Editorial Guides'}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {related.map((rel) => (
+                <div
+                  key={rel.slug}
+                  onClick={() => handleSelectArticle(rel.slug)}
+                  className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-400 dark:hover:border-indigo-500 flex flex-col justify-between transition cursor-pointer shadow-2xs group"
+                >
+                  <div>
+                    <span className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 block mb-1.5">
+                      {rel.category}
+                    </span>
+                    <h3 className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
+                      {rel.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                      {rel.excerpt}
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400 font-medium">
+                    <span>{rel.readTime}</span>
+                    <span className="text-indigo-600 dark:text-indigo-400 font-semibold group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform inline-flex items-center gap-1">
+                      {isAr ? 'قراءة' : 'Read'} →
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Back and Catalog Actions */}
+        <div className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <button
-            onClick={() => setSelectedArticle(null)}
-            className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+            onClick={handleBackToIndex}
+            className="text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer"
           >
-            {isAr ? '← عودة' : '← Back'}
+            {isAr ? '← العودة لجميع المقالات' : '← Back to Knowledge Base'}
           </button>
           <button
             onClick={() => onNavigate('/all-tools')}
-            className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-sm"
+            className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition shadow-sm cursor-pointer"
           >
-            {isAr ? 'فتح دليل الأدوات' : 'Launch Tools Catalog'}
+            {isAr ? 'استكشاف جميع الأدوات' : 'Explore All Tools'}
           </button>
         </div>
       </div>
     );
   }
 
+  // ==========================================
+  // INDEX VIEW
+  // ==========================================
   return (
-    <div dir={isAr ? 'rtl' : 'ltr'} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in">
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-xs font-bold mb-3">
+    <div dir={isAr ? 'rtl' : 'ltr'} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-fade-in text-slate-700 dark:text-slate-300">
+      {/* Knowledge Base Header */}
+      <div className="text-center mb-10 space-y-3">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 text-xs font-bold">
           <BookOpen className="w-3.5 h-3.5" />
-          <span>{isAr ? 'الأدلة والمعارف' : 'Guides & Insights'}</span>
+          <span>{isAr ? 'الأدلة والمعارف الفنية' : 'Guides & Editorial Insights'}</span>
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          {isAr ? 'الأدلة والتعليمات لـ PDF Image Studio' : 'PDF Image Studio Knowledge Base'}
+          {isAr ? 'قاعدة معارف PDF Image Studio' : 'PDF Image Studio Knowledge Base'}
         </h1>
-        <p className="mt-2 text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
           {isAr
-            ? 'تعلم كيفية تنظيم الـ PDF، وضغط الملفات، وتحسين الصور بسهولة باستخدام أدلة فنية مفصلة.'
-            : 'Master file compression, document security, and image optimization with expert browser engineering tutorials.'}
+            ? 'مقالات ودراسات فنية أصلية تتناول أسرار معالجة مستندات الـ PDF، وضغط الصور، وإدارة الميتاداتا، وفهم بيئات المعالجة الحديثة.'
+            : 'Original technical guides and practical articles covering document formatting, raster compression mechanics, metadata privacy, and browser runtime execution.'}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {ARTICLES.map((art) => (
-          <div
-            key={art.id}
-            className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-indigo-400 dark:hover:border-indigo-500 shadow-2xs hover:shadow-md transition-all cursor-pointer"
-            onClick={() => setSelectedArticle(art)}
-          >
-            <div>
-              <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
-                <span className="font-semibold text-indigo-600 dark:text-indigo-400">
-                  {art.category}
-                </span>
-                <span className="flex items-center gap-1 text-[11px]">
-                  <Clock className="w-3 h-3" /> {art.readTime}
-                </span>
-              </div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2 line-clamp-2">
-                {art.title}
-              </h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
-                {art.excerpt}
-              </p>
-            </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-              <span>{isAr ? 'اقرأ الدليل' : 'Read Guide'}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:rotate-180 transition-transform" />
-            </div>
-          </div>
-        ))}
+      {/* 1. Search Field Container in normal document flow */}
+      <div className="w-full max-w-xl mx-auto mb-8">
+        <div className="relative w-full">
+          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 rtl:left-auto rtl:right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={isAr ? 'ابحث في المقالات...' : 'Search articles...'}
+            className="w-full pl-10 pr-4 rtl:pl-4 rtl:pr-10 py-3 text-xs sm:text-sm rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition shadow-2xs"
+          />
+        </div>
       </div>
+
+      {/* 2. Category / Filter Navigation with clear vertical separation and distinct buttons */}
+      <div className="w-full mb-10">
+        <div 
+          role="navigation"
+          aria-label={isAr ? 'تصنيفات المقالات' : 'Article categories'}
+          className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
+        >
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all shrink-0 cursor-pointer select-none inline-flex items-center justify-center border shadow-2xs ${
+                selectedCategory === cat
+                  ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs ring-2 ring-indigo-500/30'
+                  : 'bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-800'
+              }`}
+            >
+              {cat === 'All' ? (isAr ? 'جميع الأدلة' : 'All Topics') : cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Articles Grid */}
+      {filteredArticles.length === 0 ? (
+        <div className="p-12 text-center rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3">
+          <BookOpen className="w-8 h-8 text-slate-400 mx-auto" />
+          <p className="font-semibold text-slate-800 dark:text-slate-200 text-sm">
+            {isAr ? 'لم يتم العثور على مقالات مطابقة' : 'No articles match your search or filter'}
+          </p>
+          <button
+            onClick={() => { setSelectedCategory('All'); setSearchQuery(''); }}
+            className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold hover:underline cursor-pointer"
+          >
+            {isAr ? 'إعادة ضبط التصفية' : 'Reset filters'}
+          </button>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredArticles.map((art) => (
+            <div
+              key={art.slug}
+              className="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-indigo-400 dark:hover:border-indigo-500 shadow-2xs hover:shadow-md transition-all cursor-pointer"
+              onClick={() => handleSelectArticle(art.slug)}
+            >
+              <div>
+                <div className="flex items-center justify-between text-xs text-slate-400 mb-3">
+                  <span className="font-semibold text-indigo-600 dark:text-indigo-400">
+                    {art.category}
+                  </span>
+                  <span className="flex items-center gap-1 text-[11px]">
+                    <Clock className="w-3 h-3" /> {art.readTime}
+                  </span>
+                </div>
+                <h2 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2 line-clamp-2 leading-snug">
+                  {art.title}
+                </h2>
+                <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
+                  {art.excerpt}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold text-indigo-600 dark:text-indigo-400">
+                <span>{isAr ? 'اقرأ الدليل' : 'Read Article'}</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
