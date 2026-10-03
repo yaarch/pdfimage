@@ -184,7 +184,7 @@ export function ImageColorPaletteTool() {
               </div>
               <div>
                 <span className="text-sm font-semibold text-slate-900 dark:text-white">Upload image to extract palette</span>
-                <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, WebP (100% private in-browser)</p>
+                <p className="text-xs text-slate-500 mt-1">Supports JPG, PNG, WebP (processed locally in-browser)</p>
               </div>
             </label>
           </div>

@@ -18,6 +18,9 @@ const AboutPage = lazy(() => import('./components/pages/AboutPage').then(m => ({
 const TermsPage = lazy(() => import('./components/pages/TermsPage').then(m => ({ default: m.TermsPage })));
 const BlogPage = lazy(() => import('./components/pages/BlogPage').then(m => ({ default: m.BlogPage })));
 const SitemapView = lazy(() => import('./components/common/SitemapView').then(m => ({ default: m.SitemapView })));
+const ContactPage = lazy(() => import('./components/pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const PrivacyArchitecturePage = lazy(() => import('./components/pages/PrivacyArchitecturePage').then(m => ({ default: m.PrivacyArchitecturePage })));
+
 
 // Lazy loaded PDF Tools
 const PdfOrganizer = lazy(() => import('./components/tools/PdfOrganizer').then(m => ({ default: m.PdfOrganizer })));
@@ -188,6 +191,14 @@ function MainAppContent() {
 
     if (cleanPath === '/blog') {
       return <BlogPage onNavigate={navigate} />;
+    }
+
+    if (cleanPath === '/contact') {
+      return <ContactPage onNavigate={navigate} />;
+    }
+
+    if (cleanPath === '/privacy-architecture') {
+      return <PrivacyArchitecturePage onNavigate={navigate} />;
     }
 
     if (

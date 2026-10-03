@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pdfimage.pages.dev/fr</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/" />
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/all-tools</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/all-tools" />
@@ -27,7 +27,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-tools</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-tools" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-tools</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-tools" />
@@ -51,7 +51,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/batch-processor</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/batch-processor" />
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/privacy</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/privacy" />
@@ -74,8 +74,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/privacy" />
   </url>
   <url>
+    <loc>https://pdfimage.pages.dev/fr/privacy-architecture</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/privacy-architecture" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/privacy-architecture" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/privacy-architecture" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/privacy-architecture" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/privacy-architecture" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/privacy-architecture" />
+  </url>
+  <url>
     <loc>https://pdfimage.pages.dev/fr/terms</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/terms" />
@@ -87,7 +99,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/about</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/about" />
@@ -98,8 +110,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/about" />
   </url>
   <url>
+    <loc>https://pdfimage.pages.dev/fr/contact</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/contact" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/contact" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/contact" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/contact" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/contact" />
+  </url>
+  <url>
     <loc>https://pdfimage.pages.dev/fr/blog</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/blog" />
@@ -111,7 +135,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-organizer</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-organizer" />
@@ -123,7 +147,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/merge-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/merge-pdf" />
@@ -135,7 +159,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/split-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/split-pdf" />
@@ -147,7 +171,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/compress-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/compress-pdf" />
@@ -159,7 +183,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/rotate-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/rotate-pdf" />
@@ -171,7 +195,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-watermark</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-watermark" />
@@ -183,7 +207,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-page-numbers</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-page-numbers" />
@@ -195,7 +219,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/images-to-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/images-to-pdf" />
@@ -207,7 +231,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-to-images</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-to-images" />
@@ -219,7 +243,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-metadata</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-metadata" />
@@ -231,7 +255,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-flatten</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-flatten" />
@@ -243,7 +267,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-redact-sanitize</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-redact-sanitize" />
@@ -255,7 +279,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/text-to-pdf</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/text-to-pdf" />
@@ -267,7 +291,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-color-palette</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-color-palette" />
@@ -279,7 +303,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-compressor</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-compressor" />
@@ -291,7 +315,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-resizer</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-resizer" />
@@ -303,7 +327,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-converter</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-converter" />
@@ -315,7 +339,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-crop</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-crop" />
@@ -327,7 +351,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-rotate-flip</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-rotate-flip" />
@@ -339,7 +363,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-strip-exif</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-strip-exif" />
@@ -351,7 +375,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-filter</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-filter" />
@@ -362,20 +386,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/image-filter" />
   </url>
   <url>
-    <loc>https://pdfimage.pages.dev/fr/batch-processor</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/batch-processor" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://pdfimage.pages.dev/ar/batch-processor" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://pdfimage.pages.dev/es/batch-processor" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfimage.pages.dev/fr/batch-processor" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://pdfimage.pages.dev/de/batch-processor" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfimage.pages.dev/batch-processor" />
-  </url>
-  <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-extract-text</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-extract-text" />
@@ -387,7 +399,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/pdf-sign</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/pdf-sign" />
@@ -399,7 +411,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-watermark</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-watermark" />
@@ -411,7 +423,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-base64</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-base64" />
@@ -423,7 +435,7 @@
   </url>
   <url>
     <loc>https://pdfimage.pages.dev/fr/image-border-round</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pdfimage.pages.dev/image-border-round" />

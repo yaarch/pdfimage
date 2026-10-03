@@ -60,7 +60,7 @@ async function runTests() {
 
   // Test 2: Load document with PDF.js using standardFontDataUrl
   console.log('\n2. Testing PDF.js document loading with standard fonts...');
-  const fontsPath = path.resolve('public/standard_fonts') + '/';
+  const fontsPath = path.resolve('node_modules/pdfjs-dist/standard_fonts') + '/';
   const cmapsPath = path.resolve('public/cmaps') + '/';
 
   const loadingTask = pdfjsLib.getDocument({

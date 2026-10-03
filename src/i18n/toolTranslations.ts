@@ -73,9 +73,9 @@ export const toolTranslationsMap: Record<string, Partial<Record<Exclude<Language
     de: {
       name: 'PDF-Seiten-Organisator',
       tagline: 'Visuelle Seitenverwaltung & Neuanordnung',
-      description: 'Alle PDF-Seiten visuell in der Vorschau anzeigen. Per Drag & Drop neu anordnen, drehen, löschen, duplizieren und extrahieren – 100% lokal im Browser.',
+      description: 'Alle PDF-Seiten visuell in der Vorschau anzeigen. Per Drag & Drop neu anordnen, drehen, löschen, duplizieren und extrahieren – lokal im Browser.',
       seoTitle: 'PDF-Seiten online organisieren & sortieren — Kostenlos & Privat | PDF Image Studio',
-      seoDescription: 'PDF-Seiten visuell im Browser neu sortieren, drehen, löschen und extrahieren. 100% private clientseitige Verarbeitung ohne Server-Uploads.',
+      seoDescription: 'PDF-Seiten visuell im Browser neu sortieren, drehen, löschen und extrahieren. Private clientseitige Verarbeitung im Browser.',
       keywords: ['pdf organisieren', 'pdf seiten sortieren', 'pdf seiten löschen', 'pdf drehen', 'pdf seiten extrahieren', 'visueller pdf editor'],
       faqs: [
         {

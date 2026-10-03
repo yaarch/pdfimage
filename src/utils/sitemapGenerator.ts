@@ -15,8 +15,10 @@ export const SITEMAP_STATIC_ROUTES: SitemapUrlEntry[] = [
   { path: '/image-tools', changefreq: 'weekly', priority: 0.9 },
   { path: '/batch-processor', changefreq: 'weekly', priority: 0.8 },
   { path: '/privacy', changefreq: 'monthly', priority: 0.7 },
+  { path: '/privacy-architecture', changefreq: 'monthly', priority: 0.7 },
   { path: '/terms', changefreq: 'monthly', priority: 0.6 },
   { path: '/about', changefreq: 'monthly', priority: 0.6 },
+  { path: '/contact', changefreq: 'monthly', priority: 0.6 },
   { path: '/blog', changefreq: 'weekly', priority: 0.7 },
 ];
 
@@ -26,7 +28,15 @@ export function getAllSitemapEntries(): SitemapUrlEntry[] {
     changefreq: 'weekly',
     priority: t.isFlagship ? 0.95 : t.popular ? 0.9 : 0.8,
   }));
-  return [...SITEMAP_STATIC_ROUTES, ...toolEntries];
+  const combined = [...SITEMAP_STATIC_ROUTES, ...toolEntries];
+  const uniquePaths = new Set<string>();
+  return combined.filter((entry) => {
+    if (uniquePaths.has(entry.path)) {
+      return false;
+    }
+    uniquePaths.add(entry.path);
+    return true;
+  });
 }
 
 export function generateLanguageSitemapXml(targetLang: LanguageCode, dateStr: string = '2026-09-19'): string {

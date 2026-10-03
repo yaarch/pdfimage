@@ -190,7 +190,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         {/* Footer info */}
         <div className="px-4 py-2 bg-slate-50 dark:bg-slate-950/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
           <span>Navigate with &uarr; &darr; arrows</span>
-          <span>100% In-Browser &bull; Zero Server Uploads</span>
+          <span>In-Browser Workspace &bull; Local Execution</span>
         </div>
       </div>
     </div>

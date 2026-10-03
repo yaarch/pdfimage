@@ -11,12 +11,12 @@ export const MULTILINGUAL_STATIC_SEO: Record<string, Record<LanguageCode, { titl
   '/': {
     en: {
       title: 'PDF Image Studio — Private Browser File Tools',
-      description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, 100% private client-side processing, zero server uploads.',
+      description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, private client-side processing in your browser workspace.',
       keywords: ['pdf tools', 'image editor', 'compress pdf', 'merge pdf', 'image converter', 'client-side file tools'],
     },
     ar: {
       title: 'PDF Image Studio — أدوات معالجة الـ PDF والصور في المتصفح بخصوصية تامة',
-      description: 'تحويل، ضغط، تنظيم، وتعديل مستندات PDF والصور مباشرة في متصفحك. معالجة محلية 100% بسرعة فائقة وبدون أي رفع للخوادم.',
+      description: 'تحويل، ضغط، تنظيم، وتعديل مستندات PDF والصور مباشرة في متصفحك. معالجة محلية سريعة وآمنة داخل مساحة عمل متصفحك.',
       keywords: ['أدوات pdf', 'تعديل الصور', 'ضغط pdf', 'دمج pdf', 'تحويل الصور', 'أدوات خصوصية محلية'],
     },
     es: {
@@ -31,14 +31,14 @@ export const MULTILINGUAL_STATIC_SEO: Record<string, Record<LanguageCode, { titl
     },
     de: {
       title: 'PDF Image Studio — Private Datei-Tools direkt im Browser',
-      description: 'Konvertieren, komprimieren, organisieren, bearbeiten und optimieren Sie Ihre PDF- und Bilddateien direkt im Browser. Schnell, 100% lokal, ohne Server-Uploads.',
+      description: 'Konvertieren, komprimieren, organisieren, bearbeiten und optimieren Sie Ihre PDF- und Bilddateien direkt im Browser. Schnell, lokal im Browser, ohne Registrierung.',
       keywords: ['pdf tools', 'bildbearbeitung', 'pdf komprimieren', 'pdf zusammenfügen', 'bild konverter', 'dateien im browser bearbeiten'],
     },
   },
   '/all-tools': {
     en: {
       title: 'All Browser File Tools Catalog — PDF Image Studio',
-      description: 'Explore our complete suite of 100% private, client-side PDF and image tools. Compress, convert, organize, sign, extract, and edit files right in your browser.',
+      description: 'Explore our complete suite of private, client-side PDF and image tools. Compress, convert, organize, sign, extract, and edit files right in your browser.',
       keywords: ['all pdf tools', 'all image tools', 'free file utilities', 'online document editor catalog'],
     },
     ar: {
@@ -91,29 +91,29 @@ export const MULTILINGUAL_STATIC_SEO: Record<string, Record<LanguageCode, { titl
   },
   '/privacy': {
     en: {
-      title: 'Privacy Architecture & Confidentiality Guarantee — PDF Image Studio',
-      description: 'Learn about PDF Image Studio\'s 100% client-side privacy architecture. Your files never leave your device because processing happens entirely in your browser memory.',
-      keywords: ['client-side privacy', 'zero upload guarantee', 'gdpr compliant pdf', 'browser sandbox security'],
+      title: 'Privacy Architecture & Confidentiality — PDF Image Studio',
+      description: 'Learn about PDF Image Studio\'s client-side privacy architecture. Supported tools process your files directly in your browser memory sandbox.',
+      keywords: ['client-side privacy', 'local file processing', 'browser sandbox security'],
     },
     ar: {
-      title: 'معمارية الخصوصية وضمان السرية المطلقة — PDF Image Studio',
-      description: 'تعرف على البنية الأمنية لمنصة PDF Image Studio التي تعمل بنسبة 100% داخل جهازك دون إرسال أي ملفات للخوادم.',
-      keywords: ['أمان المستندات', 'حماية الخصوصية', 'معالجة محلية', 'بدون رفع ملفات'],
+      title: 'معمارية الخصوصية والسرية — PDF Image Studio',
+      description: 'تعرف على البنية الأمنية لمنصة PDF Image Studio التي تدعم معالجة الملفات محلياً داخل جهازك في المتصفح.',
+      keywords: ['أمان المستندات', 'حماية الخصوصية', 'معالجة محلية'],
     },
     es: {
-      title: 'Arquitectura de Privacidad y Garantía — PDF Image Studio',
-      description: 'Conoce nuestra arquitectura 100% en el navegador. Tus archivos nunca salen de tu ordenador ni se guardan en la nube.',
-      keywords: ['privacidad de archivos', 'seguridad sin subidas', 'garantia de confidencialidad'],
+      title: 'Arquitectura de Privacidad y Confidencialidad — PDF Image Studio',
+      description: 'Conoce nuestra arquitectura de privacidad local. El procesamiento de archivos se ejecuta en el espacio de tu navegador.',
+      keywords: ['privacidad de archivos', 'seguridad local', 'procesamiento en navegador'],
     },
     fr: {
       title: 'Architecture de Confidentialité et Sécurité — PDF Image Studio',
-      description: 'Découvrez notre architecture 100% locale dans votre navigateur. Vos données ne sont jamais transmises à des tiers.',
-      keywords: ['confidentialité client-side', 'sécurité documents', 'garantie zéro upload'],
+      description: 'Découvrez notre architecture de confidentialité locale dans votre navigateur. Vos données sont traitées dans votre espace de travail local.',
+      keywords: ['confidentialité client-side', 'sécurité documents', 'traitement local'],
     },
     de: {
-      title: 'Datenschutzarchitektur & Vertraulichkeitsgarantie — PDF Image Studio',
-      description: 'Erfahren Sie mehr über die 100% clientseitige Datenschutzarchitektur von PDF Image Studio. Ihre Dateien verlassen niemals Ihr Gerät.',
-      keywords: ['lokaler datenschutz', 'kein server upload', 'dsgvo konforme pdf bearbeitung', 'browser sandbox sicherheit'],
+      title: 'Datenschutzarchitektur & Vertraulichkeit — PDF Image Studio',
+      description: 'Erfahren Sie mehr über die clientseitige Datenschutzarchitektur von PDF Image Studio. Ihre Dateien werden lokal im Browser verarbeitet.',
+      keywords: ['lokaler datenschutz', 'browser sandbox sicherheit', 'dateiverarbeitung im browser'],
     },
   },
   '/terms': {
@@ -146,7 +146,7 @@ export const MULTILINGUAL_STATIC_SEO: Record<string, Record<LanguageCode, { titl
   '/about': {
     en: {
       title: 'About PDF Image Studio — Private Browser File Tools',
-      description: 'Discover PDF Image Studio, built to provide secure, lightning-fast, and 100% private PDF and image editing tools directly in your browser without cloud uploads.',
+      description: 'Discover PDF Image Studio, built to provide secure, lightning-fast, and private client-side PDF and image editing tools directly in your browser.',
       keywords: ['about pdf image studio', 'client side architecture', 'webassembly file tools'],
     },
     ar: {
@@ -166,14 +166,14 @@ export const MULTILINGUAL_STATIC_SEO: Record<string, Record<LanguageCode, { titl
     },
     de: {
       title: 'Über PDF Image Studio — Private Datei-Tools im Browser',
-      description: 'Erfahren Sie mehr über PDF Image Studio und unsere Mission für sichere, blitzschnelle und 100% private PDF- und Bildwerkzeuge ohne Cloud-Uploads.',
+      description: 'Erfahren Sie mehr über PDF Image Studio und unsere Mission für sichere, blitzschnelle und private PDF- und Bildwerkzeuge zur lokalen Verarbeitung.',
       keywords: ['über pdf image studio', 'clientseitige architektur', 'webassembly datei werkzeuge'],
     },
   },
   '/pdf-tools': {
     en: {
       title: 'PDF Utilities & Tools Suite — PDF Image Studio',
-      description: 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. 100% private and secure in your browser.',
+      description: 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. Private and secure client-side browser processing.',
       keywords: ['pdf tools suite', 'online pdf editor', 'merge pdf free', 'compress pdf online'],
     },
     ar: {
@@ -293,7 +293,7 @@ export function getStaticSeo(purePath: string, lang: LanguageCode): { title: str
 
   return {
     title: 'PDF Image Studio — Private Browser File Tools',
-    description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, 100% private client-side processing, zero server uploads.',
+    description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, private client-side processing in your browser workspace.',
     keywords: ['pdf tools', 'image editor', 'compress pdf', 'merge pdf'],
   };
 }

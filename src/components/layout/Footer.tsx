@@ -26,8 +26,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">100% Client-Side</span>
-              <span className="text-xs text-slate-600 dark:text-slate-300">Files never leave your browser</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Client-Side Focused</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Supported tools process files locally</span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 p-2">
@@ -42,8 +42,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <div className="w-8 h-8 rounded-full bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center">
                 <Zap className="w-4 h-4" />
               </div>
-              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Instant Hardware Speed</span>
-              <span className="text-xs text-slate-600 dark:text-slate-300">Accelerated by modern browser APIs</span>
+              <span className="text-xs font-bold text-slate-800 dark:text-slate-200">Fast Local Processing</span>
+              <span className="text-xs text-slate-600 dark:text-slate-300">Powered by modern browser APIs</span>
             </div>
 
             <div className="flex flex-col items-center gap-1.5 p-2">
@@ -172,23 +172,33 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1 text-xs font-medium text-slate-700 dark:text-slate-300">
               <li>
-                <button onClick={() => handleNav('/privacy')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-bold text-emerald-700 dark:text-emerald-400">
-                  Privacy Architecture
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleNav('/blog')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                  Guides & Tutorials
-                </button>
-              </li>
-              <li>
                 <button onClick={() => handleNav('/about')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   About PDF Image Studio
                 </button>
               </li>
               <li>
+                <button onClick={() => handleNav('/contact')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                  Contact Us & Support
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('/privacy')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('/privacy-architecture')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-semibold text-emerald-700 dark:text-emerald-400">
+                  Privacy Architecture
+                </button>
+              </li>
+              <li>
                 <button onClick={() => handleNav('/terms')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
                   Terms of Service
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('/blog')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition">
+                  Guides & Tutorials
                 </button>
               </li>
               <li>
@@ -198,7 +208,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button onClick={() => handleNav('/sitemap.xml')} className="min-h-[44px] py-1.5 flex items-center hover:text-indigo-600 dark:hover:text-indigo-400 transition font-mono text-[11px] text-slate-500 dark:text-slate-400">
-                  XML Sitemap (Index & 5 Locales)
+                  XML Sitemap
                 </button>
               </li>
             </ul>

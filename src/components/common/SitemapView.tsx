@@ -226,7 +226,7 @@ export const SitemapView: React.FC<SitemapViewProps> = ({ onNavigate, initialTab
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Tools per Locale</div>
           <div className="text-2xl font-black text-slate-900 dark:text-white mt-0.5">{TOOLS.length} Tools</div>
-          <div className="text-[11px] text-slate-400 mt-1">100% Client-side</div>
+          <div className="text-[11px] text-slate-400 mt-1">Client-side focus</div>
         </div>
         <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
           <div className="text-xs font-semibold text-slate-500 dark:text-slate-400">Current View</div>

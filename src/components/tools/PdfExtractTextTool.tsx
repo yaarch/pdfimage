@@ -257,7 +257,7 @@ export const PdfExtractTextTool: React.FC<PdfExtractTextToolProps> = ({ initialF
               <div className="flex items-center justify-between text-[11px] text-slate-500 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-medium">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>100% Client-Side Extracted</span>
+                  <span>Client-Side Extracted</span>
                 </span>
                 <span>
                   {currentDisplayContent.length.toLocaleString()} characters

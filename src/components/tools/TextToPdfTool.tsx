@@ -8,10 +8,10 @@ export function TextToPdfTool() {
   const [content, setContent] = useState(`Welcome to PDF Image Studio Text to PDF!
 
 You can type or paste any text or notes here.
-All formatting and PDF creation takes place 100% privately inside your browser.
+All formatting and PDF creation is designed to run locally inside your browser workspace.
 
 Key Features:
-• Zero server uploads — complete data privacy.
+• Client-side processing — local browser data workspace.
 • Customizable typography, font sizes, margins, and paper formats.
 • Instant high-resolution vector PDF export with page numbers.
 

@@ -154,7 +154,7 @@ export const DropZone: React.FC<DropZoneProps> = ({
                   </span>
                   <span>&bull;</span>
                   <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1 font-medium">
-                    <ShieldCheck className="w-3.5 h-3.5" /> 100% In-Memory
+                    <ShieldCheck className="w-3.5 h-3.5" /> In-Memory Sandbox
                   </span>
                 </div>
               </div>

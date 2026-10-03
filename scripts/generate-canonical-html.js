@@ -7,36 +7,44 @@ const INDEX_HTML_PATH = path.join(DIST_DIR, 'index.html');
 // Define routes and their SEO metadata
 const ROUTES_SEO = {
   '/': {
-    title: 'PDF Image Studio — Private Browser File Tools',
-    description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, 100% private client-side processing, zero server uploads.',
+    title: 'PDF Image Studio — Professional Web Utilities for PDFs & Images',
+    description: 'Convert, compress, organize, edit and optimize your PDF and image files directly in your browser. Fast, convenient in-browser workspace processing.',
   },
   '/all-tools': {
-    title: 'All 18+ Browser File Tools — PDF Image Studio',
-    description: 'Explore our complete suite of 100% private, client-side PDF and image tools. Compress, convert, organize, and edit files right in your browser.',
+    title: 'All Browser File Tools — PDF Image Studio',
+    description: 'Explore our complete suite of browser-based PDF and image tools. Compress, convert, organize, and edit files right in your browser.',
   },
   '/batch-processor': {
     title: 'Batch File Processing Online — Compress & Convert | PDF Image Studio',
     description: 'Batch process multiple files in parallel right in your browser. Download all processed items in a single ZIP file.',
   },
   '/privacy': {
-    title: 'Privacy Architecture & Guarantee — PDF Image Studio',
-    description: "Learn about PDF Image Studio's 100% client-side privacy architecture. Your files never leave your device because processing happens entirely in your browser memory.",
+    title: 'Privacy Policy — PDF Image Studio',
+    description: 'Read the comprehensive Privacy Policy of PDF Image Studio, explaining data processing, local browser storage, cookies, and AdSense advertising.',
+  },
+  '/privacy-architecture': {
+    title: 'Technical Privacy Architecture — PDF Image Studio',
+    description: 'Learn about PDF Image Studio’s client-side privacy architecture, sandboxed JavaScript runtimes, and local browser-based execution.',
   },
   '/terms': {
     title: 'Terms of Service — PDF Image Studio',
-    description: 'Read the terms of service for PDF Image Studio, the free, private, client-side browser file utility platform.',
+    description: 'Read the terms of service for PDF Image Studio, the free, browser-based file utility platform.',
   },
   '/about': {
-    title: 'About PDF Image Studio — Private Browser File Tools',
-    description: 'Discover PDF Image Studio, built to provide secure, lightning-fast, and 100% private PDF and image editing tools directly in your browser without cloud uploads.',
+    title: 'About Us — PDF Image Studio',
+    description: 'Discover PDF Image Studio, built to provide secure, convenient browser-based PDF and image editing tools directly in your browser without cloud uploads.',
+  },
+  '/contact': {
+    title: 'Contact Us & Technical Support — PDF Image Studio',
+    description: 'Get support, submit feature requests, or report tool bugs directly to our independent development team.',
   },
   '/pdf-tools': {
     title: 'PDF Utilities & Tools — PDF Image Studio',
-    description: 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. 100% private and secure in your browser.',
+    description: 'Free online PDF utilities including merge, split, compress, organize, watermark, and convert. Secure and convenient in your browser.',
   },
   '/image-tools': {
     title: 'Image Editing & Conversion Tools — PDF Image Studio',
-    description: 'Free online image editing tools to compress, resize, crop, convert, and filter photos privately in your browser.',
+    description: 'Free online image editing tools to compress, resize, crop, convert, and filter photos securely in your browser.',
   },
   '/blog': {
     title: 'Guides & Tutorials — PDF Image Studio Knowledge Base',

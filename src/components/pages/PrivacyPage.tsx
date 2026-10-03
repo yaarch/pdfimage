@@ -1,5 +1,4 @@
 import React from 'react';
-import { ShieldCheck, Lock, EyeOff, ServerOff, Cpu, HardDrive } from 'lucide-react';
 import { useTranslation } from '../../i18n/context';
 
 interface PrivacyPageProps {
@@ -7,90 +6,138 @@ interface PrivacyPageProps {
 }
 
 export const PrivacyPage: React.FC<PrivacyPageProps> = ({ onNavigate }) => {
-  const { t } = useTranslation();
+  const { language } = useTranslation();
+  const isAr = language === 'ar';
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div dir={isAr ? 'rtl' : 'ltr'} className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 leading-relaxed text-sm sm:text-base text-slate-700 dark:text-slate-300">
       {/* Header */}
-      <div className="text-center mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-xs font-bold mb-4">
-          <ShieldCheck className="w-4 h-4" />
-          <span>Privacy Architecture Whitepaper</span>
-        </div>
+      <div className="text-center mb-10 border-b border-slate-100 dark:border-slate-800 pb-8">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          Your Files Never Touch a Server. Period.
+          {isAr ? 'سياسة الخصوصية' : 'Privacy Policy'}
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          PDF Image Studio was engineered around a radical principle: you shouldn&apos;t have to sacrifice confidentiality or upload private documents to the cloud just to merge two PDFs or resize an image.
+        <p className="mt-2 text-xs sm:text-sm text-slate-500">
+          {isAr ? 'آخر تحديث: 3 أكتوبر 2026' : 'Last Updated: October 3, 2026'}
         </p>
       </div>
 
-      {/* 4 Pillars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 flex items-center justify-center mb-4">
-            <Cpu className="w-5 h-5" />
-          </div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-            100% In-Memory Execution
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            All document compilation, parsing, rasterization, and compression routines execute directly inside your browser&apos;s sandboxed JavaScript runtime. When you close the tab, the memory is instantly freed by the browser garbage collector.
-          </p>
-        </div>
-
-        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 flex items-center justify-center mb-4">
-            <ServerOff className="w-5 h-5" />
-          </div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-            Zero File Uploads
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Unlike legacy online conversion websites that upload your files to remote Amazon S3 buckets or temporary server disks, PDF Image Studio does not even have an upload endpoint. Open Network DevTools: no payload bytes are sent over the wire.
-          </p>
-        </div>
-
-        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 flex items-center justify-center mb-4">
-            <EyeOff className="w-5 h-5" />
-          </div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-            No Account & No Tracking
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            We do not collect names, email addresses, credit cards, or passwords. There are no tracking pixels or invasive telemetry trackers monitoring what files you manipulate or what documents you open.
-          </p>
-        </div>
-
-        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 flex items-center justify-center mb-4">
-            <HardDrive className="w-5 h-5" />
-          </div>
-          <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-            Offline Capable PWA
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Once loaded, PDF Image Studio can function completely disconnected from the Internet. You can turn off your Wi-Fi or airplane mode and continue organizing PDFs and converting photos uninterrupted.
-          </p>
-        </div>
-      </div>
-
-      {/* Compliance / Enterprise statement */}
-      <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 space-y-4">
-        <h3 className="text-base font-bold text-slate-900 dark:text-white">
-          Ideal for Legal, Healthcare, Financial & Confidential Documents
-        </h3>
-        <p className="text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-          Under regulations like GDPR, HIPAA, FERPA, and CCPA, uploading proprietary or patient data to third-party file conversion servers can constitute a serious data breach or compliance violation. Because PDF Image Studio never transmits data outside your client workstation, it satisfies the strictest corporate data residency policies without requiring specialized enterprise agreements.
+      <div className="space-y-6">
+        <p>
+          {isAr
+            ? 'مرحباً بك في PDF Image Studio. نحن نلتزم بحماية خصوصيتك وضمان شفافية معالجة البيانات الخاصة بك. توضح سياسة الخصوصية هذه أنواع المعلومات التي قد نجمعها، وكيفية استخدامها، والتدابير المتخذة لحمايتها عند استخدامك لموقعنا.'
+            : 'Welcome to PDF Image Studio. We are committed to protecting your privacy and ensuring transparency regarding data processing. This Privacy Policy details the types of information we may collect, how we use it, and the security measures in place when you use our platform.'}
         </p>
-        <div className="pt-2">
-          <button
-            onClick={() => onNavigate('/')}
-            className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm transition"
-          >
-            Start Using PDF Image Studio
-          </button>
+
+        {/* 1. Document & File Processing */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '1. معالجة المستندات والملفات' : '1. Document & File Processing'}
+          </h2>
+          <p>
+            {isAr
+              ? 'تعتمد غالبية الأدوات المتاحة على موقعنا على معالجة البيانات محلياً داخل متصفحك (client-side processing). هذا يعني أن ملفاتك وصورك يتم فتحها وتحليلها مباشرة داخل جهازك المعزول ولا يتم رفعها أو تخزينها على خوادمنا السحابية.'
+              : 'The majority of tools on our platform perform client-side file processing inside your web browser sandbox. This means your files and images are opened and edited locally on your workstation and are not uploaded to or stored on our cloud servers.'}
+          </p>
+          <p>
+            {isAr
+              ? 'قد تختلف طريقة معالجة الملفات بحسب كل أداة. نوصي بمراجعة الوصف الخاص بكل أداة لمعرفة طريقة معالجة الملفات بالتفصيل.'
+              : 'Processing behavior can vary by tool. Review the individual tool description for specific details on how files are managed.'}
+          </p>
+        </div>
+
+        {/* 2. Technical Information & Analytics */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '2. المعلومات التقنية والتحليلات' : '2. Technical Information & Analytics'}
+          </h2>
+          <p>
+            {isAr
+              ? 'عند زيارتك للموقع، قد تقوم خوادم شبكة توصيل المحتوى (CDN) الخاصة بنا تلقائياً بتسجيل بعض المعلومات التقنية الأساسية مثل عنوان البروتوكول (IP Address)، ونوع متصفح الويب، ونظام التشغيل، والصفحات التي قمت بزيارتها، والوقت المستغرق. نستخدم هذه البيانات التقنية لضمان تشغيل الموقع بكفاءة واستقرار وحمايته من الهجمات الخبيثة.'
+              : 'When you visit our site, our Content Delivery Network (CDN) servers automatically collect basic technical logs, such as IP addresses, browser types, operating systems, referring URLs, and timestamps. This technical data is processed to ensure stable platform operation, mitigate security threats, and maintain service performance.'}
+          </p>
+          <p>
+            {isAr
+              ? 'إذا كنا نستخدم خدمات تحليلية خارجية (مثل Google Analytics)، فإن هذه الخدمات قد تجمع معلومات إحصائية مجهولة المصدر لغرض تحسين تجربة تصفح المستخدم وأداء الموقع الفني.'
+              : 'If third-party analytics services (such as Google Analytics) are active, they may collect anonymous, aggregated statistics regarding traffic flow to help us analyze usability, system reliability, and tool interface adoption.'}
+          </p>
+        </div>
+
+        {/* 3. Cookies & Local Storage */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '3. ملفات تعريف الارتباط والتخزين المحلي' : '3. Cookies & Local Storage'}
+          </h2>
+          <p>
+            {isAr
+              ? 'يستخدم الموقع تقنيات التخزين المحلي للمتصفح (Local Storage / Session Storage) لحفظ بعض تفضيلات المستخدم محلياً مثل وضع السجل (Recently Used) والأدوات المفضلة لديك أو إعدادات المظهر المظلم والفاتح. لا يتم إرسال هذه البيانات المخزنة محلياً لخوادمنا.'
+              : 'We use browser Local Storage and Session Storage to store your client-side preferences, such as light/dark mode triggers, recently used tools, and custom bookmarks. This storage remains entirely local on your browser workspace and is not transmitted to us.'}
+          </p>
+          <p>
+            {isAr
+              ? 'قد نستخدم ملفات تعريف الارتباط (Cookies) لتحسين تجربة التصفح وتخصيص المحتوى ولأغراض عرض الإعلانات المخصصة عبر شبكات الإعلانات التابعة لجهات خارجية.'
+              : 'We may also utilize persistent cookies to optimize search configurations and deliver localized language preferences, or to support advertisement delivery networks.'}
+          </p>
+        </div>
+
+        {/* 4. Advertising & Google AdSense */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '4. الإعلانات وشبكة Google AdSense' : '4. Advertising & Google AdSense'}
+          </h2>
+          <p>
+            {isAr
+              ? 'قد يعرض موقعنا إعلانات تجارية يتم توفيرها وإدارتها بواسطة جهات خارجية مثل Google AdSense. تستخدم هذه الشركات ملفات تعريف الارتباط لتحديد اهتماماتك وعرض الإعلانات المخصصة لك بناءً على زيارتك لموقعنا ومواقع الويب الأخرى على الإنترنت.'
+              : 'We partner with third-party advertising networks, such as Google AdSense, to display non-intrusive advertisements on our pages. These networks utilize cookies to serve personalized ads based on your browser history, patterns, and visits to other websites.'}
+          </p>
+          <p>
+            {isAr
+              ? 'ملف تعريف الارتباط DART من Google: تستخدم Google ملف تعريف الارتباط DART لخدمة الإعلانات للمستخدمين بناءً على زيارتهم لموقعنا والمواقع الأخرى. يمكنك اختيار تعطيل استخدام ملفات تعريف الارتباط المخصصة عن طريق زيارة سياسة خصوصية الإعلانات والمحتوى الخاصة بـ Google.'
+              : 'Google DoubleClick DART Cookie: Google’s use of DART cookies enables it to serve ads based on your specific visits across the web. You can opt-out of these customized advertising cookies by visiting the Google Ad and Content Network Privacy Policy.'}
+          </p>
+        </div>
+
+        {/* 5. Third-Party Services */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '5. خدمات الطرف الثالث وروابط الخارجية' : '5. Third-Party Services & Links'}
+          </h2>
+          <p>
+            {isAr
+              ? 'قد يحتوي موقعنا على روابط لمواقع خارجية لا نتحكم بها. نحن غير مسؤولين عن ممارسات الخصوصية أو شروط الاستخدام لتلك المواقع الخارجية، وننصحك دائماً بقراءة سياسة الخصوصية الخاصة بأي موقع ويب تقوم بزيارته.'
+              : 'Our platform may display dynamic links pointing to third-party web pages. We are not responsible for the privacy methodologies, content safety, or terms of service of those external resources, and we strongly encourage you to evaluate their policies.'}
+          </p>
+        </div>
+
+        {/* 6. Data Retention & User Rights */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '6. الاحتفاظ بالبيانات وحقوق المستخدمين' : '6. Data Retention & User Rights'}
+          </h2>
+          <p>
+            {isAr
+              ? 'نظراً لأننا لا نحتفظ بملفاتك على أي خادم سحابي ولا نطلب منك إنشاء حساب، فإننا لا نمتلك مستنداتك الشخصية. يمكنك في أي وقت مسح تفضيلاتك وسجل تصفح الأدوات المخزن في متصفحك من خلال خيارات الإعدادات أو مسح التخزين المؤقت للمتصفح.'
+              : 'Since we do not archive your document files on any cloud database and do not prompt user account creation, we do not store your private documents. You may clean your browser preference storage at any moment by clearing your web browser cache.'}
+          </p>
+        </div>
+
+        {/* 7. Updates & Contact */}
+        <div className="space-y-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">
+            {isAr ? '7. تحديثات السياسة والتواصل معنا' : '7. Policy Updates & Contact'}
+          </h2>
+          <p>
+            {isAr
+              ? 'نحتفظ بالحق في تعديل سياسة الخصوصية هذه في أي وقت. سيتم نشر التغييرات على هذه الصفحة مع تحديث تاريخ التعديل في الأعلى.'
+              : 'We reserve the right to revise this Privacy Policy. Any modifications will be posted directly to this page with an updated modification date at the top.'}
+          </p>
+          <p>
+            {isAr
+              ? 'إذا كانت لديك أي استفسارات أو أسئلة بخصوص سياسة الخصوصية هذه، يرجى التواصل معنا عبر البريد الإلكتروني المخصص للدعم: '
+              : 'If you have any questions regarding this Privacy Policy, please contact us at our support email address: '}
+            <a href="mailto:pdfimagestudio@gmail.com" className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline">
+              pdfimagestudio@gmail.com
+            </a>
+          </p>
         </div>
       </div>
     </div>

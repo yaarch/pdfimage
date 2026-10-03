@@ -17,13 +17,13 @@ export const TOOLS: ToolDefinition[] = [
     popular: true,
     isFlagship: true,
     seoTitle: 'Free Online PDF Page Organizer | PDF Image Studio Private File Tools',
-    seoDescription: 'Organize, reorder, rotate, and delete PDF pages visually in your browser. 100% private, client-side execution with no server uploads.',
+    seoDescription: 'Organize, reorder, rotate, and delete PDF pages visually in your browser. Private, client-side execution with local in-browser processing.',
     keywords: ['organize pdf', 'reorder pdf pages', 'delete pdf pages', 'rotate pdf pages', 'extract pdf pages', 'pdf visual editor'],
     relatedToolIds: ['merge-pdf', 'split-pdf', 'compress-pdf', 'pdf-rotate', 'pdf-page-numbers'],
     faqs: [
       {
         question: 'How does the PDF Image Studio PDF Organizer protect my privacy?',
-        answer: 'Unlike traditional online PDF editors that upload your private documents to remote cloud servers, PDF Image Studio renders and modifies the PDF binary directly in your browser memory using JavaScript and HTML5 Canvas. Your document never leaves your machine.',
+        answer: 'Unlike traditional online PDF editors that upload your private documents to remote cloud servers, PDF Image Studio renders and modifies the PDF binary directly in your browser memory using JavaScript and HTML5 Canvas. Your document remains within your workstation workspace.',
       },
       {
         question: 'Can I reorder and rotate multiple pages at once?',
@@ -49,7 +49,7 @@ export const TOOLS: ToolDefinition[] = [
     iconName: 'Layers',
     popular: true,
     seoTitle: 'Merge PDF Online Free — Fast & Private | PDF Image Studio',
-    seoDescription: 'Combine multiple PDF files into one clean document quickly and privately. Processed 100% locally in your browser with zero uploads.',
+    seoDescription: 'Combine multiple PDF files into one clean document quickly and privately. Processed locally in your browser with standard web APIs.',
     keywords: ['merge pdf', 'combine pdfs', 'join pdf files', 'merge documents online', 'free pdf combiner'],
     relatedToolIds: ['pdf-organizer', 'split-pdf', 'compress-pdf', 'images-to-pdf'],
     faqs: [
@@ -63,7 +63,7 @@ export const TOOLS: ToolDefinition[] = [
       },
       {
         question: 'Are my PDF documents stored or uploaded during merging?',
-        answer: 'No. PDF Image Studio merges your documents entirely inside your browser memory. Your private files never leave your device.',
+        answer: 'No. PDF Image Studio merges your documents inside your browser memory. Your files are processed locally on your workstation.',
       },
     ],
   },
@@ -305,7 +305,7 @@ export const TOOLS: ToolDefinition[] = [
     iconName: 'FileCheck2',
     popular: true,
     seoTitle: 'Flatten PDF Online Free — Lock Form Fields | PDF Image Studio',
-    seoDescription: 'Flatten PDF forms and annotations into non-editable vector pages 100% privately in your browser.',
+    seoDescription: 'Flatten PDF forms and annotations into non-editable vector pages privately in your browser.',
     keywords: ['flatten pdf', 'lock pdf form', 'make pdf read only', 'convert pdf form to static', 'pdf annotation flattener'],
     relatedToolIds: ['pdf-organizer', 'pdf-watermark', 'compress-pdf'],
     faqs: [
@@ -329,7 +329,7 @@ export const TOOLS: ToolDefinition[] = [
     iconName: 'ShieldAlert',
     popular: true,
     seoTitle: 'Redact PDF Online Free — Blackout Text | PDF Image Studio',
-    seoDescription: 'Blackout confidential text and sanitize PDF metadata 100% privately in your browser without cloud uploads.',
+    seoDescription: 'Blackout confidential text and sanitize PDF metadata privately in your browser with local execution.',
     keywords: ['redact pdf', 'blackout text pdf', 'pdf sanitizer', 'remove sensitive info pdf'],
     relatedToolIds: ['pdf-flatten', 'pdf-watermark', 'compress-pdf'],
     faqs: [
@@ -601,7 +601,7 @@ export const TOOLS: ToolDefinition[] = [
     iconName: 'FileText',
     popular: true,
     seoTitle: 'Extract Text from PDF Online Free | PDF Image Studio',
-    seoDescription: 'Extract text, paragraphs, and word streams from any PDF document 100% privately in your browser without uploading to servers.',
+    seoDescription: 'Extract text, paragraphs, and word streams from any PDF document privately in your browser sandbox.',
     keywords: ['extract text from pdf', 'pdf text extractor', 'copy pdf text', 'pdf to text', 'pdf to txt'],
     relatedToolIds: ['pdf-organizer', 'pdf-to-images', 'text-to-pdf'],
     faqs: [
@@ -611,7 +611,7 @@ export const TOOLS: ToolDefinition[] = [
       },
       {
         question: 'Are my confidential documents secure?',
-        answer: 'Yes, 100% of text decoding runs inside your browser sandbox using Mozilla PDF.js. No text is ever uploaded or stored externally.',
+        answer: 'Yes, text decoding is executed inside your browser sandbox using Mozilla PDF.js. Your document remains local on your workstation.',
       },
     ],
   },
